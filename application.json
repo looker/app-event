@@ -1,6 +1,6 @@
 {
   "dependencies": [
-    "aea_ga360_adapter"
+    "aea_event_adapter"
   ],
   "exploreConfig": {
     "data": true,
