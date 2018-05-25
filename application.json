@@ -24,10 +24,10 @@
     "filters": [
       {
         "defaultValue": "28 day",
-        "field": "session.partition_date",
+        "field": "ga_sessions.partition_date",
         "name": "Time Frame",
         "type": "TimeFrame",
-        "dashboardAlias": "Period"
+        "dashboardAlias": "Date"
       }
     ]
   },
@@ -52,7 +52,16 @@
               }
             ],
             "defaultDashboard": "bounce-rates"
-          }
+          },
+          "filters": [
+            {
+              "defaultValue": "28 day",
+              "field": "ga_sessions.partition_date",
+              "name": "Time Frame",
+              "type": "TimeFrame",
+              "dashboardAlias": "Date"
+            }
+        ]
         },
         {
           "name": "Transactions, Conversions, and Revenue",
@@ -67,7 +76,16 @@
               }
             ],
             "defaultDashboard": "transactions-conversions-revenue"
-          }
+          },
+          "filters": [
+            {
+              "defaultValue": "28 day",
+              "field": "ga_sessions.partition_date",
+              "name": "Time Frame",
+              "type": "TimeFrame",
+              "dashboardAlias": "Date"
+            }
+        ]
         }
       ],
       "permalink": "event-analytics"
