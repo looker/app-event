@@ -32,10 +32,10 @@
     ]
   },
   "name": "Event Analytics",
-  "pillars": [
+  "sections": [
     {
       "description": "Analyze you some srsly good events.",
-      "enabled": true,
+      "enabledByDefault": true,
       "icon": "marketing-analytics/search",
       "name": "GA 360",
       "pages": [
