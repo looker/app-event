@@ -9,14 +9,14 @@
     "visualization": true
   },
   "home": {
-    "name": "Traffic Engagement Overview",
+    "name": "Google Analytics Overview",
     "type": "dashboardCollection",
     "permalink": "overview",
     "dashboardCollection": {
       "dashboards": [
         {
-          "lookmlID": "event_analytics::traffic_engagement_overview",
-          "name": "Traffic Engagement",
+          "lookmlID": "event_analytics::google_analytics_overview",
+          "name": "Google Analytics",
           "permalink": ""
         }
       ]
