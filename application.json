@@ -1,0 +1,94 @@
+{
+  "dependencies": [
+    "aea_event_adapter"
+  ],
+  "exploreConfig": {
+    "data": true,
+    "filters": true,
+    "sidebar": true,
+    "visualization": true
+  },
+  "home": {
+    "name": "Traffic Engagement Overview",
+    "type": "dashboardCollection",
+    "permalink": "overview",
+    "dashboardCollection": {
+      "dashboards": [
+        {
+          "lookmlID": "event_analytics::traffic_engagement_overview",
+          "name": "Traffic Engagement",
+          "permalink": ""
+        }
+      ]
+    },
+    "filters": [
+      {
+        "defaultValue": "28 day",
+        "field": "ga_sessions.partition_date",
+        "name": "Time Frame",
+        "type": "TimeFrame",
+        "dashboardAlias": "Date"
+      }
+    ]
+  },
+  "name": "Event Analytics",
+  "pillars": [
+    {
+      "description": "Analyze you some srsly good events.",
+      "enabled": true,
+      "icon": "marketing-analytics/search",
+      "name": "GA 360",
+      "pages": [
+        {
+          "name": "Bounce Rates",
+          "permalink": "bounce-rates",
+          "type": "dashboardCollection",
+          "dashboardCollection": {
+            "dashboards": [
+              {
+                "lookmlID": "event_analytics::bounce_rates",
+                "name": "Bounce Rates",
+                "permalink": "bounce-rates"
+              }
+            ],
+            "defaultDashboard": "bounce-rates"
+          },
+          "filters": [
+            {
+              "defaultValue": "28 day",
+              "field": "ga_sessions.partition_date",
+              "name": "Time Frame",
+              "type": "TimeFrame",
+              "dashboardAlias": "Date"
+            }
+        ]
+        },
+        {
+          "name": "Transactions, Conversions, and Revenue",
+          "permalink": "transactions-conversions-revenue",
+          "type": "dashboardCollection",
+          "dashboardCollection": {
+            "dashboards": [
+              {
+                "lookmlID": "event_analytics::transactions_conversions_and_revenue",
+                "name": "Transactions, Conversions, and Revenue",
+                "permalink": "transactions-conversions-revenue"
+              }
+            ],
+            "defaultDashboard": "transactions-conversions-revenue"
+          },
+          "filters": [
+            {
+              "defaultValue": "28 day",
+              "field": "ga_sessions.partition_date",
+              "name": "Time Frame",
+              "type": "TimeFrame",
+              "dashboardAlias": "Date"
+            }
+        ]
+        }
+      ],
+      "permalink": "event-analytics"
+    }
+  ]
+}
