@@ -93,7 +93,7 @@
             "name": "Reports",
             "permalink": "reports",
             "type": "reports",
-            "sections": [
+            "pageSections": [
               {
                 "description": "",
                 "name": "Section 1",
