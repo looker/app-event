@@ -212,17 +212,10 @@
     col: 21
     width: 3
     height: 4
-  - name: "-- Google Analytics Overview --"
+
+  - name: "What pages are performing the best?"
     type: text
-    title_text: "-- Google Analytics Overview --"
-    subtitle_text: Acquisition, Behavior, and Conversion Overview
-    row: 0
-    col: 0
-    width: 24
-    height: 2
-  - name: "-- What pages are performing the best? --"
-    type: text
-    title_text: "-- What pages are performing the best? --"
+    title_text: "What pages are performing the best?"
     row: 67
     col: 0
     width: 24
@@ -1625,18 +1618,18 @@
     col: 0
     width: 10
     height: 13
-  - name: "-- Where should you acquire your users for Engagement? --"
+  - name: "Where should you acquire your users for Engagement?"
     type: text
-    title_text: "-- Where should you acquire your users for Engagement? --"
+    title_text: "Where should you acquire your users for Engagement?"
     subtitle_text: ''
     body_text: Check out the [Traffic Engagement Overview Dashboard]() for more analysis
     row: 14
     col: 0
     width: 24
     height: 3
-  - name: "-- Where should you acquire your users for Revenue? --"
+  - name: "Where should you acquire your users for Revenue?"
     type: text
-    title_text: "-- Where should you acquire your users for Revenue? --"
+    title_text: "Where should you acquire your users for Revenue?"
     body_text: Check out the [Transaction and Revenue Dashboard]() for more analysis
     row: 43
     col: 0
