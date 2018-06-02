@@ -46,7 +46,7 @@ view: event_funnel {
               ELSE NULL END
             ) AS event_4_last
 
-      FROM `looker-ga360.69266980.ga_sessions_*` AS sessions
+      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*` AS sessions
         LEFT JOIN UNNEST(sessions.hits) as hits
         LEFT JOIN UNNEST([hits.eventInfo]) as hits_eventInfo
       WHERE {% condition event_time %} TIMESTAMP_SECONDS(sessions.visitStarttime) {% endcondition %}
