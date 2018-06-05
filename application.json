@@ -21,8 +21,8 @@
       "name": "Page",
       "model": "event_analytics",
       "view": "ga_sessions",
-      "params": "sorts=ga_sessions.total_visitors+desc",
-      "keyColumn": "campaign.campaign_name",
+      "params": "sorts=ga_sessions.total_visitors+desc&limit=1000",
+      "keyColumn": "first_page.pageTitle",
       "columns": [
         {
           "name": "Page",
@@ -40,30 +40,30 @@
           "name": "Session Count",
           "field": "ga_sessions.session_count"
         },
-        {
-          "name": "Bounce Rate",
-          "field": "totals.bounce_rate"
-        },
-        {
-          "name": "Pages Views per Session",
-          "field": "totals.page_views_session"
-        },
-        {
-          "name": "Time On Site Per Avg. Session",
-          "field": "totals.timeonsite_average_per_session"
-        },
-        {
-          "name": "Transaction Conversion Rate",
-          "field": "totals.transaction_conversion_rate"
-        },
-        {
-          "name": "Avg. Revenue per Transaction",
-          "field": "totals.average_revenue_per_transaction"
-        },
-        {
-          "name": "Transaction Revenue Total",
-          "field": "totals.transactionRevenue_total"
-        }
+  {
+    "name": "Bounce Rate",
+    "field": "totals.bounce_rate"
+  },
+  {
+    "name": "Pages Views per Session",
+    "field": "totals.page_views_session"
+  },
+  {
+    "name": "Time On Site Per Avg. Session",
+    "field": "totals.timeonsite_average_per_session"
+  },
+  {
+    "name": "Transaction Conversion Rate",
+    "field": "totals.transaction_conversion_rate"
+  },
+  {
+    "name": "Avg. Revenue per Transaction",
+    "field": "totals.average_revenue_per_transaction"
+  },
+  {
+    "name": "Transaction Revenue Total",
+    "field": "totals.transactionRevenue_total"
+  }
       ]
     }
   ],
@@ -222,6 +222,22 @@
           "name": "Reports",
           "permalink": "reports",
           "type": "reports",
+          "filters": [
+            {
+              "defaultValue": "28 day",
+              "field": "ga_sessions.partition_date",
+              "name": "Time Frame",
+              "type": "TimeFrame",
+              "dashboardAlias": "Date"
+            },
+            {
+              "field": "first_page.pageTitle",
+              "dashboardAlias": "Page",
+              "name": "Page",
+              "type": "Table",
+              "tableID": "page"
+            }
+          ],
           "pageSections": [
             {
               "description": "Hammock mixtape schlitz keytar sartorial cold-pressed leggings meditation banjo edison bulb franzen chartreuse man bun. ",
@@ -259,22 +275,6 @@
                       "permalink": "ga360_cohort_variation1"
                     }
                   ]
-                }
-              ],
-              "filters": [
-                {
-                  "defaultValue": "28 day",
-                  "field": "ga_sessions.partition_date",
-                  "name": "Time Frame",
-                  "type": "TimeFrame",
-                  "dashboardAlias": "Date"
-                },
-                {
-                  "field": "first_page.pageTitle",
-                  "dashboardAlias": "Page",
-                  "name": "Page",
-                  "type": "Table",
-                  "tableID": "page"
                 }
               ]
             },
