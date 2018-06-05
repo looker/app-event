@@ -22,14 +22,24 @@
       ]
     },
     "filters": [
-      {
-        "defaultValue": "28 day",
-        "field": "ga_sessions.partition_date",
-        "name": "Time Frame",
-        "type": "TimeFrame",
-        "dashboardAlias": "Date"
-      }
-    ]
+        {
+          "defaultValue": "28 day",
+          "field": "ga_sessions.partition_date",
+          "name": "Time Frame",
+          "type": "TimeFrame",
+          "dashboardAlias": "Date"
+        },
+        {
+          "autoSuggest": {
+            "model": "event_analytics",
+            "view": "ga_sessions"
+        },
+          "field": "trafficSource.campaign",
+          "dashboardAlias": "Campaign",
+          "name": "Campaign",
+          "type": "Select"
+          }
+        ]
   },
   "name": "Event Analytics",
   "sections": [
@@ -60,6 +70,16 @@
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Date"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+                "field": "trafficSource.campaign",
+                "dashboardAlias": "Campaign",
+                "name": "Campaign",
+                "type": "Select"
             }
         ]
         },
@@ -84,6 +104,16 @@
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Date"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+                "field": "trafficSource.campaign",
+                "dashboardAlias": "Campaign",
+                "name": "Campaign",
+                "type": "Select"
             }
         ]
         },
@@ -117,12 +147,45 @@
                         "permalink": "page_funnel"
                       }
               ]
+            },
+            {
+                    "description": "",
+                    "name": "Cohort",
+                    "permalink": "ga360_cohort",
+                    "variations": [
+                      {
+                        "description": "",
+                        "exploreParams": "",
+                        "name": "Cohort Variation 1",
+                        "permalink": "ga360_cohort_variation1"
+                      }
+              ]
             }
-           ]
+          ]
+            },
+              {
+                "description": "",
+                "name": "Section 2",
+                "permalink": "ga360_retention",
+                "reports": [
+                  {
+                    "description": "",
+                    "name": "Retention",
+                    "permalink": "ga360_retention",
+                    "variations": [
+                      {
+                        "description": "",
+                        "exploreParams": "",
+                        "name": "Retention Variation 1",
+                        "permalink": "ga360_retention_variation1"
+                      }
+              ]
             }
           ]
         }
-      ],
+      ]
+    }
+  ],
       "permalink": "event-analytics"
     }
   ]
