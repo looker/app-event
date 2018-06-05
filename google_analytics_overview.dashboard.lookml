@@ -212,17 +212,10 @@
     col: 21
     width: 3
     height: 4
-  - name: "-- Google Analytics Overview --"
+
+  - name: "What content is performing best"
     type: text
-    title_text: "-- Google Analytics Overview --"
-    subtitle_text: Acquisition, Behavior, and Conversion Overview
-    row: 0
-    col: 0
-    width: 24
-    height: 2
-  - name: "-- What pages are performing the best? --"
-    type: text
-    title_text: "-- What pages are performing the best? --"
+    title_text: "What content is performing the best?"
     row: 67
     col: 0
     width: 24
@@ -971,7 +964,6 @@
       ga_sessions.visitStart_day_of_week: Day of Week
     note_state: collapsed
     note_display: above
-    note_text: Should be able to cut by any attribute you want
     row: 30
     col: 0
     width: 12
@@ -1036,8 +1028,6 @@
       user_session_facts.count: "#4FBC89"
     note_state: collapsed
     note_display: above
-    note_text: Should be able to cut and slice this report by channel, medium, and
-      referral
     row: 30
     col: 12
     width: 12
@@ -1522,7 +1512,6 @@
       - ga_sessions.session_count
     note_state: collapsed
     note_display: above
-    note_text: Should be able to cut by whatever dimensions
     row: 58
     col: 12
     width: 12
@@ -1625,18 +1614,18 @@
     col: 0
     width: 10
     height: 13
-  - name: "-- Where should you acquire your users for Engagement? --"
+  - name: "Where should you acquire your users for Engagement?"
     type: text
-    title_text: "-- Where should you acquire your users for Engagement? --"
+    title_text: "Where should you acquire your users for Engagement?"
     subtitle_text: ''
     body_text: Check out the [Traffic Engagement Overview Dashboard]() for more analysis
     row: 14
     col: 0
     width: 24
     height: 3
-  - name: "-- Where should you acquire your users for Revenue? --"
+  - name: "Where should you acquire your users for Revenue?"
     type: text
-    title_text: "-- Where should you acquire your users for Revenue? --"
+    title_text: "Where should you acquire your users for Revenue?"
     body_text: Check out the [Transaction and Revenue Dashboard]() for more analysis
     row: 43
     col: 0

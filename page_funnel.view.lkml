@@ -1,81 +1,81 @@
-view: event_funnel {
+view: page_funnel {
   derived_table: {
     sql: SELECT CONCAT(CAST(sessions.fullVisitorId AS STRING), '|', COALESCE(CAST(sessions.visitId AS STRING),'')) as id
         , sessions.fullVisitorId as full_visitor_id
         , TIMESTAMP_SECONDS(sessions.visitStarttime) AS session_start
         , MIN(
             CASE WHEN
-              {% condition event_1 %} hits_eventInfo.eventCategory {% endcondition %}
+              {% condition page_1 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_1
         , MIN(
             CASE WHEN
-              {% condition event_2 %} hits_eventInfo.eventCategory {% endcondition %}
+              {% condition page_2 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_2_first
         , MAX(
             CASE WHEN
-              {% condition event_2 %} hits_eventInfo.eventCategory {% endcondition %}
+              {% condition page_2 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_2_last
         , MIN(
             CASE WHEN
-              {% condition event_3 %} hits_eventInfo.eventCategory {% endcondition %}
+              {% condition page_3 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_3_first
         , MAX(
             CASE WHEN
-              {% condition event_3 %} hits_eventInfo.eventCategory {% endcondition %}
+              {% condition page_3 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_3_last
         , MIN(
             CASE WHEN
-              {% condition event_4 %} hits_eventInfo.eventCategory {% endcondition %}
+              {% condition page_4 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_4_first
         , MAX(
             CASE WHEN
-              {% condition event_4 %} hits_eventInfo.eventCategory {% endcondition %}
+              {% condition page_4 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_4_last
 
-      FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*` AS sessions
+      FROM `looker-ga360.69266980.ga_sessions_*` AS sessions
         LEFT JOIN UNNEST(sessions.hits) as hits
-        LEFT JOIN UNNEST([hits.eventInfo]) as hits_eventInfo
+        LEFT JOIN UNNEST([hits.page]) as hits_page
       WHERE {% condition event_time %} TIMESTAMP_SECONDS(sessions.visitStarttime) {% endcondition %}
       GROUP BY 1,2,3
        ;;
   }
 
 
-  filter: event_1 {
+  filter: page_1 {
     type: string
-    suggest_dimension: hits_eventInfo.eventCategory
+    suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
   }
 
-  filter: event_2 {
+  filter: page_2 {
     type: string
-    suggest_dimension: hits_eventInfo.eventCategory
+    suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
   }
 
-  filter: event_3 {
+  filter: page_3 {
     type: string
-    suggest_dimension: hits_eventInfo.eventCategory
+    suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
   }
 
-  filter: event_4 {
+  filter: page_4 {
     type: string
-    suggest_dimension: hits_eventInfo.eventCategory
+    suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
   }
 
@@ -275,7 +275,7 @@ view: event_funnel {
   }
 
   measure: count_sessions_event1 {
-    label: "Event 1"
+    label: "Page 1"
     type: count_distinct
     sql: ${id} ;;
     drill_fields: [detail*]
@@ -287,7 +287,7 @@ view: event_funnel {
   }
 
   measure: count_sessions_event12 {
-    label: "Event 2"
+    label: "Page 2"
     description: "Only includes sessions which also completed event 1"
     type: count_distinct
     sql: ${id} ;;
@@ -300,7 +300,7 @@ view: event_funnel {
   }
 
   measure: count_sessions_event123 {
-    label: "Event 3"
+    label: "Page 3"
     description: "Only includes sessions which also completed events 1 and 2"
     type: count_distinct
     sql: ${id} ;;
@@ -313,7 +313,7 @@ view: event_funnel {
   }
 
   measure: count_sessions_event1234 {
-    label: "Event 4"
+    label: "Page 4"
     description: "Only includes sessions which also completed events 1, 2 and 3"
     type: count_distinct
     sql: ${id} ;;
@@ -330,4 +330,4 @@ view: event_funnel {
   }
 }
 
-explore: event_funnel {}
+explore: page_funnel {}
