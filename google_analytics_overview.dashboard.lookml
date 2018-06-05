@@ -213,9 +213,9 @@
     width: 3
     height: 4
 
-  - name: "What pages are performing the best?"
+  - name: "What content is performing best"
     type: text
-    title_text: "What pages are performing the best?"
+    title_text: "What content is performing the best?"
     row: 67
     col: 0
     width: 24
@@ -964,7 +964,6 @@
       ga_sessions.visitStart_day_of_week: Day of Week
     note_state: collapsed
     note_display: above
-    note_text: Should be able to cut by any attribute you want
     row: 30
     col: 0
     width: 12
@@ -1029,8 +1028,6 @@
       user_session_facts.count: "#4FBC89"
     note_state: collapsed
     note_display: above
-    note_text: Should be able to cut and slice this report by channel, medium, and
-      referral
     row: 30
     col: 12
     width: 12
@@ -1515,7 +1512,6 @@
       - ga_sessions.session_count
     note_state: collapsed
     note_display: above
-    note_text: Should be able to cut by whatever dimensions
     row: 58
     col: 12
     width: 12

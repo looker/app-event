@@ -2,15 +2,6 @@
   title: Traffic Engagement Overview
   layout: newspaper
   elements:
-  - name: User Engagement metrics by acquisition source, keyword searched, first page
-      visited, and more
-    type: text
-    title_text: User Engagement metrics by acquisition source, keyword searched, first
-      page visited, and more
-    row: 0
-    col: 0
-    width: 24
-    height: 2
   - title: Total Visitors
     name: Total Visitors
     model: event_analytics
