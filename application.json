@@ -275,7 +275,7 @@
               "permalink": "ga360_funnel",
               "reports": [
                 {
-                  "description": "",
+                  "description": "Create custom funnels to identify user friction and drop-off points.",
                   "name": "Funnel",
                   "permalink": "ga360_event_funnel",
                   "variations": [
@@ -294,15 +294,41 @@
                   ]
                 },
                 {
-                  "description": "",
-                  "name": "Cohort",
-                  "permalink": "ga360_cohort",
+                  "description": "Understand what content and functionality drives customer acquisition.",
+                  "name": "Attribution",
+                  "permalink": "ga360_attribution",
                   "variations": [
                     {
                       "description": "",
                       "exploreParams": "",
-                      "name": "Cohort Variation 1",
-                      "permalink": "ga360_cohort_variation1"
+                      "name": "Attribution Variation 1",
+                      "permalink": "ga360_attribution_variation1"
+                    }
+                  ]
+                },
+                {
+                  "description": "See how your website is performing relative to previous periods.",
+                  "name": "Period Over Period Analysis",
+                  "permalink": "ga360_period_over_period",
+                  "variations": [
+                    {
+                      "description": "",
+                      "exploreParams": "",
+                      "name": "Period Over Period Analysis Variation 1",
+                      "permalink": "ga360_period_over_period_variation1"
+                    }
+                  ]
+                },
+                {
+                  "description": "Understand how valuable your users are - segmented by acquisiton date, source, or any other attribute.",
+                  "name": "Lifetime Value",
+                  "permalink": "ga360_lifetime_value",
+                  "variations": [
+                    {
+                      "description": "",
+                      "exploreParams": "",
+                      "name": "Lifetime Value Variation 1",
+                      "permalink": "ga360_lifetime_value_variation1"
                     }
                   ]
                 }
@@ -310,12 +336,12 @@
             },
             {
               "description": "",
-              "name": "Section 2",
+              "name": "Example Section 2",
               "permalink": "ga360_retention",
               "reports": [
                 {
-                  "description": "",
-                  "name": "Retention",
+                  "description": "Dynamically segment your users to understand what's driving their behaviors.",
+                  "name": "Cohort + Retention Explorer",
                   "permalink": "ga360_retention",
                   "variations": [
                     {
