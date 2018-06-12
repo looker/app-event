@@ -330,4 +330,6 @@ view: page_funnel {
   }
 }
 
-explore: page_funnel {}
+explore: page_funnel {
+  hidden: yes
+}

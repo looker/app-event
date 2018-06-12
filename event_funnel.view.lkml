@@ -330,4 +330,6 @@ view: event_funnel {
   }
 }
 
-explore: event_funnel {}
+explore: event_funnel {
+  hidden: yes
+}
