@@ -8,111 +8,158 @@ include: "period_base.view"
 explore: period_fact {
   hidden: yes
   from: period_fact
+  view_name: fact
   label: "This Period"
   view_label: "This Period"
   join: last_fact {
     from: period_fact
     view_label: "Prior Period"
     sql_on:
-      ${period_fact.date_last_period} = ${last_fact.date_period}
-      AND ${period_fact.date_day_of_period} = ${last_fact.date_day_of_period} ;;
+      ${fact.date_last_period} = ${last_fact.date_period}
+      AND ${fact.date_day_of_period} = ${last_fact.date_day_of_period}
+      AND ${fact.channel_grouping} = ${last_fact.channel_grouping}
+      AND ${fact.social_engagement_type} = ${last_fact.social_engagement_type};;
     relationship: one_to_one
   }
 }
 
 view: period_fact {
- extends: [ga_sessions, date_base, period_base]
+  extends: [date_base, period_base]
+  derived_table: {
+    sql:
+      SELECT
+        ga_sessions.channelGrouping AS channel_grouping,
+        ga_sessions.socialEngagementType AS social_engagement_type,
+        --TIMESTAMP_TRUNC(TIMESTAMP_SECONDS(ga_sessions.visitStarttime), day) AS date,
+        PARSE_DATE('%Y%m%d', date) AS _date,
+        COUNT(CASE WHEN (ga_sessions.visitnumber = 1) THEN 1 ELSE NULL END) as first_time_visitors,
+        COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_visitors,
+        COALESCE(SUM(totals.newVisits ), 0) AS new_visits,
+        COUNT(DISTINCT ga_sessions.fullVisitorId ) AS unique_visitors,
+        1.0 * (COALESCE(SUM(totals.bounces ), 0))  AS bounces,
+        COALESCE(SUM(totals.hits ), 0) AS hits,
+        COALESCE(SUM(totals.pageviews ), 0) AS page_views,
+        COUNT(*) AS session_count,
+        COALESCE(SUM(totals.timeOnScreen ), 0) AS time_on_screen,
+        COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
+        COALESCE(SUM(totals.visits ), 0) AS visits,
+        COALESCE(SUM(totals.transactions ), 0) AS transactions,
+        COALESCE(SUM(totals.screenViews ), 0) AS totals_screenviews
+      FROM `looker-ga360.69266980.ga_sessions_*` AS ga_sessions
+      LEFT JOIN UNNEST([ga_sessions.totals]) as totals
+      GROUP BY 1,2,3;;
 
-  dimension: visitorId {
-    hidden:  yes
   }
+  dimension: social_engagement_type {}
 
-  dimension: visitnumber {}
+  dimension: channel_grouping {}
 
-  dimension:  first_time_visitor {}
-
-  dimension: visitnumbertier {}
-
-  dimension: visitId {
-    hidden:  yes
+  dimension: id {
+    type: string
+    primary_key: yes
+    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING));;
   }
-  dimension: fullVisitorId {
-    hidden:  yes
-  }
-  dimension: visitStartSeconds {}
-
-  ## referencing partition_date for demo purposes only. Switch this dimension to reference visistStartSeconds
-  dimension_group: visitStart {
-    timeframes: [date,day_of_week,fiscal_quarter,week,month,year,month_name,month_num,week_of_year,time_of_day, hour_of_day]
-    label: "Visit Start"
-    type: time
-    sql: TIMESTAMP_SECONDS(${TABLE}.visitStarttime) ;;
-  }
-  ## use visit or hit start time instead
-  dimension: date {
-    hidden: yes
-  }
-  dimension: socialEngagementType {}
-
-  measure: session_count {
-    type: count
-    drill_fields: [fullVisitorId, visitnumber, session_count, totals.transactions_count, totals.transactionRevenue_total]
-  }
-  measure: unique_visitors {
-    type: count_distinct
-    sql: ${fullVisitorId} ;;
-    drill_fields: [fullVisitorId, visitnumber, session_count, totals.hits, totals.page_views, totals.timeonsite]
-  }
-
-  measure: average_sessions_ver_visitor {
-    type: number
-    sql: 1.0 * (${session_count}/NULLIF(${unique_visitors},0))  ;;
-    value_format_name: decimal_2
-    drill_fields: [fullVisitorId, visitnumber, session_count, totals.hits, totals.page_views, totals.timeonsite]
-  }
-
-  measure: total_visitors {
-    type: count
-    drill_fields: [fullVisitorId, visitnumber, session_count, totals.hits, totals.page_views, totals.timeonsite]
-  }
-
-  measure: first_time_visitors {
-    label: "First Time Visitors"
-    type: count
-    filters: {
-      field: visitnumber
-      value: "1"
-    }
-  }
-
-  measure: returning_visitors {
-    label: "Returning Visitors"
-    type: count
-    filters: {
-      field: visitnumber
-      value: "<> 1"
-    }
-  }
-
-  dimension: channelGrouping {label: "Channel Grouping"}
-
-  # subrecords
-  dimension: geoNetwork {hidden: yes}
-  dimension: totals {hidden:yes}
-  dimension: trafficSource {hidden:yes}
-  dimension: device {hidden:yes}
-  dimension: customDimensions {hidden:yes}
-  dimension: hits {hidden:yes}
-  dimension: hits_eventInfo {hidden:yes}
 
   dimension: _date {
+    hidden: yes
     type: date_raw
   }
 
-  dimension: id {
-    primary_key: yes
-    hidden: yes
-    sql: CONCAT(CAST(${fullVisitorId} AS STRING), '|', COALESCE(CAST(${visitId} AS STRING),''));;
+  measure: session_count {
+    type: sum
+    sql: ${TABLE}.session_count ;;
+    value_format_name: decimal_0
   }
+
+  measure: total_visits {
+    type: sum
+    sql: ${TABLE}.visits ;;
+    value_format_name: decimal_0
+  }
+
+  measure: new_visits {
+    type: sum
+    sql: ${TABLE}.new_visits ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_transactions {
+    type: sum
+    sql: ${TABLE}.transactions ;;
+    value_format_name: decimal_0
+  }
+
+  measure: hits {
+    type: sum
+    sql: ${TABLE}.hits ;;
+    value_format_name: decimal_0
+  }
+
+  measure: totals_screenviews {
+    type: sum
+    sql: ${TABLE}.totals_screenviews ;;
+    value_format_name: decimal_0
+  }
+
+  measure: first_time_visitors {
+    type: sum
+    sql: ${TABLE}.first_time_visitors ;;
+    value_format_name: decimal_0
+  }
+
+  measure: returning_visitors {
+    type: sum
+    sql: ${TABLE}.returning_visitors ;;
+    value_format_name: decimal_0
+  }
+
+  measure: unique_visitors {
+    type: sum
+    sql: ${TABLE}.unique_visitors ;;
+    value_format_name: decimal_0
+  }
+
+  measure: bounces {
+    type: sum
+    sql: ${TABLE}.bounces ;;
+    value_format_name: decimal_0
+  }
+
+  measure: bounce_rate {
+    sql: (${bounces} / ${session_count}) * 100;;
+    value_format_name: decimal_2
+  }
+
+  measure: total_page_views {
+    type: sum
+    sql: ${TABLE}.page_views ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_time_on_screen{
+    type: sum
+    sql: ${TABLE}.time_on_screen ;;
+  }
+
+  measure: total_time_on_site{
+    type: sum
+    sql: ${TABLE}.time_on_site ;;
+  }
+
+  measure: hits_average_per_session {
+    sql: ${hits}/${session_count} ;;
+    value_format_name: decimal_1
+  }
+
+  measure: page_views_per_session {
+    sql: ${total_page_views}/${session_count} ;;
+    value_format_name: decimal_1
+  }
+
+  measure: average_page_views_per_user {
+    sql: ${total_page_views}/${unique_visitors} ;;
+    value_format_name: decimal_1
+  }
+
 
 }
