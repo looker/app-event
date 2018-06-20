@@ -19,7 +19,7 @@ view: date_base {
       day_of_year
     ]
     convert_tz: no
-    sql: (CAST(TIMESTAMP_SECONDS(${TABLE}.visitStarttime) AS TIMESTAMP)) ;;
+    sql: ${_date} ;;
   }
 
   dimension: date_week_date {
