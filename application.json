@@ -294,19 +294,6 @@
                   ]
                 },
                 {
-                  "description": "Understand what content and functionality drives customer acquisition.",
-                  "name": "Attribution",
-                  "permalink": "ga360_attribution",
-                  "variations": [
-                    {
-                      "description": "",
-                      "exploreParams": "",
-                      "name": "Attribution Variation 1",
-                      "permalink": "ga360_attribution_variation1"
-                    }
-                  ]
-                },
-                {
                   "description": "See how your website is performing relative to previous periods.",
                   "name": "Period Over Period Analysis",
                   "permalink": "ga360_period_over_period",
@@ -316,6 +303,19 @@
                       "exploreParams": "event_analytics/period_fact?fields=fact.date_day_of_period,fact.first_time_visitors,last_fact.first_time_visitors,fact.session_count,last_fact.session_count,fact.total_page_views,last_fact.total_page_views,fact.hits,last_fact.hits&f[fact.period]=28+day&f[fact.date_period]=before+0+days+ago&f[fact.date_period_latest]=Yes&sorts=fact.date_day_of_period&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22stacking%22%3A%22%22%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Atrue%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Afalse%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22show_null_points%22%3Atrue%2C%22point_style%22%3A%22none%22%2C%22interpolation%22%3A%22linear%22%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22type%22%3A%22looker_area%22%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22series_types%22%3A%7B%7D%2C%22hidden_series%22%3A%5B%22last_fact.session_count%22%2C%22last_fact.total_page_views%22%2C%22last_fact.hits%22%2C%22fact.hits%22%2C%22fact.session_count%22%2C%22fact.total_page_views%22%5D%7D&filter_config=%7B%22fact.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%2228+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22fact.date_period%22%3A%5B%7B%22type%22%3A%22before%22%2C%22values%22%3A%5B%7B%22date%22%3A%222018-06-19T22%3A10%3A52.920Z%22%2C%22constant%22%3A%220%22%2C%22unit%22%3A%22day%22%2C%22tz%22%3Atrue%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%2C%22variant%22%3A%22relative%22%7D%5D%2C%22fact.date_period_latest%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A6%2C%22error%22%3Afalse%7D%5D%7D&dynamic_fields=%5B%5D&origin=share-expanded",
                       "name": "Period Over Period Analysis Variation 1",
                       "permalink": "ga360_period_over_period_variation1"
+                    }
+                  ]
+                },
+                {
+                  "description": "Dynamically segment your users to understand what's driving their behaviors.",
+                  "name": "Cohort + Retention Explorer",
+                  "permalink": "ga360_retention",
+                  "variations": [
+                    {
+                      "description": "",
+                      "exploreParams": "event_analytics/cohort?fields=cohort.session_count,cohort.first_start_date_week,cohort.weeks_active&pivots=cohort.weeks_active&f[cohort.date]=7+weeks&sorts=cohort.first_start_date_week,cohort.weeks_active&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22table%22%2C%22show_view_names%22%3Atrue%2C%22show_row_numbers%22%3Atrue%2C%22truncate_column_names%22%3Afalse%2C%22hide_totals%22%3Afalse%2C%22hide_row_totals%22%3Afalse%2C%22table_theme%22%3A%22editable%22%2C%22limit_displayed_rows%22%3Afalse%2C%22enable_conditional_formatting%22%3Atrue%2C%22conditional_formatting_include_totals%22%3Afalse%2C%22conditional_formatting_include_nulls%22%3Afalse%2C%22conditional_formatting%22%3A%5B%7B%22type%22%3A%22low+to+high%22%2C%22value%22%3Anull%2C%22background_color%22%3Anull%2C%22font_color%22%3Anull%2C%22palette%22%3A%7B%22name%22%3A%22Red+to+Yellow+to+Green%22%2C%22colors%22%3A%5B%22%23F36254%22%2C%22%23FCF758%22%2C%22%234FBC89%22%5D%7D%2C%22bold%22%3Afalse%2C%22italic%22%3Afalse%2C%22strikethrough%22%3Afalse%2C%22fields%22%3Anull%7D%5D%7D&filter_config=%7B%22cohort.date%22%3A%5B%7B%22type%22%3A%22past%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%22%2C%22unit%22%3A%22wk%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "name": "Retention Variation 1",
+                      "permalink": "ga360_retention_variation1"
                     }
                   ]
                 },
@@ -339,16 +339,16 @@
               "name": "Example Section 2",
               "permalink": "ga360_retention",
               "reports": [
-                {
-                  "description": "Dynamically segment your users to understand what's driving their behaviors.",
-                  "name": "Cohort + Retention Explorer",
-                  "permalink": "ga360_retention",
+                              {
+                  "description": "Understand what content and functionality drives customer acquisition.",
+                  "name": "Attribution",
+                  "permalink": "ga360_attribution",
                   "variations": [
                     {
                       "description": "",
                       "exploreParams": "",
-                      "name": "Retention Variation 1",
-                      "permalink": "ga360_retention_variation1"
+                      "name": "Attribution Variation 1",
+                      "permalink": "ga360_attribution_variation1"
                     }
                   ]
                 }
