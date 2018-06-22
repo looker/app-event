@@ -125,7 +125,8 @@ view: period_fact {
   }
 
   measure: bounce_rate {
-    sql: (${bounces} / ${session_count}) * 100;;
+    type: number
+    sql: ${bounces} / ${session_count};;
     value_format_name: percent_2
   }
 
@@ -146,16 +147,19 @@ view: period_fact {
   }
 
   measure: hits_average_per_session {
+    type: number
     sql: ${hits}/${session_count} ;;
     value_format_name: decimal_1
   }
 
   measure: page_views_per_session {
+    type: number
     sql: ${total_page_views}/${session_count} ;;
     value_format_name: decimal_1
   }
 
   measure: average_page_views_per_user {
+    type: number
     sql: ${total_page_views}/${unique_visitors} ;;
     value_format_name: decimal_1
   }
