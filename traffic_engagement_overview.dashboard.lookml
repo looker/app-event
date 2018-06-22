@@ -1,6 +1,6 @@
 - dashboard: traffic_engagement_overview
+  extends: event_analytics_dash_base
   title: Traffic Engagement Overview
-  layout: newspaper
   elements:
   - title: Total Visitors
     name: Total Visitors
@@ -9,7 +9,6 @@
     type: single_value
     fields:
     - ga_sessions.total_visitors
-    filters: {}
     limit: 500
     column_limit: 50
     query_timezone: America/New_York
@@ -533,7 +532,6 @@
     - geoNetwork.country
     - ga_sessions.first_time_visitors
     - ga_sessions.returning_visitors
-    filters: {}
     sorts:
     - geoNetwork.country
     limit: 500
@@ -579,7 +577,6 @@
     type: single_value
     fields:
     - totals.bounce_rate
-    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: false
@@ -627,7 +624,6 @@
     type: single_value
     fields:
     - totals.bounces_total
-    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: false
@@ -718,13 +714,17 @@
     totals_color: "#808080"
     series_types: {}
     colors:
-    - "#1f3e5a"
-    - "#2D4E7A"
-    - "#32616F"
-    - "#377363"
-    - "#3D8658"
-    - "#42984C"
-    - "#45A24"
+    - "#58A9F5"
+    - "#FF666C"
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
     series_colors: {}
     y_axes:
     - label: ''
@@ -733,72 +733,96 @@
       - id: ga_sessions.unique_visitors
         name: Session Unique Visitors
         axisId: ga_sessions.unique_visitors
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 733
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 730
     - label:
       orientation: left
       series:
       - id: ga_sessions.average_sessions_ver_visitor
         name: Session Average Sessions Ver Visitor
         axisId: ga_sessions.average_sessions_ver_visitor
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 745
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 742
     - label:
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
         name: Session Returning Visitors
         axisId: ga_sessions.returning_visitors
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 757
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 754
     - label:
       orientation: left
       series:
       - id: totals.timeonsite_average_per_session
         name: Session Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 769
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 766
     - label:
       orientation: left
       series:
       - id: totals.bounce_rate
         name: Session Bounce Rate
         axisId: totals.bounce_rate
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 781
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 778
     - label:
       orientation: left
       series:
       - id: totals.page_views_session
         name: Session PageViews Per Session
         axisId: totals.page_views_session
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 793
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 790
     hidden_series:
     - ga_sessions.returning_visitors
     - ga_sessions.average_sessions_ver_visitor
@@ -847,11 +871,19 @@
     show_silhouette: false
     totals_color: "#808080"
     show_dropoff: true
-    series_colors:
-      ga_sessions.unique_visitors: "#356A69"
-      totals.transactions_count: "#3A7C5D"
+    series_colors: {}
     colors:
-    - 'palette: Default'
+    - "#58A9F5"
+    - "#FF666C"
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
@@ -901,11 +933,19 @@
     show_silhouette: false
     totals_color: "#808080"
     show_dropoff: true
-    series_colors:
-      ga_sessions.unique_visitors: "#356A69"
-      totals.transactions_count: "#3A7C5D"
+    series_colors: {}
     colors:
-    - 'palette: Default'
+    - "#58A9F5"
+    - "#FF666C"
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
@@ -1013,10 +1053,10 @@
       series:
       - id: total_sessions
         name: Total Sessions
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 567
-      __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 555
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1014
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 1002
     - label:
       maxValue:
       minValue:
@@ -1031,30 +1071,36 @@
       series:
       - id: average_time_per_session
         name: Average Time per Session
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 585
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1032
       - id: average_time_spent_per_page
         name: Average Time Spent per Page
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 589
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1036
       - id: average_pageviews_per_session
         name: Average Pageviews per Session
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 591
-      __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 573
-    series_colors:
-      total_sessions: "#1f3e5a"
-      average_time_per_session: "#45A247"
-      average_pageviews_per_session: "#3A7C5D"
-      average_time_spent_per_page: "#356A69"
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1040
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 1020
+    series_colors: {}
     hidden_fields:
     - totals.page_views_session
     - totals.timeonsite_average_per_session
     - ga_sessions.session_count
     label_color: []
     colors:
-    - 'palette: Default'
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#58A9F5"
+    - "#FF666C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
@@ -1161,21 +1207,21 @@
       series:
       - id: average_pageviews_per_session
         name: Average Pageviews per Session
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1038
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1162
         axisId: average_pageviews_per_session
       - id: average_time_per_session
         name: Average Time per Session
         axisId: average_time_per_session
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1043
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1167
       - id: average_time_spent_per_page
         name: Average Time Spent per Page
         axisId: average_time_spent_per_page
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1046
-      __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1026
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1172
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 1150
     - label:
       maxValue:
       minValue:
@@ -1190,24 +1236,31 @@
       series:
       - id: total_sessions
         name: Total Sessions
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1063
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1191
         axisId: total_sessions
-      __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1051
-    series_colors:
-      ga_sessions.session_count: "#3B4260"
-      totals.page_views_session: "#39A736"
-      totals.timeonsite_average_per_session: "#B1B0B0"
-      total_sessions: "#1f3e5a"
-      average_time_per_session: "#45A247"
-      average_pageviews_per_session: "#3A7C5D"
-      average_time_spent_per_page: "#356A69"
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 1179
+    series_colors: {}
     hidden_fields:
     - totals.page_views_session
     - totals.timeonsite_average_per_session
     - ga_sessions.session_count
     label_color: []
+    colors:
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#58A9F5"
+    - "#FF666C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    x_axis_reversed: false
+    y_axis_reversed: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -1293,11 +1346,7 @@
     - totals.pageviews_total
     series_types:
       total_sessions: column
-    series_colors:
-      total_sessions: "#1f3e5a"
-      average_time_per_session: "#45A247"
-      average_pageviews_per_session: "#3A7C5D"
-      average_time_spent_per_page: "#356A69"
+    series_colors: {}
     label_color: []
     y_axes:
     - label: Time in Seconds
@@ -1315,20 +1364,20 @@
       - id: average_time_spent_per_page
         name: Average Time Spent per Page
         axisId: average_time_spent_per_page
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 845
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1315
       - id: average_pageviews_per_session
         name: Average Pageviews per Session
         axisId: average_pageviews_per_session
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 848
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1320
       - id: average_time_per_session
         name: Average Time per Session
         axisId: average_time_per_session
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 851
-      __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 833
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1325
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 1303
     - label:
       maxValue:
       minValue:
@@ -1344,15 +1393,25 @@
       - id: total_sessions
         name: Total Sessions
         axisId: total_sessions
-        __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 866
-      __FILE: google_blocks/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 854
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 1344
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 1332
     hidden_series:
     - average_time_spent_per_page
     - average_pageviews_per_session
     colors:
-    - 'palette: Default'
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#58A9F5"
+    - "#FF666C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
