@@ -30,7 +30,6 @@ view: period_fact {
       SELECT
         ga_sessions.channelGrouping AS channel_grouping,
         ga_sessions.socialEngagementType AS social_engagement_type,
-        --TIMESTAMP_TRUNC(TIMESTAMP_SECONDS(ga_sessions.visitStarttime), day) AS date,
         PARSE_DATE('%Y%m%d', date) AS _date,
         COUNT(CASE WHEN (ga_sessions.visitnumber = 1) THEN 1 ELSE NULL END) as first_time_visitors,
         COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_visitors,
@@ -127,7 +126,7 @@ view: period_fact {
 
   measure: bounce_rate {
     sql: (${bounces} / ${session_count}) * 100;;
-    value_format_name: decimal_2
+    value_format_name: percent_2
   }
 
   measure: total_page_views {
