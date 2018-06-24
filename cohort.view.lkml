@@ -57,6 +57,7 @@ view: cohort {
   measure: bounce_rate {
     type: number
     sql: ${bounces} / ${session_count};;
+    value_format_name: percent_2
   }
 
   measure: hits_total {
