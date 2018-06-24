@@ -396,9 +396,9 @@
         name: Percent of Visitors w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1104
+        __LINE_NUM: 395
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1092
+      __LINE_NUM: 383
     - label:
       maxValue:
       minValue:
@@ -415,9 +415,9 @@
         name: Total Visitors
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1123
+        __LINE_NUM: 414
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1111
+      __LINE_NUM: 402
     - label:
       orientation: left
       series:
@@ -425,7 +425,7 @@
         name: Transactions Count
         axisId: totals.transactions_count
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1133
+        __LINE_NUM: 424
       showLabels: false
       showValues: false
       maxValue:
@@ -436,7 +436,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1130
+      __LINE_NUM: 421
     - label:
       orientation: left
       series:
@@ -444,7 +444,7 @@
         name: Transaction Revenue Total
         axisId: totals.transactionRevenue_total
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1148
+        __LINE_NUM: 443
       showLabels: false
       showValues: false
       maxValue:
@@ -455,7 +455,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1145
+      __LINE_NUM: 440
     - label:
       orientation: left
       series:
@@ -463,7 +463,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1163
+        __LINE_NUM: 462
       showLabels: false
       showValues: false
       maxValue:
@@ -474,7 +474,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1160
+      __LINE_NUM: 459
     - label:
       orientation: left
       series:
@@ -482,7 +482,7 @@
         name: Average Revenue per Transaction
         axisId: totals.average_revenue_per_transaction
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1178
+        __LINE_NUM: 481
       showLabels: false
       showValues: false
       maxValue:
@@ -493,7 +493,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1175
+      __LINE_NUM: 478
     colors:
     - "#58A9F5"
     - "#FF666C"
@@ -610,9 +610,9 @@
         name: Percent of Visitors w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 405
+        __LINE_NUM: 609
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 393
+      __LINE_NUM: 597
     - label: Transaction Revenue
       maxValue:
       minValue:
@@ -629,9 +629,9 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 424
+        __LINE_NUM: 628
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 412
+      __LINE_NUM: 616
     - label:
       maxValue:
       minValue:
@@ -648,9 +648,9 @@
         name: Average Transaction Revenue
         axisId: average_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 443
+        __LINE_NUM: 647
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 431
+      __LINE_NUM: 635
     colors:
     - "#58A9F5"
     - "#FF666C"
@@ -683,7 +683,6 @@
     - ga_sessions.session_count
     - totals.transactions_count
     - totals.transactionRevenue_total
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 5
@@ -763,9 +762,9 @@
         name: Transaction Conversion Rate
         axisId: transaction_conversion_rate
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 547
+        __LINE_NUM: 762
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 535
+      __LINE_NUM: 750
     - label: Transaction Revenue
       maxValue:
       minValue:
@@ -782,9 +781,9 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 566
+        __LINE_NUM: 781
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 554
+      __LINE_NUM: 769
     - label:
       maxValue:
       minValue:
@@ -801,9 +800,9 @@
         name: Avg Revenue per Transaction
         axisId: avg_revenue_per_transaction
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 585
+        __LINE_NUM: 800
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 573
+      __LINE_NUM: 788
     label_color:
     - "#1D98D3"
     - "#39A736"
@@ -894,9 +893,9 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 669
+        __LINE_NUM: 893
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 657
+      __LINE_NUM: 881
     - label:
       maxValue:
       minValue:
@@ -913,9 +912,9 @@
         name: Transaction Revenue Total
         axisId: totals.transactionRevenue_total
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 688
+        __LINE_NUM: 912
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 676
+      __LINE_NUM: 900
     - label:
       maxValue:
       minValue:
@@ -932,9 +931,9 @@
         name: Average Revenue per Transaction
         axisId: totals.average_revenue_per_transaction
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 707
+        __LINE_NUM: 931
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 695
+      __LINE_NUM: 919
     label_color:
     - "#1D98D3"
     - "#39A736"
@@ -1050,9 +1049,9 @@
         name: Transaction Conversion Rate
         axisId: transaction_conversion_rate
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 814
+        __LINE_NUM: 1049
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 802
+      __LINE_NUM: 1037
     - label: Transaction Revenue
       maxValue:
       minValue:
@@ -1069,9 +1068,9 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 833
+        __LINE_NUM: 1068
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 821
+      __LINE_NUM: 1056
     - label:
       maxValue:
       minValue:
@@ -1088,9 +1087,9 @@
         name: Avg Revenue per Transaction
         axisId: avg_revenue_per_transaction
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 852
+        __LINE_NUM: 1087
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 840
+      __LINE_NUM: 1075
     hidden_series:
     - average_time_on_site_per_session
     - average_pageview_per_session
@@ -1130,7 +1129,6 @@
     - totals.transactions_count
     - totals.transactionRevenue_total
     - first_page.pageTitle
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 10
@@ -1205,9 +1203,9 @@
         name: Transaction Conversion Rate
         axisId: transaction_conversion_rate
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 955
+        __LINE_NUM: 1204
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 943
+      __LINE_NUM: 1192
     - label: Transaction Revenue
       maxValue:
       minValue:
@@ -1224,9 +1222,9 @@
         name: Avg Revenue per Transaction
         axisId: avg_revenue_per_transaction
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 974
+        __LINE_NUM: 1223
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 962
+      __LINE_NUM: 1211
     - label:
       maxValue:
       minValue:
@@ -1243,9 +1241,9 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 993
+        __LINE_NUM: 1242
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 981
+      __LINE_NUM: 1230
     label_color:
     - "#1D98D3"
     - "#39A736"
