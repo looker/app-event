@@ -845,8 +845,6 @@
     - totals.bounce_rate
     fill_fields:
     - ga_sessions.visitStart_date
-    filters:
-      ga_sessions.partition_date: 365 days
     sorts:
     - ga_sessions.visitStart_date desc
     limit: 500
