@@ -28,8 +28,11 @@ view: period_fact {
   derived_table: {
     sql:
       SELECT
+        CONCAT(CAST(ga_sessions.channelGrouping AS STRING), '|', CAST(ga_sessions.socialEngagementType AS STRING), '|', CAST(PARSE_DATE('%Y%m%d', date) AS STRING), '|', CAST(trafficSource.campaign AS STRING), '|', CAST(geoNetwork.country AS STRING)) AS id,
         ga_sessions.channelGrouping AS channel_grouping,
         ga_sessions.socialEngagementType AS social_engagement_type,
+        trafficSource.campaign AS campaign,
+        geoNetwork.country AS country,
         PARSE_DATE('%Y%m%d', date) AS _date,
         COUNT(CASE WHEN (ga_sessions.visitnumber = 1) THEN 1 ELSE NULL END) as first_time_visitors,
         COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_visitors,
@@ -43,20 +46,27 @@ view: period_fact {
         COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
         COALESCE(SUM(totals.visits ), 0) AS visits,
         COALESCE(SUM(totals.transactions ), 0) AS transactions,
-        COALESCE(SUM(totals.screenViews ), 0) AS totals_screenviews
+        COALESCE(SUM(totals.screenViews ), 0) AS totals_screenviews,
+        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue
       FROM `looker-ga360.69266980.ga_sessions_*` AS ga_sessions
       LEFT JOIN UNNEST([ga_sessions.totals]) as totals
-      GROUP BY 1,2,3;;
+      LEFT JOIN UNNEST([ga_sessions.trafficSource]) as trafficSource
+      LEFT JOIN UNNEST([ga_sessions.geoNetwork]) as geoNetwork
+      GROUP BY 1,2,3,4,5,6;;
 
   }
   dimension: social_engagement_type {}
 
   dimension: channel_grouping {}
 
+  dimension: campaign {}
+
+  dimension: country {}
+
   dimension: id {
     type: string
     primary_key: yes
-    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING));;
+    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING), '|', CAST(${campaign} AS STRING), '|', CAST(${country} AS STRING));;
   }
 
   dimension: _date {
@@ -74,6 +84,24 @@ view: period_fact {
     type: sum
     sql: ${TABLE}.visits ;;
     value_format_name: decimal_0
+  }
+
+  measure: transaction_revenue_total {
+    type: sum
+    sql: ${TABLE}.transaction_revenue ;;
+    value_format_name: usd
+  }
+
+  measure: revenue_per_transaction {
+    type: number
+    sql: ${transaction_revenue_total} / NULLIF(${total_transactions}, 0);;
+    value_format_name: usd
+  }
+
+  measure: converions_rate {
+    type: number
+    sql:  ${total_transactions} / NULLIF(${session_count}, 0) ;;
+    value_format_name: decimal_1
   }
 
   measure: new_visits {
@@ -148,19 +176,25 @@ view: period_fact {
 
   measure: hits_average_per_session {
     type: number
-    sql: ${hits}/${session_count} ;;
+    sql: ${hits}/NULLIF(${session_count},0) ;;
     value_format_name: decimal_1
   }
 
   measure: page_views_per_session {
     type: number
-    sql: ${total_page_views}/${session_count} ;;
+    sql: ${total_page_views}/NULLIF(${session_count}, 0) ;;
     value_format_name: decimal_1
   }
 
   measure: average_page_views_per_user {
     type: number
-    sql: ${total_page_views}/${unique_visitors} ;;
+    sql: ${total_page_views}/NULLIF(${unique_visitors}, 0) ;;
+    value_format_name: decimal_1
+  }
+
+  measure: time_on_site_average_per_session {
+    type: number
+    sql: ${total_time_on_site}/NULLIF(${session_count}, 0) ;;
     value_format_name: decimal_1
   }
 
