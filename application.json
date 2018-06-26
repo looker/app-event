@@ -82,7 +82,7 @@
     },
     "filters": [
       {
-        "defaultValue": "28 day",
+        "defaultValue": "364 day",
         "field": "ga_sessions.partition_date",
         "name": "Time Frame",
         "type": "TimeFrame",
@@ -129,7 +129,7 @@
           },
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "364 day",
               "field": "ga_sessions.partition_date",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -173,7 +173,7 @@
           },
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "364 day",
               "field": "ga_sessions.partition_date",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -217,7 +217,7 @@
           },
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "364 day",
               "field": "ga_sessions.partition_date",
               "name": "Time Frame",
               "type": "TimeFrame",
