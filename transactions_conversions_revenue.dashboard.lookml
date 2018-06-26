@@ -495,9 +495,9 @@
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
       __LINE_NUM: 478
     colors:
-    - "#58A9F5"
-    - "#FF666C"
     - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
     - "#FDCB6C"
     - "#F6659A"
     - "#5EC0C4"
@@ -589,17 +589,13 @@
     - totals.transactionRevenue_total
     series_colors: {}
     series_labels: {}
-    label_color:
-    - "#1D98D3"
-    - "#39A736"
-    - "#fff"
     y_axes:
     - label: ''
       maxValue:
       minValue:
       orientation: left
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -618,7 +614,7 @@
       minValue:
       orientation: right
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -652,9 +648,9 @@
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
       __LINE_NUM: 635
     colors:
-    - "#58A9F5"
-    - "#FF666C"
     - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
     - "#FDCB6C"
     - "#F6659A"
     - "#5EC0C4"
@@ -751,7 +747,7 @@
       minValue:
       orientation: left
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -770,7 +766,7 @@
       minValue:
       orientation: right
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -803,14 +799,10 @@
         __LINE_NUM: 800
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
       __LINE_NUM: 788
-    label_color:
-    - "#1D98D3"
-    - "#39A736"
-    - "#fff"
     colors:
-    - "#58A9F5"
-    - "#FF666C"
     - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
     - "#FDCB6C"
     - "#F6659A"
     - "#5EC0C4"
@@ -882,7 +874,7 @@
       minValue:
       orientation: left
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom:
       type: linear
@@ -901,7 +893,7 @@
       minValue:
       orientation: right
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom:
       type: linear
@@ -934,16 +926,12 @@
         __LINE_NUM: 931
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
       __LINE_NUM: 919
-    label_color:
-    - "#1D98D3"
-    - "#39A736"
-    - "#fff"
     x_axis_reversed: false
     y_axis_reversed: false
     colors:
-    - "#58A9F5"
-    - "#FF666C"
     - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
     - "#FDCB6C"
     - "#F6659A"
     - "#5EC0C4"
@@ -1038,7 +1026,7 @@
       minValue:
       orientation: left
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -1057,7 +1045,7 @@
       minValue:
       orientation: right
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -1093,14 +1081,10 @@
     hidden_series:
     - average_time_on_site_per_session
     - average_pageview_per_session
-    label_color:
-    - "#1D98D3"
-    - "#39A736"
-    - "#ffff"
     colors:
-    - "#58A9F5"
-    - "#FF666C"
     - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
     - "#FDCB6C"
     - "#F6659A"
     - "#5EC0C4"
@@ -1192,7 +1176,7 @@
       minValue:
       orientation: left
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -1230,7 +1214,7 @@
       minValue:
       orientation: right
       showLabels: true
-      showValues: true
+      showValues: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
@@ -1244,15 +1228,11 @@
         __LINE_NUM: 1242
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
       __LINE_NUM: 1230
-    label_color:
-    - "#1D98D3"
-    - "#39A736"
-    - "#ffff"
     series_colors: {}
     colors:
-    - "#58A9F5"
-    - "#FF666C"
     - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
     - "#FDCB6C"
     - "#F6659A"
     - "#5EC0C4"

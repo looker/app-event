@@ -60,7 +60,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -99,7 +99,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -138,7 +138,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -177,7 +177,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -216,7 +216,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -255,7 +255,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -294,7 +294,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -333,7 +333,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     listen:
       Date: ga_sessions.partition_date
       Campaign: trafficSource.campaign
@@ -391,7 +391,7 @@
     show_comparison: true
     comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     series_types: {}
     y_axes:
     - label: ''
