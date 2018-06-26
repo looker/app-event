@@ -256,7 +256,6 @@
     - device.browser
     - totals.bounce_rate
     - ga_sessions.session_count
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 5
@@ -313,9 +312,9 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 366
+        __LINE_NUM: 312
       __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 354
+      __LINE_NUM: 300
     - label: ''
       maxValue:
       minValue:
@@ -332,9 +331,9 @@
         name: Bounce Rate
         axisId: totals.bounce_rate
         __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 385
+        __LINE_NUM: 331
       __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 373
+      __LINE_NUM: 319
     series_colors: {}
     colors:
     - "#FF666C"
@@ -358,114 +357,6 @@
     col: 0
     width: 13
     height: 8
-  - title: Bounces by Visitor Frequency
-    name: Bounces by Visitor Frequency
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_line
-    fields:
-    - ga_sessions.visitnumbertier
-    - totals.bounce_rate
-    - ga_sessions.session_count
-    filters:
-      ga_sessions.visitnumbertier: "-Below 1"
-    sorts:
-    - ga_sessions.visitnumbertier
-    limit: 500
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 7
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
-    y_axis_combined: false
-    show_y_axis_labels: false
-    show_y_axis_ticks: false
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    query_timezone: America/New_York
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types:
-      totals.bounces_total: column
-      ga_sessions.session_count: column
-    series_labels: {}
-    label_color: []
-    y_axes:
-    - label:
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: true
-      showValues: true
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: ga_sessions.session_count
-        name: Session Session Count
-        axisId: ga_sessions.session_count
-        __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 474
-      __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 462
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: right
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: totals.bounce_rate
-        name: Session Bounce Rate
-        axisId: totals.bounce_rate
-        __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 493
-      __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 481
-    series_colors: {}
-    colors:
-    - "#FF666C"
-    - "#58A9F5"
-    - "#B9E49A"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 3
-    col: 13
-    width: 11
-    height: 8
   - title: New vs Returning Bounce Totals
     name: New vs Returning Bounce Totals
     model: event_analytics
@@ -476,7 +367,6 @@
     - totals.bounces_total
     fill_fields:
     - ga_sessions.first_time_visitor
-    filters: {}
     sorts:
     - ga_sessions.first_time_visitor
     limit: 500
@@ -616,7 +506,6 @@
     - totals.bounce_rate
     - ga_sessions.session_count
     - trafficSource.keyword
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 5
@@ -673,9 +562,9 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 727
+        __LINE_NUM: 672
       __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 715
+      __LINE_NUM: 660
     - label: ''
       maxValue:
       minValue:
@@ -692,9 +581,9 @@
         name: Bounce Rate
         axisId: totals.bounce_rate
         __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 746
+        __LINE_NUM: 691
       __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 734
+      __LINE_NUM: 679
     series_colors: {}
     colors:
     - "#FF666C"
@@ -718,117 +607,6 @@
     col: 0
     width: 13
     height: 7
-  - title: Bounces by Source Acquisition
-    name: Bounces by Source Acquisition
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_line
-    fields:
-    - totals.bounce_rate
-    - ga_sessions.session_count
-    - trafficSource.source
-    filters: {}
-    sorts:
-    - ga_sessions.session_count desc
-    limit: 5
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: false
-    show_y_axis_labels: false
-    show_y_axis_ticks: false
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    query_timezone: America/New_York
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: editable
-    series_types:
-      totals.bounces_total: column
-      ga_sessions.session_count: column
-    label_color: []
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: true
-      showValues: true
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: ga_sessions.session_count
-        name: Session Count
-        axisId: ga_sessions.session_count
-        __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 838
-      __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 826
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: right
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: totals.bounce_rate
-        name: Bounce Rate
-        axisId: totals.bounce_rate
-        __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 857
-      __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 845
-    series_colors: {}
-    colors:
-    - "#FF666C"
-    - "#58A9F5"
-    - "#B9E49A"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 19
-    col: 13
-    width: 11
-    height: 7
   - title: Bounces and Rate by Page Path
     name: Bounces and Rate by Page Path
     model: event_analytics
@@ -838,7 +616,6 @@
     - first_page.pagePath
     - totals.bounce_rate
     - ga_sessions.session_count
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 10
@@ -894,9 +671,9 @@
         name: Bounce Rate
         axisId: totals.bounce_rate
         __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 948
+        __LINE_NUM: 893
       __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 936
+      __LINE_NUM: 881
     - label: ''
       maxValue:
       minValue:
@@ -913,9 +690,9 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-        __LINE_NUM: 967
+        __LINE_NUM: 912
       __FILE: app_event_analytics/bounce_rates.dashboard.lookml
-      __LINE_NUM: 955
+      __LINE_NUM: 900
     series_colors: {}
     colors:
     - "#FF666C"
@@ -998,6 +775,217 @@
     col: 11
     width: 13
     height: 18
+  - title: Bounces by Visitor Frequency
+    name: Bounces by Visitor Frequency
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - ga_sessions.visitnumbertier
+    - totals.bounce_rate
+    - ga_sessions.session_count
+    filters:
+      ga_sessions.visitnumbertier: "-Below 1"
+    sorts:
+    - ga_sessions.visitnumbertier
+    limit: 500
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 7
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: false
+    show_y_axis_labels: false
+    show_y_axis_ticks: false
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_points: true
+    point_style: circle
+    interpolation: monotone
+    query_timezone: America/New_York
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types:
+      totals.bounces_total: column
+      ga_sessions.session_count: column
+    series_labels: {}
+    label_color: []
+    y_axes:
+    - label:
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: true
+      showValues: true
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: ga_sessions.session_count
+        name: Session Session Count
+        axisId: ga_sessions.session_count
+        __FILE: app_event_analytics/bounce_rates.dashboard.lookml
+        __LINE_NUM: 420
+      __FILE: app_event_analytics/bounce_rates.dashboard.lookml
+      __LINE_NUM: 408
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: right
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: totals.bounce_rate
+        name: Session Bounce Rate
+        axisId: totals.bounce_rate
+        __FILE: app_event_analytics/bounce_rates.dashboard.lookml
+        __LINE_NUM: 439
+      __FILE: app_event_analytics/bounce_rates.dashboard.lookml
+      __LINE_NUM: 427
+    series_colors: {}
+    colors:
+    - "#FF666C"
+    - "#58A9F5"
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    x_axis_reversed: false
+    y_axis_reversed: false
+    listen:
+      Date: ga_sessions.partition_date
+      Campaign: trafficSource.campaign
+      First Time Visitor: ga_sessions.first_time_visitor
+    row: 3
+    col: 13
+    width: 11
+    height: 8
+  - title: Bounces by Source Acquisition
+    name: Bounces by Source Acquisition
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - totals.bounce_rate
+    - ga_sessions.session_count
+    - trafficSource.source
+    filters: {}
+    sorts:
+    - ga_sessions.session_count desc
+    limit: 5
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: false
+    show_y_axis_labels: false
+    show_y_axis_ticks: false
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_points: true
+    point_style: circle
+    interpolation: monotone
+    query_timezone: America/New_York
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
+    series_types:
+      totals.bounces_total: column
+      ga_sessions.session_count: column
+    label_color: []
+    y_axes:
+    - label: ''
+      orientation: left
+      series:
+      - id: ga_sessions.session_count
+        name: Session Count
+        axisId: ga_sessions.session_count
+      showLabels: true
+      showValues: true
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: log
+    - label: ''
+      orientation: right
+      series:
+      - id: totals.bounce_rate
+        name: Bounce Rate
+        axisId: totals.bounce_rate
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+    series_colors: {}
+    colors:
+    - "#FF666C"
+    - "#58A9F5"
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    x_axis_reversed: false
+    y_axis_reversed: false
+    listen:
+      Date: ga_sessions.partition_date
+      Campaign: trafficSource.campaign
+      First Time Visitor: ga_sessions.first_time_visitor
+    row: 19
+    col: 13
+    width: 11
+    height: 7
   filters:
   - name: Date
     title: Date
