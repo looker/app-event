@@ -66,7 +66,7 @@ view: period_fact {
   dimension: id {
     type: string
     primary_key: yes
-    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING), '|', CAST(${campaign} AS STRING), '|', CAST(${country} AS STRING));;
+    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING), '|', CAST(${country} AS STRING), '|', CAST(${campaign} AS STRING));;
   }
 
   dimension: _date {
