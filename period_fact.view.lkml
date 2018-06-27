@@ -8,17 +8,17 @@ include: "period_base.view"
 explore: period_fact {
   hidden: yes
   from: period_fact
-  view_name: fact
+  view_name: ga_sessions
   label: "This Period"
   view_label: "This Period"
   join: last_fact {
     from: period_fact
     view_label: "Prior Period"
     sql_on:
-      ${fact.date_last_period} = ${last_fact.date_period}
-      AND ${fact.date_day_of_period} = ${last_fact.date_day_of_period}
-      AND ${fact.channel_grouping} = ${last_fact.channel_grouping}
-      AND ${fact.social_engagement_type} = ${last_fact.social_engagement_type};;
+      ${ga_sessions.date_last_period} = ${last_fact.date_period}
+      AND ${ga_sessions.date_day_of_period} = ${last_fact.date_day_of_period}
+      AND ${ga_sessions.channel_grouping} = ${last_fact.channel_grouping}
+      AND ${ga_sessions.social_engagement_type} = ${last_fact.social_engagement_type};;
     relationship: one_to_one
   }
 }

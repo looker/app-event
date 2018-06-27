@@ -46,17 +46,17 @@ view: period_base {
     type: date
     label_from_parameter: period
     group_label: "Event"
-    sql: TIMESTAMP({% if fact.period._parameter_value contains "day" %}
-        {% if fact.period._parameter_value == "'7 day'" %}${date_date_7_days_prior}
-        {% elsif fact.period._parameter_value == "'28 day'" %}${date_date_28_days_prior}
-        {% elsif fact.period._parameter_value == "'91 day'" %}${date_date_91_days_prior}
-        {% elsif fact.period._parameter_value == "'364 day'" %}${date_date_364_days_prior}
+    sql: TIMESTAMP({% if ga_sessions.period._parameter_value contains "day" %}
+        {% if ga_sessions.period._parameter_value == "'7 day'" %}${date_date_7_days_prior}
+        {% elsif ga_sessions.period._parameter_value == "'28 day'" %}${date_date_28_days_prior}
+        {% elsif ga_sessions.period._parameter_value == "'91 day'" %}${date_date_91_days_prior}
+        {% elsif ga_sessions.period._parameter_value == "'364 day'" %}${date_date_364_days_prior}
         {% else %}${date_date}
         {% endif %}
-      {% elsif fact.period._parameter_value contains "week" %}${date_week}
-      {% elsif fact.period._parameter_value contains "month" %}${date_month_date}
-      {% elsif fact.period._parameter_value contains "quarter" %}${date_quarter_date}
-      {% elsif fact.period._parameter_value contains "year" %}${date_year_date}
+      {% elsif ga_sessions.period._parameter_value contains "week" %}${date_week}
+      {% elsif ga_sessions.period._parameter_value contains "month" %}${date_month_date}
+      {% elsif ga_sessions.period._parameter_value contains "quarter" %}${date_quarter_date}
+      {% elsif ga_sessions.period._parameter_value contains "year" %}${date_year_date}
       {% endif %}) ;;
     allow_fill: no
   }
@@ -64,17 +64,17 @@ view: period_base {
     type: date
     label_from_parameter: period
     group_label: "Event"
-    sql: TIMESTAMP({% if fact.period._parameter_value contains "day" %}
-        {% if fact.period._parameter_value == "'7 day'" %}DATE_ADD(${date_period}, INTERVAL 7 DAY)
-        {% elsif fact.period._parameter_value == "'28 day'" %}DATE_ADD(${date_period}, INTERVAL 28 DAY)
-        {% elsif fact.period._parameter_value == "'91 day'" %}DATE_ADD(${date_period}, INTERVAL 91 DAY)
-        {% elsif fact.period._parameter_value == "'364 day'" %}DATE_ADD(${date_period}, INTERVAL 364 DAY)
+    sql: TIMESTAMP({% if ga_sessions.period._parameter_value contains "day" %}
+        {% if ga_sessions.period._parameter_value == "'7 day'" %}DATE_ADD(${date_period}, INTERVAL 7 DAY)
+        {% elsif ga_sessions.period._parameter_value == "'28 day'" %}DATE_ADD(${date_period}, INTERVAL 28 DAY)
+        {% elsif ga_sessions.period._parameter_value == "'91 day'" %}DATE_ADD(${date_period}, INTERVAL 91 DAY)
+        {% elsif ga_sessions.period._parameter_value == "'364 day'" %}DATE_ADD(${date_period}, INTERVAL 364 DAY)
         {% else %}${date_date}
         {% endif %}
-      {% elsif fact.period._parameter_value contains "week" %}DATE_ADD(${date_period}, INTERVAL 1 WEEK)
-      {% elsif fact.period._parameter_value contains "month" %}DATE_ADD(${date_period}, INTERVAL 1 MONTH)
-      {% elsif fact.period._parameter_value contains "quarter" %}DATE_ADD(${date_period}, INTERVAL 1 QUARTER)
-      {% elsif fact.period._parameter_value contains "year" %}DATE_ADD(${date_period}, INTERVAL 1 YEAR)
+      {% elsif ga_sessions.period._parameter_value contains "week" %}DATE_ADD(${date_period}, INTERVAL 1 WEEK)
+      {% elsif ga_sessions.period._parameter_value contains "month" %}DATE_ADD(${date_period}, INTERVAL 1 MONTH)
+      {% elsif ga_sessions.period._parameter_value contains "quarter" %}DATE_ADD(${date_period}, INTERVAL 1 QUARTER)
+      {% elsif ga_sessions.period._parameter_value contains "year" %}DATE_ADD(${date_period}, INTERVAL 1 YEAR)
       {% endif %}) ;;
     allow_fill: no
   }
@@ -88,13 +88,13 @@ view: period_base {
     hidden: yes
     type: date
     group_label: "Event"
-    label: "{% if fact.period._parameter_value contains 'year'
-    # or fact.period._parameter_value contains '364 day' %}Month{% elsif fact.period._parameter_value contains 'quarter'
-    #or fact.period._parameter_value contains '91 day' %}Week{% else %}Date{% endif %}"
-    sql: {% if fact.period._parameter_value contains 'year'
-        or fact.period._parameter_value contains '364 day' %}${date_month_date}
-      {% elsif fact.period._parameter_value contains 'quarter'
-        or fact.period._parameter_value contains '91 day' %}${date_week}
+    label: "{% if ga_sessions.period._parameter_value contains 'year'
+    # or ga_sessions.period._parameter_value contains '364 day' %}Month{% elsif ga_sessions.period._parameter_value contains 'quarter'
+    #or ga_sessions.period._parameter_value contains '91 day' %}Week{% else %}Date{% endif %}"
+    sql: {% if ga_sessions.period._parameter_value contains 'year'
+        or ga_sessions.period._parameter_value contains '364 day' %}${date_month_date}
+      {% elsif ga_sessions.period._parameter_value contains 'quarter'
+        or ga_sessions.period._parameter_value contains '91 day' %}${date_week}
       {% else %} ${date_raw}
       {% endif %} ;;
     allow_fill: no
@@ -102,24 +102,24 @@ view: period_base {
   dimension: date_day_of_period {
     hidden: yes
     type: number
-    label: "{% if fact.period._parameter_value contains 'day' %}Day of Period
-    {% elsif fact.period._parameter_value contains 'week' %}Day of Week
-    {% elsif fact.period._parameter_value contains 'month' %}Day of Month
-    {% elsif fact.period._parameter_value contains 'quarter' %}Day of Quarter
-    {% elsif fact.period._parameter_value contains 'year' %}Day of Year
+    label: "{% if ga_sessions.period._parameter_value contains 'day' %}Day of Period
+    {% elsif ga_sessions.period._parameter_value contains 'week' %}Day of Week
+    {% elsif ga_sessions.period._parameter_value contains 'month' %}Day of Month
+    {% elsif ga_sessions.period._parameter_value contains 'quarter' %}Day of Quarter
+    {% elsif ga_sessions.period._parameter_value contains 'year' %}Day of Year
     {% endif %}"
     group_label: "Event"
-    sql: {% if fact.period._parameter_value contains "day" %}
-        {% if fact.period._parameter_value == "'7 day'" %}${date_day_of_7_days_prior}
-        {% elsif fact.period._parameter_value == "'28 day'" %}${date_day_of_28_days_prior}
-        {% elsif fact.period._parameter_value == "'91 day'" %}${date_day_of_91_days_prior}
-        {% elsif fact.period._parameter_value == "'364 day'" %}${date_day_of_364_days_prior}
+    sql: {% if ga_sessions.period._parameter_value contains "day" %}
+        {% if ga_sessions.period._parameter_value == "'7 day'" %}${date_day_of_7_days_prior}
+        {% elsif ga_sessions.period._parameter_value == "'28 day'" %}${date_day_of_28_days_prior}
+        {% elsif ga_sessions.period._parameter_value == "'91 day'" %}${date_day_of_91_days_prior}
+        {% elsif ga_sessions.period._parameter_value == "'364 day'" %}${date_day_of_364_days_prior}
         {% else %}0
         {% endif %}
-      {% elsif fact.period._parameter_value contains "week" %}${date_day_of_week_index}
-      {% elsif fact.period._parameter_value contains "month" %}${date_day_of_month}
-      {% elsif fact.period._parameter_value contains "quarter" %}${date_day_of_quarter}
-      {% elsif fact.period._parameter_value contains "year" %}${date_day_of_year}
+      {% elsif ga_sessions.period._parameter_value contains "week" %}${date_day_of_week_index}
+      {% elsif ga_sessions.period._parameter_value contains "month" %}${date_day_of_month}
+      {% elsif ga_sessions.period._parameter_value contains "quarter" %}${date_day_of_quarter}
+      {% elsif ga_sessions.period._parameter_value contains "year" %}${date_day_of_year}
       {% endif %} ;;
     # html: {{ value | plus: 1 }} - {{ date_date }};;
     # required_fields: [date_date]
@@ -128,7 +128,7 @@ view: period_base {
       group_label: "Event"
       label: "Prior Period"
       type: date
-      sql: DATE_ADD(${date_period}, INTERVAL -{% if fact.period._parameter_value == "'7 day'" %}7{% elsif fact.period._parameter_value == "'28 day'" %}28{% elsif fact.period._parameter_value == "'91 day'" %}91{% elsif fact.period._parameter_value == "'364 day'" %}364{% else %}1{% endif %} {% if fact.period._parameter_value contains "day" %}day{% elsif fact.period._parameter_value contains "week" %}week{% elsif fact.period._parameter_value contains "month" %}month{% elsif fact.period._parameter_value contains "quarter" %}quarter{% elsif fact.period._parameter_value contains "year" %}year{% endif %}) ;;
+      sql: DATE_ADD(${date_period}, INTERVAL -{% if ga_sessions.period._parameter_value == "'7 day'" %}7{% elsif ga_sessions.period._parameter_value == "'28 day'" %}28{% elsif ga_sessions.period._parameter_value == "'91 day'" %}91{% elsif ga_sessions.period._parameter_value == "'364 day'" %}364{% else %}1{% endif %} {% if ga_sessions.period._parameter_value contains "day" %}day{% elsif ga_sessions.period._parameter_value contains "week" %}week{% elsif ga_sessions.period._parameter_value contains "month" %}month{% elsif ga_sessions.period._parameter_value contains "quarter" %}quarter{% elsif ga_sessions.period._parameter_value contains "year" %}year{% endif %}) ;;
       allow_fill: no
     }
   }
