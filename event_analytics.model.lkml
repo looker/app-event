@@ -4,6 +4,7 @@ connection: "looker_app"
 include: "*.view"
 
 # include all the dashboards
+
 include: "*.dashboard"
 
 named_value_format: usd_large {

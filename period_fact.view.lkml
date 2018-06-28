@@ -38,6 +38,7 @@ view: period_fact {
         COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_visitors,
         COALESCE(SUM(totals.newVisits ), 0) AS new_visits,
         COUNT(DISTINCT ga_sessions.fullVisitorId ) AS unique_visitors,
+        COUNT(ga_sessions.fullVisitorId ) AS total_visitors,
         1.0 * (COALESCE(SUM(totals.bounces ), 0))  AS bounces,
         COALESCE(SUM(totals.hits ), 0) AS hits,
         COALESCE(SUM(totals.pageviews ), 0) AS page_views,
@@ -66,7 +67,7 @@ view: period_fact {
   dimension: id {
     type: string
     primary_key: yes
-    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING), '|', CAST(${campaign} AS STRING), '|', CAST(${country} AS STRING));;
+    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING), '|', CAST(${country} AS STRING), '|', CAST(${campaign} AS STRING));;
   }
 
   dimension: _date {
@@ -146,6 +147,12 @@ view: period_fact {
     value_format_name: decimal_0
   }
 
+  measure: total_visitors {
+    type: sum
+    sql: ${TABLE}.total_visitors ;;
+    value_format_name: decimal_0
+  }
+
   measure: bounces {
     type: sum
     sql: ${TABLE}.bounces ;;
@@ -183,7 +190,13 @@ view: period_fact {
   measure: page_views_per_session {
     type: number
     sql: ${total_page_views}/NULLIF(${session_count}, 0) ;;
-    value_format_name: decimal_1
+    value_format_name: decimal_2
+  }
+
+  measure: avg_sessions_per_visitor {
+    type: number
+    sql: ${session_count}/NULLIF(${unique_visitors}, 0) ;;
+    value_format_name: decimal_2
   }
 
   measure: average_page_views_per_user {
