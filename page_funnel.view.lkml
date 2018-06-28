@@ -329,3 +329,7 @@ view: page_funnel {
     fields: [id, full_visitor_id, session_start_time]
   }
 }
+
+explore: page_funnel {
+  hidden:  yes
+}

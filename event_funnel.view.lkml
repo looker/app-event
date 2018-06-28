@@ -329,3 +329,7 @@ view: event_funnel {
     fields: [id, full_visitor_id, session_start_time]
   }
 }
+
+explore: event_funnel {
+  hidden:  yes
+}
