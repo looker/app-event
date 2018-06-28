@@ -306,7 +306,6 @@
     - last_fact.converions_rate
     filters:
       ga_sessions.date_period_latest: 'Yes'
-      ga_sessions.period: 364 day
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -416,7 +415,6 @@
     - last_fact.session_count
     filters:
       ga_sessions.date_period_latest: 'Yes'
-      ga_sessions.period: 364 day
     limit: 500
     column_limit: 50
     dynamic_fields:
@@ -761,7 +759,6 @@
     - last_fact.transaction_revenue_total
     filters:
       ga_sessions.date_period_latest: 'Yes'
-      ga_sessions.period: 364 day
     limit: 500
     column_limit: 50
     dynamic_fields:

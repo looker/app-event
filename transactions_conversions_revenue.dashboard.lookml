@@ -12,27 +12,78 @@
     type: text
     title_text: How are Conversion Rates and Revenue figures affected by session length,
       frequency, and acquisition source?
-    row: 14
+    row: 30
     col: 0
     width: 24
     height: 2
-  - title: Total Sessions
-    name: Total Sessions
+  - title: Avg Revenue Per Transaction
+    name: Avg Revenue Per Transaction
     model: event_analytics
-    explore: ga_sessions
+    explore: period_fact
     type: single_value
     fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
     - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
     limit: 500
     column_limit: 50
-    query_timezone: America/New_York
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
     custom_color_enabled: false
     custom_color: forestgreen
     show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
+    show_comparison: true
+    comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     stacking: ''
     show_value_labels: false
     label_density: 25
@@ -50,156 +101,252 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - last_fact.revenue_per_transaction
+    - total_revenue_change
     series_types: {}
     listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
+      Campaign: ga_sessions.campaign
+      Period: ga_sessions.period
+    row: 0
+    col: 12
+    width: 4
+    height: 3
+  - title: Total Sessions
+    name: Total Sessions
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounce_rate
+    - last_fact.bounce_rate
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounce_rate_change
+      label: Bounce Rate Change
+      expression: "(${ga_sessions.bounce_rate} - ${last_fact.bounce_rate}) "
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - last_fact.bounce_rate
+    - time_on_site_avg_per_session_change
+    - ga_sessions.time_on_site_average_per_session
+    - ga_sessions.bounce_rate
+    - bounce_rate_change
+    series_types: {}
+    listen:
+      Campaign: ga_sessions.campaign
+      Period: ga_sessions.period
+    row: 0
     col: 0
     width: 4
     height: 3
   - title: Total Transactions
     name: Total Transactions
     model: event_analytics
-    explore: ga_sessions
+    explore: period_fact
     type: single_value
     fields:
-    - totals.transactions_count
-    limit: 500
-    column_limit: 50
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
-    col: 4
-    width: 4
-    height: 3
-  - title: Transaction Conversion Rate
-    name: Transaction Conversion Rate
-    model: event_analytics
-    explore: ga_sessions
-    type: single_value
-    fields:
-    - totals.transactions_count
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
     - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.converions_rate
+    - last_fact.converions_rate
+    - last_fact.total_transactions
+    - ga_sessions.total_transactions
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
     limit: 500
     column_limit: 50
     dynamic_fields:
-    - table_calculation: revenue_per_transaction
-      label: Revenue per Transaction
-      expression: "${totals.transactions_count}/${ga_sessions.session_count}"
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
       value_format:
       value_format_name: percent_2
       _kind_hint: measure
       _type_hint: number
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    hidden_fields:
-    - totals.transactions_count
-    - ga_sessions.session_count
-    listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
-    col: 8
-    width: 4
-    height: 3
-  - title: Total Revenue
-    name: Total Revenue
-    model: event_analytics
-    explore: ga_sessions
-    type: single_value
-    fields:
-    - totals.transactionRevenue_total
-    limit: 500
-    column_limit: 50
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
-    col: 16
-    width: 4
-    height: 3
-  - title: Average Revenue per Transaction
-    name: Average Revenue per Transaction
-    model: event_analytics
-    explore: ga_sessions
-    type: single_value
-    fields:
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    limit: 500
-    column_limit: 50
-    dynamic_fields:
-    - table_calculation: revenue_per_transaction
-      label: Revenue per Transaction
-      expression: "${totals.transactionRevenue_total}/${totals.transactions_count}"
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
       value_format:
-      value_format_name: usd
+      value_format_name: percent_2
       _kind_hint: measure
       _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: conversion_rate_change
+      label: Conversion Rate Change
+      expression: "${ga_sessions.converions_rate} - ${last_fact.converions_rate}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: transactions_change
+      label: Transactions % Change
+      expression: "(${ga_sessions.total_transactions} - ${last_fact.total_transactions})\
+        \ / ${last_fact.total_transactions}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
     custom_color_enabled: false
     custom_color: forestgreen
     show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
+    show_comparison: true
+    comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
-    hidden_fields:
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
-    col: 12
-    width: 4
-    height: 3
-  - title: Unique Visitors
-    name: Unique Visitors
-    model: event_analytics
-    explore: ga_sessions
-    type: single_value
-    fields:
-    - ga_sessions.unique_visitors
-    limit: 500
-    column_limit: 50
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     stacking: ''
     show_value_labels: false
     label_density: 25
@@ -217,17 +364,531 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - last_fact.converions_rate
+    - ga_sessions.converions_rate
+    - last_fact.total_transactions
+    - conversion_rate_change
+    - total_revenue_change
     series_types: {}
     listen:
+      Campaign: ga_sessions.campaign
+      Period: ga_sessions.period
+    row: 0
+    col: 4
+    width: 4
+    height: 3
+  - title: Conversion Rate
+    name: Conversion Rate
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.converions_rate
+    - last_fact.converions_rate
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: conversion_rate_change
+      label: Conversion Rate Change
+      expression: "${ga_sessions.converions_rate} - ${last_fact.converions_rate}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - last_fact.converions_rate
+    - total_revenue_change
+    series_types: {}
+    listen:
+      Campaign: ga_sessions.campaign
+      Period: ga_sessions.period
+    row: 0
+    col: 8
+    width: 4
+    height: 3
+  - title: Revenue
+    name: Revenue
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    series_types: {}
+    listen:
+      Campaign: ga_sessions.campaign
+      Period: ga_sessions.period
+    row: 0
+    col: 16
+    width: 4
+    height: 3
+  - title: Time Series
+    name: Time Series
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - ga_sessions.total_visitors
+    - totals.transactions_count
+    - totals.transactionRevenue_total
+    - ga_sessions.visitStart_date
+    - totals.transaction_conversion_rate
+    - totals.average_revenue_per_transaction
+    filters:
+      trafficSource.keyword: "-NULL"
+      totals.transactionRevenue_total: ">0"
+    sorts:
+    - ga_sessions.visitStart_date desc
+    limit: 14
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: percent_of_visitors_w_transactions
+      label: Percent of Visitors w/ Transactions
+      expression: "${totals.transactions_count}/${ga_sessions.total_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: true
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    show_null_points: true
+    point_style: circle
+    interpolation: monotone
+    query_timezone: America/Los_Angeles
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    ordering: none
+    show_null_labels: false
+    series_types: {}
+    y_axis_labels: []
+    hidden_series:
+    - totals.transactions_count
+    - totals.transaction_conversion_rate
+    - percent_of_visitors_w_transactions
+    y_axis_orientation:
+    - left
+    - right
+    hidden_fields:
+    series_colors: {}
+    series_labels: {}
+    label_color: []
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: percent_of_visitors_w_transactions
+        name: Percent of Visitors w/ Transactions
+        axisId: percent_of_visitors_w_transactions
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 1134
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 1122
+    - label:
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: ga_sessions.total_visitors
+        name: Total Visitors
+        axisId: ga_sessions.total_visitors
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 1153
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 1141
+    - label:
+      orientation: left
+      series:
+      - id: totals.transactions_count
+        name: Transactions Count
+        axisId: totals.transactions_count
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 1163
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 1160
+    - label:
+      orientation: left
+      series:
+      - id: totals.transactionRevenue_total
+        name: Transaction Revenue Total
+        axisId: totals.transactionRevenue_total
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 1182
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 1179
+    - label:
+      orientation: left
+      series:
+      - id: totals.transaction_conversion_rate
+        name: Transaction Conversion Rate
+        axisId: totals.transaction_conversion_rate
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 1201
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 1198
+    - label:
+      orientation: left
+      series:
+      - id: totals.average_revenue_per_transaction
+        name: Average Revenue per Transaction
+        axisId: totals.average_revenue_per_transaction
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 1220
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 1217
+    colors:
+    - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    listen:
       Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
+    row: 3
+    col: 0
+    width: 24
+    height: 9
+  - title: Unique Visitors
+    name: Unique Visitors
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.returning_visitors
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    series_types: {}
+    listen:
+      Campaign: ga_sessions.campaign
+      Period: ga_sessions.period
+    row: 0
     col: 20
     width: 4
     height: 3
@@ -327,9 +988,9 @@
         name: Percent of Visitors w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 605
+        __LINE_NUM: 326
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 593
+      __LINE_NUM: 314
     - label: Transaction Revenue
       maxValue:
       minValue:
@@ -346,9 +1007,9 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 624
+        __LINE_NUM: 345
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 612
+      __LINE_NUM: 333
     - label:
       maxValue:
       minValue:
@@ -365,9 +1026,9 @@
         name: Average Transaction Revenue
         axisId: average_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 643
+        __LINE_NUM: 364
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 631
+      __LINE_NUM: 352
     colors:
     - "#B9E49A"
     - "#FF666C"
@@ -384,9 +1045,9 @@
     y_axis_reversed: false
     listen:
       Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 16
+    row: 12
     col: 0
     width: 12
     height: 9
@@ -400,7 +1061,6 @@
     - ga_sessions.session_count
     - totals.transactions_count
     - totals.transactionRevenue_total
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 5
@@ -480,9 +1140,9 @@
         name: Transaction Conversion Rate
         axisId: transaction_conversion_rate
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 757
+        __LINE_NUM: 479
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 745
+      __LINE_NUM: 467
     - label: Transaction Revenue
       maxValue:
       minValue:
@@ -499,9 +1159,9 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 776
+        __LINE_NUM: 498
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 764
+      __LINE_NUM: 486
     - label:
       maxValue:
       minValue:
@@ -518,9 +1178,9 @@
         name: Avg Revenue per Transaction
         axisId: avg_revenue_per_transaction
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 795
+        __LINE_NUM: 517
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 783
+      __LINE_NUM: 505
     colors:
     - "#B9E49A"
     - "#FF666C"
@@ -537,10 +1197,285 @@
     y_axis_reversed: false
     listen:
       Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 16
+    row: 12
     col: 12
+    width: 12
+    height: 9
+  - title: Revenue and Conversion Rate by First Page Visited
+    name: Revenue and Conversion Rate by First Page Visited
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - ga_sessions.session_count
+    - totals.transactions_count
+    - totals.transactionRevenue_total
+    - first_page.pageTitle
+    sorts:
+    - ga_sessions.session_count desc
+    limit: 10
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: transaction_conversion_rate
+      label: Transaction Conversion Rate
+      expression: "${totals.transactions_count}/${ga_sessions.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: avg_revenue_per_transaction
+      label: Avg Revenue per Transaction
+      expression: "${totals.transactionRevenue_total}/${totals.transactions_count}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_transaction_revenue
+      label: Total Transaction Revenue
+      expression: "${totals.transactionRevenue_total}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_points: true
+    point_style: circle
+    interpolation: monotone
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - ga_sessions.session_count
+    - totals.transactions_count
+    - totals.transactionRevenue_total
+    series_types:
+      total_transaction_revenue: column
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: transaction_conversion_rate
+        name: Transaction Conversion Rate
+        axisId: transaction_conversion_rate
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 909
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 897
+    - label: Transaction Revenue
+      maxValue:
+      minValue:
+      orientation: right
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: avg_revenue_per_transaction
+        name: Avg Revenue per Transaction
+        axisId: avg_revenue_per_transaction
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 928
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 916
+    - label:
+      maxValue:
+      minValue:
+      orientation: right
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: total_transaction_revenue
+        name: Total Transaction Revenue
+        axisId: total_transaction_revenue
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 947
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 935
+    series_colors: {}
+    colors:
+    - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    x_axis_reversed: false
+    y_axis_reversed: false
+    listen:
+      Campaign: trafficSource.campaign
+      Period: ga_sessions.period
+      First Time Visitor: ga_sessions.first_time_visitor
+    row: 32
+    col: 0
+    width: 24
+    height: 9
+  - title: Revenue and Conversion Rate by Session Length
+    name: Revenue and Conversion Rate by Session Length
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - totals.timeonsite_tier
+    - totals.transaction_conversion_rate
+    - totals.average_revenue_per_transaction
+    - totals.transactionRevenue_total
+    filters:
+      totals.timeonsite_tier: "-Undefined"
+    sorts:
+    - totals.timeonsite_tier
+    limit: 500
+    column_limit: 50
+    query_timezone: America/New_York
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_points: true
+    point_style: circle
+    interpolation: monotone
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    series_types:
+      total_transaction_revenue: column
+      totals.transactionRevenue_total: column
+    series_colors: {}
+    hidden_fields: []
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: totals.transaction_conversion_rate
+        name: Transaction Conversion Rate
+        axisId: totals.transaction_conversion_rate
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 761
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 749
+    - label:
+      maxValue:
+      minValue:
+      orientation: right
+      showLabels: true
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: totals.transactionRevenue_total
+        name: Transaction Revenue Total
+        axisId: totals.transactionRevenue_total
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 780
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 768
+    - label:
+      maxValue:
+      minValue:
+      orientation: right
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom:
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: totals.average_revenue_per_transaction
+        name: Average Revenue per Transaction
+        axisId: totals.average_revenue_per_transaction
+        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+        __LINE_NUM: 799
+      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
+      __LINE_NUM: 787
+    x_axis_reversed: false
+    y_axis_reversed: false
+    colors:
+    - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    listen:
+      Campaign: trafficSource.campaign
+      Period: ga_sessions.period
+      First Time Visitor: ga_sessions.first_time_visitor
+    row: 21
+    col: 0
     width: 12
     height: 9
   - title: Revenue Conversion Rate by Visit Tier
@@ -632,9 +1567,9 @@
         name: Transaction Conversion Rate
         axisId: transaction_conversion_rate
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1036
+        __LINE_NUM: 631
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1024
+      __LINE_NUM: 619
     - label: Transaction Revenue
       maxValue:
       minValue:
@@ -651,9 +1586,9 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1055
+        __LINE_NUM: 650
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1043
+      __LINE_NUM: 638
     - label:
       maxValue:
       minValue:
@@ -670,9 +1605,9 @@
         name: Avg Revenue per Transaction
         axisId: avg_revenue_per_transaction
         __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1074
+        __LINE_NUM: 669
       __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1062
+      __LINE_NUM: 657
     hidden_series:
     - average_time_on_site_per_session
     - average_pageview_per_session
@@ -692,287 +1627,11 @@
     y_axis_reversed: false
     listen:
       Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 25
+    row: 21
     col: 12
     width: 12
-    height: 9
-  - title: Revenue and Conversion Rate by Session Length
-    name: Revenue and Conversion Rate by Session Length
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_line
-    fields:
-    - totals.timeonsite_tier
-    - totals.transaction_conversion_rate
-    - totals.average_revenue_per_transaction
-    - totals.transactionRevenue_total
-    filters:
-      totals.timeonsite_tier: "-Undefined"
-    sorts:
-    - totals.timeonsite_tier
-    limit: 500
-    column_limit: 50
-    query_timezone: America/New_York
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types:
-      total_transaction_revenue: column
-      totals.transactionRevenue_total: column
-    series_colors: {}
-    hidden_fields: []
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: totals.transaction_conversion_rate
-        name: Transaction Conversion Rate
-        axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 884
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 872
-    - label:
-      maxValue:
-      minValue:
-      orientation: right
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: totals.transactionRevenue_total
-        name: Transaction Revenue Total
-        axisId: totals.transactionRevenue_total
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 903
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 891
-    - label:
-      maxValue:
-      minValue:
-      orientation: right
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: totals.average_revenue_per_transaction
-        name: Average Revenue per Transaction
-        axisId: totals.average_revenue_per_transaction
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 922
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 910
-    x_axis_reversed: false
-    y_axis_reversed: false
-    colors:
-    - "#B9E49A"
-    - "#FF666C"
-    - "#58A9F5"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 25
-    col: 0
-    width: 12
-    height: 9
-  - title: Revenue and Conversion Rate by First Page Visited
-    name: Revenue and Conversion Rate by First Page Visited
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_line
-    fields:
-    - ga_sessions.session_count
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    - first_page.pageTitle
-    filters: {}
-    sorts:
-    - ga_sessions.session_count desc
-    limit: 10
-    column_limit: 50
-    dynamic_fields:
-    - table_calculation: transaction_conversion_rate
-      label: Transaction Conversion Rate
-      expression: "${totals.transactions_count}/${ga_sessions.session_count}"
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      _type_hint: number
-    - table_calculation: avg_revenue_per_transaction
-      label: Avg Revenue per Transaction
-      expression: "${totals.transactionRevenue_total}/${totals.transactions_count}"
-      value_format:
-      value_format_name: usd_0
-      _kind_hint: measure
-      _type_hint: number
-    - table_calculation: total_transaction_revenue
-      label: Total Transaction Revenue
-      expression: "${totals.transactionRevenue_total}"
-      value_format:
-      value_format_name: usd_0
-      _kind_hint: measure
-      _type_hint: number
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    hidden_fields:
-    - ga_sessions.session_count
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    series_types:
-      total_transaction_revenue: column
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: transaction_conversion_rate
-        name: Transaction Conversion Rate
-        axisId: transaction_conversion_rate
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1186
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1174
-    - label: Transaction Revenue
-      maxValue:
-      minValue:
-      orientation: right
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: avg_revenue_per_transaction
-        name: Avg Revenue per Transaction
-        axisId: avg_revenue_per_transaction
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1205
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1193
-    - label:
-      maxValue:
-      minValue:
-      orientation: right
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: total_transaction_revenue
-        name: Total Transaction Revenue
-        axisId: total_transaction_revenue
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 1224
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 1212
-    series_colors: {}
-    colors:
-    - "#B9E49A"
-    - "#FF666C"
-    - "#58A9F5"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 34
-    col: 0
-    width: 24
     height: 9
   - title: First Page Visited (Full Detail)
     name: First Page Visited (Full Detail)
@@ -1044,215 +1703,12 @@
     conditional_formatting_include_nulls: false
     listen:
       Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 43
+    row: 41
     col: 0
     width: 24
     height: 6
-  - title: Time Series
-    name: Time Series
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_line
-    fields:
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    - ga_sessions.visitStart_date
-    - totals.transaction_conversion_rate
-    - totals.average_revenue_per_transaction
-    filters:
-      trafficSource.keyword: "-NULL"
-      totals.transactionRevenue_total: ">0"
-    sorts:
-    - ga_sessions.visitStart_date desc
-    limit: 14
-    column_limit: 50
-    dynamic_fields:
-    - table_calculation: percent_of_visitors_w_transactions
-      label: Percent of Visitors w/ Transactions
-      expression: "${totals.transactions_count}/${ga_sessions.total_visitors}"
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      _type_hint: number
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: true
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    query_timezone: America/Los_Angeles
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    ordering: none
-    show_null_labels: false
-    series_types: {}
-    y_axis_labels: []
-    hidden_series:
-    - totals.transactions_count
-    - totals.transaction_conversion_rate
-    - percent_of_visitors_w_transactions
-    y_axis_orientation:
-    - left
-    - right
-    hidden_fields:
-    series_colors: {}
-    series_labels: {}
-    label_color: []
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
-        axisId: percent_of_visitors_w_transactions
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 395
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 383
-    - label:
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: ga_sessions.total_visitors
-        name: Total Visitors
-        axisId: ga_sessions.total_visitors
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 414
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 402
-    - label:
-      orientation: left
-      series:
-      - id: totals.transactions_count
-        name: Transactions Count
-        axisId: totals.transactions_count
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 424
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 421
-    - label:
-      orientation: left
-      series:
-      - id: totals.transactionRevenue_total
-        name: Transaction Revenue Total
-        axisId: totals.transactionRevenue_total
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 443
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 440
-    - label:
-      orientation: left
-      series:
-      - id: totals.transaction_conversion_rate
-        name: Transaction Conversion Rate
-        axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 462
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 459
-    - label:
-      orientation: left
-      series:
-      - id: totals.average_revenue_per_transaction
-        name: Average Revenue per Transaction
-        axisId: totals.average_revenue_per_transaction
-        __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-        __LINE_NUM: 481
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/transactions_conversions_revenue.dashboard.lookml
-      __LINE_NUM: 478
-    colors:
-    - "#B9E49A"
-    - "#FF666C"
-    - "#58A9F5"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    listen:
-      Campaign: trafficSource.campaign
-      Date: ga_sessions.partition_date
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 5
-    col: 0
-    width: 24
-    height: 9
   filters:
   - name: Campaign
     title: Campaign
@@ -1264,12 +1720,16 @@
     explore: ga_sessions
     listens_to_filters: []
     field: trafficSource.campaign
-  - name: Date
-    title: Date
-    type: date_filter
-    default_value: 12 months
+  - name: Period
+    title: Period
+    type: field_filter
+    default_value: day
     allow_multiple_values: true
     required: false
+    model: event_analytics
+    explore: ga_sessions
+    listens_to_filters: []
+    field: ga_sessions.period
   - name: First Time Visitor
     title: First Time Visitor
     type: field_filter
