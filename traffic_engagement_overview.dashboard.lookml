@@ -10,20 +10,43 @@
   - title: Unique Visitors
     name: Unique Visitors
     model: event_analytics
-    explore: ga_sessions
+    explore: period_fact
     type: single_value
     fields:
     - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.returning_visitors
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
     limit: 500
     column_limit: 50
-    query_timezone: America/New_York
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
     custom_color_enabled: false
     custom_color: forestgreen
     show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
+    show_comparison: true
+    comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     stacking: ''
     show_value_labels: false
     label_density: 25
@@ -41,37 +64,133 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
     series_types: {}
     listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
+    row: 0
     col: 5
     width: 5
     height: 2
   - title: Total Visitors
     name: Total Visitors
     model: event_analytics
-    explore: ga_sessions
+    explore: period_fact
     type: single_value
     fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounces
+    - last_fact.bounces
+    - ga_sessions.first_time_visitors
+    - last_fact.first_time_visitors
     - ga_sessions.total_visitors
+    - last_fact.total_visitors
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
     limit: 500
     column_limit: 50
-    query_timezone: America/New_York
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounces_change
+      label: Bounces % Change
+      expression: "(${ga_sessions.bounces} - ${last_fact.bounces}) / ${ga_sessions.bounces}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: first_time_visitors_change
+      label: First Time Visitors % Change
+      expression: "(${ga_sessions.first_time_visitors} - ${last_fact.first_time_visitors})\
+        \ / ${last_fact.first_time_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_visitors_change
+      label: Total Visitors % Change
+      expression: "(${ga_sessions.total_visitors} - ${last_fact.total_visitors}) /\
+        \ ${last_fact.total_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
     custom_color_enabled: false
     custom_color: forestgreen
     show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
+    show_comparison: true
+    comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     stacking: ''
     show_value_labels: false
     label_density: 25
@@ -89,37 +208,879 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.bounces
+    - time_on_site_avg_per_session_change
+    - ga_sessions.bounces
+    - bounces_change
+    - returning_visitors_change
+    - last_fact.first_time_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.total_visitors
+    - first_time_visitors_change
+    - ga_sessions.first_time_visitors
     series_types: {}
     listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
+    row: 0
+    col: 0
+    width: 5
+    height: 2
+  - title: Avg Session Length
+    name: Avg Session Length
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    series_types: {}
+    listen:
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
+    row: 0
+    col: 10
+    width: 5
+    height: 2
+  - title: Returning Visitors
+    name: Returning Visitors
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounces
+    - last_fact.bounces
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounces_change
+      label: Bounces % Change
+      expression: "(${ga_sessions.bounces} - ${last_fact.bounces}) / ${ga_sessions.bounces}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.bounces
+    - time_on_site_avg_per_session_change
+    - bounces_change
+    - ga_sessions.bounces
+    series_types: {}
+    listen:
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
     row: 2
     col: 0
+    width: 5
+    height: 2
+  - title: Bounces
+    name: Bounces
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounces
+    - last_fact.bounces
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounces_change
+      label: Bounces % Change
+      expression: "(${ga_sessions.bounces} - ${last_fact.bounces}) / ${ga_sessions.bounces}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.bounces
+    - time_on_site_avg_per_session_change
+    series_types: {}
+    listen:
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
+    row: 2
+    col: 5
+    width: 5
+    height: 2
+  - title: Avg Page Views
+    name: Avg Page Views
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounces
+    - last_fact.bounces
+    - ga_sessions.first_time_visitors
+    - last_fact.first_time_visitors
+    - ga_sessions.total_visitors
+    - last_fact.total_visitors
+    - last_fact.avg_sessions_per_visitor
+    - ga_sessions.avg_sessions_per_visitor
+    - ga_sessions.page_views_per_session
+    - last_fact.page_views_per_session
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounces_change
+      label: Bounces % Change
+      expression: "(${ga_sessions.bounces} - ${last_fact.bounces}) / ${ga_sessions.bounces}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: first_time_visitors_change
+      label: First Time Visitors % Change
+      expression: "(${ga_sessions.first_time_visitors} - ${last_fact.first_time_visitors})\
+        \ / ${last_fact.first_time_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_visitors_change
+      label: Total Visitors % Change
+      expression: "(${ga_sessions.total_visitors} - ${last_fact.total_visitors}) /\
+        \ ${last_fact.total_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: avg_sessions_per_visitor_change
+      label: Avg Sessions per Visitor % Change
+      expression: "(${ga_sessions.avg_sessions_per_visitor} - ${last_fact.avg_sessions_per_visitor})\
+        \ / ${last_fact.avg_sessions_per_visitor}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: avg_page_views_change
+      label: Avg Page Views % Change
+      expression: "(${ga_sessions.page_views_per_session} - ${last_fact.page_views_per_session})\
+        \ / ${last_fact.page_views_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.bounces
+    - time_on_site_avg_per_session_change
+    - ga_sessions.bounces
+    - bounces_change
+    - returning_visitors_change
+    - last_fact.first_time_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.total_visitors
+    - first_time_visitors_change
+    - ga_sessions.first_time_visitors
+    - ga_sessions.total_visitors
+    - last_fact.avg_sessions_per_visitor
+    - last_fact.page_views_per_session
+    - total_visitors_change
+    - avg_sessions_per_visitor_change
+    - ga_sessions.avg_sessions_per_visitor
+    series_types: {}
+    listen:
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
+    row: 2
+    col: 10
+    width: 5
+    height: 2
+  - title: Bounce Rate
+    name: Bounce Rate
+    model: event_analytics
+    explore: period_fact
+    type: single_value
+    fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounce_rate
+    - last_fact.bounce_rate
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounce_rate_change
+      label: Bounce Rate Change
+      expression: "(${ga_sessions.bounce_rate} - ${last_fact.bounce_rate}) "
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: false
+    custom_color: forestgreen
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - returning_visitors_change
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - last_fact.bounce_rate
+    - time_on_site_avg_per_session_change
+    - ga_sessions.time_on_site_average_per_session
+    series_types: {}
+    listen:
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
+    row: 4
+    col: 5
     width: 5
     height: 2
   - title: First Time Visitors
     name: First Time Visitors
     model: event_analytics
-    explore: ga_sessions
+    explore: period_fact
     type: single_value
     fields:
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounces
+    - last_fact.bounces
     - ga_sessions.first_time_visitors
+    - last_fact.first_time_visitors
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
     limit: 500
     column_limit: 50
-    query_timezone: America/New_York
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounces_change
+      label: Bounces % Change
+      expression: "(${ga_sessions.bounces} - ${last_fact.bounces}) / ${ga_sessions.bounces}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: first_time_visitors_change
+      label: First Time Visitors % Change
+      expression: "(${ga_sessions.first_time_visitors} - ${last_fact.first_time_visitors})\
+        \ / ${last_fact.first_time_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
     custom_color_enabled: false
     custom_color: forestgreen
     show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
+    show_comparison: true
+    comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     stacking: ''
     show_value_labels: false
     label_density: 25
@@ -137,37 +1098,161 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.bounces
+    - time_on_site_avg_per_session_change
+    - ga_sessions.bounces
+    - bounces_change
+    - returning_visitors_change
+    - last_fact.first_time_visitors
+    - ga_sessions.returning_visitors
     series_types: {}
     listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
     row: 4
     col: 0
     width: 5
     height: 2
-  - title: Avg Pageviews
-    name: Avg Pageviews
+  - title: Sessions Per Visitor
+    name: Sessions Per Visitor
     model: event_analytics
-    explore: ga_sessions
+    explore: period_fact
     type: single_value
     fields:
-    - totals.page_views_session
+    - ga_sessions.unique_visitors
+    - last_fact.unique_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.returning_visitors
+    - ga_sessions.session_count
+    - last_fact.session_count
+    - ga_sessions.transaction_revenue_total
+    - last_fact.transaction_revenue_total
+    - ga_sessions.revenue_per_transaction
+    - last_fact.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.time_on_site_average_per_session
+    - ga_sessions.bounces
+    - last_fact.bounces
+    - ga_sessions.first_time_visitors
+    - last_fact.first_time_visitors
+    - ga_sessions.total_visitors
+    - last_fact.total_visitors
+    - last_fact.avg_sessions_per_visitor
+    - ga_sessions.avg_sessions_per_visitor
+    filters:
+      ga_sessions.date_period_latest: 'Yes'
+      ga_sessions.country: ''
     limit: 500
     column_limit: 50
-    query_timezone: America/New_York
+    dynamic_fields:
+    - table_calculation: visitors_change
+      label: Visitors % Change
+      expression: "(${ga_sessions.unique_visitors} - ${last_fact.unique_visitors})\
+        \ / ${last_fact.unique_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: returning_visitors_change
+      label: Returning Visitors % Change
+      expression: "(${ga_sessions.returning_visitors} - ${last_fact.returning_visitors})\
+        \ / ${last_fact.returning_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: session_count_change
+      label: Session Count % Change
+      expression: "(${ga_sessions.session_count} - ${last_fact.session_count}) / ${last_fact.session_count}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_revenue_change
+      label: Total Revenue % Change
+      expression: "(${ga_sessions.transaction_revenue_total} - ${last_fact.transaction_revenue_total})\
+        \ / ${last_fact.transaction_revenue_total}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: revenue_per_transaction_chnage
+      label: Revenue Per Transaction Chnage
+      expression: "${ga_sessions.revenue_per_transaction} - ${last_fact.revenue_per_transaction}"
+      value_format:
+      value_format_name: usd_0
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: time_on_site_avg_per_session_change
+      label: Time On Site Avg Per Session % Change
+      expression: "(${ga_sessions.time_on_site_average_per_session} - ${last_fact.time_on_site_average_per_session})\
+        \ / ${last_fact.time_on_site_average_per_session}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: bounces_change
+      label: Bounces % Change
+      expression: "(${ga_sessions.bounces} - ${last_fact.bounces}) / ${ga_sessions.bounces}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: first_time_visitors_change
+      label: First Time Visitors % Change
+      expression: "(${ga_sessions.first_time_visitors} - ${last_fact.first_time_visitors})\
+        \ / ${last_fact.first_time_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: total_visitors_change
+      label: Total Visitors % Change
+      expression: "(${ga_sessions.total_visitors} - ${last_fact.total_visitors}) /\
+        \ ${last_fact.total_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: avg_sessions_per_visitor_change
+      label: Avg Sessions per Visitor % Change
+      expression: "(${ga_sessions.avg_sessions_per_visitor} - ${last_fact.avg_sessions_per_visitor})\
+        \ / ${last_fact.avg_sessions_per_visitor}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    query_timezone: America/Los_Angeles
     custom_color_enabled: false
     custom_color: forestgreen
     show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
+    show_comparison: true
+    comparison_type: change
     comparison_reverse_colors: false
-    show_comparison_label: true
+    show_comparison_label: false
     stacking: ''
     show_value_labels: false
     label_density: 25
@@ -185,20 +1270,218 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - last_fact.unique_visitors
+    - last_fact.returning_visitors
+    - visitors_change
+    - last_fact.session_count
+    - ga_sessions.unique_visitors
+    - last_fact.transaction_revenue_total
+    - ga_sessions.session_count
+    - session_count_change
+    - ga_sessions.transaction_revenue_total
+    - total_revenue_change
+    - last_fact.revenue_per_transaction
+    - last_fact.time_on_site_average_per_session
+    - revenue_per_transaction_chnage
+    - ga_sessions.revenue_per_transaction
+    - ga_sessions.time_on_site_average_per_session
+    - last_fact.bounces
+    - time_on_site_avg_per_session_change
+    - ga_sessions.bounces
+    - bounces_change
+    - returning_visitors_change
+    - last_fact.first_time_visitors
+    - ga_sessions.returning_visitors
+    - last_fact.total_visitors
+    - first_time_visitors_change
+    - ga_sessions.first_time_visitors
+    - ga_sessions.total_visitors
+    - last_fact.avg_sessions_per_visitor
+    - total_visitors_change
+    series_types: {}
+    listen:
+      Period: ga_sessions.period
+      Campaign: ga_sessions.campaign
+    row: 6
+    col: 10
+    width: 5
+    height: 2
+  - title: Time Series
+    name: Time Series
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - ga_sessions.visitStart_date
+    - ga_sessions.unique_visitors
+    - ga_sessions.returning_visitors
+    - ga_sessions.average_sessions_ver_visitor
+    - totals.timeonsite_average_per_session
+    - totals.page_views_session
+    - totals.bounce_rate
+    fill_fields:
+    - ga_sessions.visitStart_date
+    sorts:
+    - ga_sessions.visitStart_date desc
+    limit: 500
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    show_null_points: true
+    point_style: circle
+    interpolation: monotone
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
     series_types: {}
+    colors:
+    - "#58A9F5"
+    - "#FF666C"
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    series_colors: {}
+    y_axes:
+    - label: ''
+      orientation: left
+      series:
+      - id: ga_sessions.unique_visitors
+        name: Session Unique Visitors
+        axisId: ga_sessions.unique_visitors
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 896
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 893
+    - label:
+      orientation: left
+      series:
+      - id: ga_sessions.average_sessions_ver_visitor
+        name: Session Average Sessions Ver Visitor
+        axisId: ga_sessions.average_sessions_ver_visitor
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 912
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 909
+    - label:
+      orientation: left
+      series:
+      - id: ga_sessions.returning_visitors
+        name: Session Returning Visitors
+        axisId: ga_sessions.returning_visitors
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 928
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 925
+    - label:
+      orientation: left
+      series:
+      - id: totals.timeonsite_average_per_session
+        name: Session Time On Site Average Per Session
+        axisId: totals.timeonsite_average_per_session
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 944
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 941
+    - label:
+      orientation: left
+      series:
+      - id: totals.bounce_rate
+        name: Session Bounce Rate
+        axisId: totals.bounce_rate
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 960
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 957
+    - label:
+      orientation: left
+      series:
+      - id: totals.page_views_session
+        name: Session PageViews Per Session
+        axisId: totals.page_views_session
+        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __LINE_NUM: 976
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __LINE_NUM: 973
+    hidden_series:
+    - ga_sessions.returning_visitors
+    - ga_sessions.average_sessions_ver_visitor
+    - totals.page_views_session
+    - totals.bounce_rate
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 4
-    col: 10
-    width: 5
-    height: 2
+    row: 8
+    col: 0
+    width: 24
+    height: 6
   - title: Visitor Locations
     name: Visitor Locations
     model: event_analytics
@@ -241,36 +1524,35 @@
     map_longitude: 0
     map_zoom: 1
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
+    row: 0
     col: 15
     width: 9
     height: 6
-  - title: Bounces
-    name: Bounces
+  - title: User Conversion Funnel by Source
+    name: User Conversion Funnel by Source
     model: event_analytics
     explore: ga_sessions
-    type: single_value
+    type: looker_column
     fields:
-    - totals.bounces_total
-    limit: 500
+    - trafficSource.source
+    - ga_sessions.session_count
+    - ga_sessions.unique_visitors
+    - totals.transactions_count
+    sorts:
+    - ga_sessions.session_count desc
+    limit: 3
     column_limit: 50
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
+    query_timezone: America/New_York
     stacking: ''
     show_value_labels: false
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: true
+    show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
@@ -281,141 +1563,57 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    show_dropoff: true
+    series_colors: {}
+    colors:
+    - "#B9E49A"
+    - "#58A9F5"
+    - "#FF666C"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
     x_axis_reversed: false
     y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 4
-    col: 5
-    width: 5
-    height: 2
-  - title: Avg Session Length
-    name: Avg Session Length
-    model: event_analytics
-    explore: ga_sessions
-    type: single_value
-    fields:
-    - totals.timeonsite_average_per_session
-    limit: 500
-    column_limit: 50
-    query_timezone: America/New_York
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 2
-    col: 10
-    width: 5
-    height: 2
-  - title: Returning Visitors
-    name: Returning Visitors
-    model: event_analytics
-    explore: ga_sessions
-    type: single_value
-    fields:
-    - ga_sessions.returning_visitors
-    limit: 500
-    column_limit: 50
-    query_timezone: America/New_York
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 6
+    row: 14
     col: 0
-    width: 5
-    height: 2
-  - title: Bounce Rate
-    name: Bounce Rate
+    width: 12
+    height: 8
+  - title: User Conversion Funnel by Keyword
+    name: User Conversion Funnel by Keyword
     model: event_analytics
     explore: ga_sessions
-    type: single_value
+    type: looker_column
     fields:
-    - totals.bounce_rate
-    limit: 500
+    - trafficSource.keyword
+    - ga_sessions.session_count
+    - ga_sessions.unique_visitors
+    - totals.transactions_count
+    sorts:
+    - ga_sessions.session_count desc
+    limit: 3
     column_limit: 50
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
+    query_timezone: America/New_York
     stacking: ''
     show_value_labels: false
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: true
+    show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
@@ -426,47 +1624,74 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    series_types: {}
+    show_dropoff: true
+    series_colors: {}
+    colors:
+    - "#B9E49A"
+    - "#58A9F5"
+    - "#FF666C"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    x_axis_reversed: false
+    y_axis_reversed: false
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 6
-    col: 5
-    width: 5
-    height: 2
-  - title: Sessions per Visitor
-    name: Sessions per Visitor
+    row: 14
+    col: 12
+    width: 12
+    height: 8
+  - title: Keyword Full Detail
+    name: Keyword Full Detail
     model: event_analytics
     explore: ga_sessions
-    type: single_value
+    type: table
     fields:
-    - ga_sessions.average_sessions_ver_visitor
+    - trafficSource.keyword
+    - ga_sessions.session_count
+    - totals.visits_total
+    - ga_sessions.returning_visitors
+    - ga_sessions.unique_visitors
+    - totals.page_views_session
+    - totals.timeonsite_average_per_session
+    - totals.transactions_count
+    - totals.transactionRevenue_total
+    filters:
+      trafficSource.keyword: "-NULL,-(not provided)"
+    sorts:
+    - ga_sessions.session_count desc
     limit: 500
     column_limit: 50
     query_timezone: America/New_York
-    custom_color_enabled: false
-    custom_color: forestgreen
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
+    show_view_names: true
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: gray
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    conditional_formatting_ignored_fields: []
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
     stacking: ''
     show_value_labels: false
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -483,13 +1708,13 @@
     totals_color: "#808080"
     series_types: {}
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
-    row: 6
-    col: 10
-    width: 5
-    height: 2
+    row: 22
+    col: 12
+    width: 12
+    height: 12
   - title: Engagement by Keyword Search
     name: Engagement by Keyword Search
     model: event_analytics
@@ -588,9 +1813,9 @@
       - id: total_sessions
         name: Total Sessions
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 767
+        __LINE_NUM: 588
       __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 755
+      __LINE_NUM: 576
     - label:
       maxValue:
       minValue:
@@ -606,17 +1831,17 @@
       - id: average_time_per_session
         name: Average Time per Session
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 785
+        __LINE_NUM: 606
       - id: average_time_spent_per_page
         name: Average Time Spent per Page
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 789
+        __LINE_NUM: 610
       - id: average_pageviews_per_session
         name: Average Pageviews per Session
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 793
+        __LINE_NUM: 614
       __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 773
+      __LINE_NUM: 594
     series_colors: {}
     hidden_fields:
     - totals.page_views_session
@@ -638,73 +1863,11 @@
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
     row: 22
     col: 0
-    width: 12
-    height: 12
-  - title: Keyword Full Detail
-    name: Keyword Full Detail
-    model: event_analytics
-    explore: ga_sessions
-    type: table
-    fields:
-    - trafficSource.keyword
-    - ga_sessions.session_count
-    - totals.visits_total
-    - ga_sessions.returning_visitors
-    - ga_sessions.unique_visitors
-    - totals.page_views_session
-    - totals.timeonsite_average_per_session
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    filters:
-      trafficSource.keyword: "-NULL,-(not provided)"
-    sorts:
-    - ga_sessions.session_count desc
-    limit: 500
-    column_limit: 50
-    query_timezone: America/New_York
-    show_view_names: true
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: gray
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    conditional_formatting_ignored_fields: []
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 22
-    col: 12
     width: 12
     height: 12
   - title: Traffic Source Full Detail
@@ -760,365 +1923,13 @@
     totals_color: "#808080"
     series_types: {}
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
     row: 34
     col: 0
     width: 12
     height: 12
-  - title: Top 15 Pages - First Page Visited
-    name: Top 15 Pages - First Page Visited
-    model: event_analytics
-    explore: ga_sessions
-    type: table
-    fields:
-    - totals.pageviews_total
-    - ga_sessions.session_count
-    - totals.page_views_session
-    - totals.timeonsite_average_per_session
-    - ga_sessions.unique_visitors
-    - ga_sessions.returning_visitors
-    - totals.bounces_total
-    - totals.bounce_rate
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    - first_page.pageTitle
-    sorts:
-    - ga_sessions.session_count desc
-    limit: 15
-    column_limit: 50
-    query_timezone: America/New_York
-    show_view_names: false
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: gray
-    limit_displayed_rows: false
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    y_axis_combined: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    font_size: '12'
-    series_types: {}
-    enable_conditional_formatting: false
-    conditional_formatting_ignored_fields: []
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 54
-    col: 0
-    width: 24
-    height: 8
-  - title: Time Series
-    name: Time Series
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_line
-    fields:
-    - ga_sessions.visitStart_date
-    - ga_sessions.unique_visitors
-    - ga_sessions.returning_visitors
-    - ga_sessions.average_sessions_ver_visitor
-    - totals.timeonsite_average_per_session
-    - totals.page_views_session
-    - totals.bounce_rate
-    fill_fields:
-    - ga_sessions.visitStart_date
-    sorts:
-    - ga_sessions.visitStart_date desc
-    limit: 500
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    colors:
-    - "#58A9F5"
-    - "#FF666C"
-    - "#B9E49A"
-    - "#FDCB6C"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    series_colors: {}
-    y_axes:
-    - label: ''
-      orientation: left
-      series:
-      - id: ga_sessions.unique_visitors
-        name: Session Unique Visitors
-        axisId: ga_sessions.unique_visitors
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1201
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1198
-    - label:
-      orientation: left
-      series:
-      - id: ga_sessions.average_sessions_ver_visitor
-        name: Session Average Sessions Ver Visitor
-        axisId: ga_sessions.average_sessions_ver_visitor
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1217
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1214
-    - label:
-      orientation: left
-      series:
-      - id: ga_sessions.returning_visitors
-        name: Session Returning Visitors
-        axisId: ga_sessions.returning_visitors
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1233
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1230
-    - label:
-      orientation: left
-      series:
-      - id: totals.timeonsite_average_per_session
-        name: Session Time On Site Average Per Session
-        axisId: totals.timeonsite_average_per_session
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1249
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1246
-    - label:
-      orientation: left
-      series:
-      - id: totals.bounce_rate
-        name: Session Bounce Rate
-        axisId: totals.bounce_rate
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1265
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1262
-    - label:
-      orientation: left
-      series:
-      - id: totals.page_views_session
-        name: Session PageViews Per Session
-        axisId: totals.page_views_session
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1281
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1278
-    hidden_series:
-    - ga_sessions.returning_visitors
-    - ga_sessions.average_sessions_ver_visitor
-    - totals.page_views_session
-    - totals.bounce_rate
-    row: 8
-    col: 0
-    width: 24
-    height: 6
-  - title: User Conversion Funnel by Source
-    name: User Conversion Funnel by Source
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_column
-    fields:
-    - trafficSource.source
-    - ga_sessions.session_count
-    - ga_sessions.unique_visitors
-    - totals.transactions_count
-    filters: {}
-    sorts:
-    - ga_sessions.session_count desc
-    limit: 3
-    column_limit: 50
-    query_timezone: America/New_York
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_dropoff: true
-    series_colors: {}
-    colors:
-    - "#B9E49A"
-    - "#58A9F5"
-    - "#FF666C"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 14
-    col: 0
-    width: 12
-    height: 8
-  - title: User Conversion Funnel by Keyword
-    name: User Conversion Funnel by Keyword
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_column
-    fields:
-    - trafficSource.keyword
-    - ga_sessions.session_count
-    - ga_sessions.unique_visitors
-    - totals.transactions_count
-    filters: {}
-    sorts:
-    - ga_sessions.session_count desc
-    limit: 3
-    column_limit: 50
-    query_timezone: America/New_York
-    stacking: ''
-    show_value_labels: false
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_dropoff: true
-    series_colors: {}
-    colors:
-    - "#B9E49A"
-    - "#58A9F5"
-    - "#FF666C"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Date: ga_sessions.partition_date
-      Campaign: trafficSource.campaign
-      First Time Visitor: ga_sessions.first_time_visitor
-    row: 14
-    col: 12
-    width: 12
-    height: 8
   - title: Top Performing First Pages Visited
     name: Top Performing First Pages Visited
     model: event_analytics
@@ -1130,7 +1941,6 @@
     - totals.page_views_session
     - ga_sessions.session_count
     - totals.timeonsite_average_per_session
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 10
@@ -1215,19 +2025,19 @@
         name: Average Time Spent per Page
         axisId: average_time_spent_per_page
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1075
+        __LINE_NUM: 1214
       - id: average_pageviews_per_session
         name: Average Pageviews per Session
         axisId: average_pageviews_per_session
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1080
+        __LINE_NUM: 1219
       - id: average_time_per_session
         name: Average Time per Session
         axisId: average_time_per_session
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1085
+        __LINE_NUM: 1224
       __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1063
+      __LINE_NUM: 1202
     - label:
       maxValue:
       minValue:
@@ -1244,9 +2054,9 @@
         name: Total Sessions
         axisId: total_sessions
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 1104
+        __LINE_NUM: 1243
       __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 1092
+      __LINE_NUM: 1231
     hidden_series:
     - average_time_spent_per_page
     - average_pageviews_per_session
@@ -1265,10 +2075,73 @@
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
     row: 46
+    col: 0
+    width: 24
+    height: 8
+  - title: Top 15 Pages - First Page Visited
+    name: Top 15 Pages - First Page Visited
+    model: event_analytics
+    explore: ga_sessions
+    type: table
+    fields:
+    - totals.pageviews_total
+    - ga_sessions.session_count
+    - totals.page_views_session
+    - totals.timeonsite_average_per_session
+    - ga_sessions.unique_visitors
+    - ga_sessions.returning_visitors
+    - totals.bounces_total
+    - totals.bounce_rate
+    - totals.transactions_count
+    - totals.transactionRevenue_total
+    - first_page.pageTitle
+    sorts:
+    - ga_sessions.session_count desc
+    limit: 15
+    column_limit: 50
+    query_timezone: America/New_York
+    show_view_names: false
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: gray
+    limit_displayed_rows: false
+    stacking: ''
+    show_value_labels: false
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    y_axis_combined: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    font_size: '12'
+    series_types: {}
+    enable_conditional_formatting: false
+    conditional_formatting_ignored_fields: []
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    listen:
+      Period: ga_sessions.period
+      Campaign: trafficSource.campaign
+      First Time Visitor: ga_sessions.first_time_visitor
+    row: 54
     col: 0
     width: 24
     height: 8
@@ -1282,7 +2155,6 @@
     - totals.page_views_session
     - totals.timeonsite_average_per_session
     - ga_sessions.session_count
-    filters: {}
     sorts:
     - ga_sessions.session_count desc
     limit: 10
@@ -1369,20 +2241,20 @@
       - id: average_pageviews_per_session
         name: Average Pageviews per Session
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 920
+        __LINE_NUM: 1369
         axisId: average_pageviews_per_session
       - id: average_time_per_session
         name: Average Time per Session
         axisId: average_time_per_session
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 925
+        __LINE_NUM: 1374
       - id: average_time_spent_per_page
         name: Average Time Spent per Page
         axisId: average_time_spent_per_page
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 930
+        __LINE_NUM: 1379
       __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 908
+      __LINE_NUM: 1357
     - label:
       maxValue:
       minValue:
@@ -1398,10 +2270,10 @@
       - id: total_sessions
         name: Total Sessions
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-        __LINE_NUM: 949
+        __LINE_NUM: 1398
         axisId: total_sessions
       __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
-      __LINE_NUM: 937
+      __LINE_NUM: 1386
     series_colors: {}
     hidden_fields:
     - totals.page_views_session
@@ -1423,7 +2295,7 @@
     x_axis_reversed: false
     y_axis_reversed: false
     listen:
-      Date: ga_sessions.partition_date
+      Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time Visitor: ga_sessions.first_time_visitor
     row: 34
@@ -1431,12 +2303,16 @@
     width: 12
     height: 12
   filters:
-  - name: Date
-    title: Date
-    type: date_filter
-    default_value: 12 months
+  - name: Period
+    title: Period
+    type: field_filter
+    default_value: 364 day
     allow_multiple_values: true
     required: false
+    model: event_analytics
+    explore: ga_sessions
+    listens_to_filters: []
+    field: ga_sessions.period
   - name: Property (Website)
     title: Property (Website)
     type: string_filter

@@ -86,7 +86,7 @@
         "field": "ga_sessions.partition_date",
         "name": "Time Frame",
         "type": "TimeFrame",
-        "dashboardAlias": "Date"
+        "dashboardAlias": "Period"
       },
       {
         "field": "first_page.pageTitle",
@@ -221,7 +221,7 @@
               "field": "ga_sessions.partition_date",
               "name": "Time Frame",
               "type": "TimeFrame",
-              "dashboardAlias": "Date"
+              "dashboardAlias": "Period"
             },
             {
               "autoSuggest": {
