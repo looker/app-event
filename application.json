@@ -133,7 +133,7 @@
               "field": "ga_sessions.partition_date",
               "name": "Time Frame",
               "type": "TimeFrame",
-              "dashboardAlias": "Date"
+              "dashboardAlias": "Period"
             },
             {
               "autoSuggest": {
