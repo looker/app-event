@@ -103,3 +103,7 @@ view: cohort {
   }
 
 }
+
+explore: cohort {
+  hidden:  yes
+}
