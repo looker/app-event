@@ -103,5 +103,3 @@ view: cohort {
   }
 
 }
-
-explore: cohort {}
