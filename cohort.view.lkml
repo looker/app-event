@@ -42,43 +42,66 @@ view: cohort {
   dimension: first_start_date_week {
     type: date_week
     sql: ${TABLE}.first_start_date ;;
+    can_filter: no
   }
 
-  measure: session_count {
-    type: sum
+  dimension: session_count {
     sql:  ${TABLE}.session_count ;;
+    value_format_name: decimal_0
+    hidden:  yes
   }
 
-  measure: bounces {
-    type: sum
+  dimension: bounces {
     sql:  ${TABLE}.bounces ;;
+    value_format_name: decimal_0
+    hidden:  yes
   }
 
-  measure: bounce_rate {
-    type: number
-    sql: ${bounces} / ${session_count};;
-    value_format_name: percent_2
-  }
-
-  measure: hits_total {
-    type: sum
+  dimension: hits_total {
     sql: ${TABLE}.hits_total ;;
+    hidden:  yes
   }
 
-  measure: pageviews_total {
-    type: sum
+  dimension: pageviews_total {
     sql: ${TABLE}.page_views_total ;;
+    value_format_name: decimal_0
+    hidden:  yes
   }
 
-  measure: timeonsite_total {
-    type: sum
+  dimension: timeonsite_total {
+    label: "Time On Site Total"
     sql: ${TABLE}.time_on_site ;;
+    hidden:  yes
   }
 
   measure: transactions_count {
+    hidden:  yes
     type: sum
     sql: ${TABLE}.transactions_count ;;
+    value_format_name: decimal_0
   }
+
+  parameter: measure_picker {
+    type: string
+    allowed_value: { value: "Time On Site Total" }
+    allowed_value: { value: "Sessions Count" }
+    allowed_value: { value: "Bounces" }
+    allowed_value: { value: "Page Views" }
+    allowed_value: { value: "Total Hits" }
+  }
+
+  measure: selected_measure {
+    type: sum
+    sql: CASE WHEN {% parameter measure_picker %} = 'Time On Site Total' THEN ${timeonsite_total}
+        WHEN {% parameter measure_picker %} = 'Sessions Count' THEN ${session_count}
+        WHEN {% parameter measure_picker %} = 'Page Views Total' THEN ${pageviews_total}
+        WHEN {% parameter measure_picker %} = 'Bounces' THEN ${bounces}
+        WHEN {% parameter measure_picker %} = 'Total Hits' THEN ${hits_total}
+        ELSE 0
+      END ;;
+    value_format_name: decimal_0
+  }
+
 }
 
 explore: cohort {}
