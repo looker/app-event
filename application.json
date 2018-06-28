@@ -258,13 +258,6 @@
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Date"
-            },
-            {
-              "field": "first_page.pageTitle",
-              "dashboardAlias": "Page",
-              "name": "Page",
-              "type": "Table",
-              "tableID": "page"
             }
           ],
           "pageSections": [
@@ -312,7 +305,7 @@
                   "variations": [
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/cohort?fields=cohort.session_count,cohort.first_start_date_week,cohort.weeks_active&pivots=cohort.weeks_active&f[cohort.date]=7+weeks&sorts=cohort.first_start_date_week,cohort.weeks_active&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22table%22%2C%22show_view_names%22%3Atrue%2C%22show_row_numbers%22%3Atrue%2C%22truncate_column_names%22%3Afalse%2C%22hide_totals%22%3Afalse%2C%22hide_row_totals%22%3Afalse%2C%22table_theme%22%3A%22editable%22%2C%22limit_displayed_rows%22%3Afalse%2C%22enable_conditional_formatting%22%3Atrue%2C%22conditional_formatting_include_totals%22%3Afalse%2C%22conditional_formatting_include_nulls%22%3Afalse%2C%22conditional_formatting%22%3A%5B%7B%22type%22%3A%22low+to+high%22%2C%22value%22%3Anull%2C%22background_color%22%3Anull%2C%22font_color%22%3Anull%2C%22palette%22%3A%7B%22name%22%3A%22Red+to+White%22%2C%22colors%22%3A%5B%22%23F36254%22%2C%22%23FFFFFF%22%5D%7D%2C%22bold%22%3Afalse%2C%22italic%22%3Afalse%2C%22strikethrough%22%3Afalse%2C%22fields%22%3Anull%7D%5D%7D&filter_config=%7B%22cohort.date%22%3A%5B%7B%22type%22%3A%22past%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%22%2C%22unit%22%3A%22wk%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "exploreParams": "event_analytics/cohort?fields=cohort.selected_measure,cohort.first_start_date_week,cohort.weeks_active&pivots=cohort.weeks_active&fill_fields=cohort.first_start_date_week&f[cohort.measure_picker]=Total+Hits&f[cohort.date]=7+weeks&sorts=cohort.first_start_date_week,cohort.weeks_active&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22table%22%2C%22show_view_names%22%3Atrue%2C%22show_row_numbers%22%3Atrue%2C%22truncate_column_names%22%3Afalse%2C%22hide_totals%22%3Afalse%2C%22hide_row_totals%22%3Afalse%2C%22table_theme%22%3A%22editable%22%2C%22limit_displayed_rows%22%3Afalse%2C%22enable_conditional_formatting%22%3Atrue%2C%22conditional_formatting_include_totals%22%3Afalse%2C%22conditional_formatting_include_nulls%22%3Afalse%2C%22conditional_formatting%22%3A%5B%7B%22type%22%3A%22low+to+high%22%2C%22value%22%3Anull%2C%22background_color%22%3Anull%2C%22font_color%22%3Anull%2C%22palette%22%3A%7B%22name%22%3A%22Red+to+White%22%2C%22colors%22%3A%5B%22%23F36254%22%2C%22%23FFFFFF%22%5D%7D%2C%22bold%22%3Afalse%2C%22italic%22%3Afalse%2C%22strikethrough%22%3Afalse%2C%22fields%22%3Anull%7D%5D%7D&filter_config=%7B%22cohort.measure_picker%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Total+Hits%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22cohort.date%22%3A%5B%7B%22type%22%3A%22past%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%22%2C%22unit%22%3A%22wk%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
                       "name": "Retention Variation 1",
                       "permalink": "ga360_retention_variation1"
                     }
