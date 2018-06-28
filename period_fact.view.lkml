@@ -161,7 +161,7 @@ view: period_fact {
 
   measure: bounce_rate {
     type: number
-    sql: ${bounces} / ${session_count};;
+    sql: ${bounces} / NULLIF(${session_count}, 0);;
     value_format_name: percent_2
   }
 
