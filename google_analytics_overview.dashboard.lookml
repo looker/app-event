@@ -625,7 +625,6 @@
     - ga_sessions.bounce_rate
     - last_fact.bounce_rate
     filters:
-      ga_sessions.period: 28 day
       ga_sessions.date_period_latest: 'Yes'
     limit: 500
     dynamic_fields:
@@ -2289,13 +2288,13 @@
     fields:
     - ga_sessions.session_count
     - user_session_facts.weeks_active
-    - user_session_facts.first_start_date_week
+    - user_session_facts.first_start_week
     pivots:
     - user_session_facts.weeks_active
     filters:
       ga_sessions.date_period_latest: 'Yes'
     sorts:
-    - user_session_facts.first_start_date_week
+    - user_session_facts.first_start_week
     - user_session_facts.weeks_active 0
     limit: 7
     column_limit: 7
