@@ -53,7 +53,6 @@ view: page_funnel {
       FROM `looker-ga360.69266980.ga_sessions_*` AS sessions
         LEFT JOIN UNNEST(sessions.hits) as hits
         LEFT JOIN UNNEST([hits.page]) as hits_page
-      --WHERE {% condition ga_sessions.period %} TIMESTAMP_SECONDS(sessions.visitStarttime) {% endcondition %}
       GROUP BY 1,2,3
        ;;
   }
