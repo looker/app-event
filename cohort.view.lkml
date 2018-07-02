@@ -1,5 +1,9 @@
+include: "date_base.view"
+include: "period_base.view"
+
 
 view: cohort {
+  extends: [date_base, period_base]
   derived_table: {
     sql:  WITH user_session_facts AS (SELECT
         ga_sessions.fullVisitorId AS ga_sessions_fullvisitorid,
@@ -23,7 +27,8 @@ view: cohort {
         COALESCE(SUM(totals.hits ), 0) AS hits_total,
         COALESCE(SUM(totals.pageviews ), 0) AS page_views_total,
         COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
-        COALESCE(SUM(totals.transactions ), 0) AS transactions_count
+        COALESCE(SUM(totals.transactions ), 0) AS transactions_count,
+        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue
       FROM `looker-ga360.69266980.ga_sessions_*`  AS ga_sessions
       LEFT JOIN UNNEST([ga_sessions.totals]) as totals
       LEFT JOIN user_session_facts ON user_session_facts.ga_sessions_fullvisitorid = ga_sessions.fullVisitorId
@@ -34,12 +39,13 @@ view: cohort {
     type: number
   }
 
-  dimension: date {
+  dimension: first_date {
+    hidden: yes
     type: date
     sql: TIMESTAMP(${TABLE}.first_start_date);;
   }
 
-  dimension: first_start_date_week {
+  dimension: first_start_week {
     type: date_week
     sql: ${TABLE}.first_start_date ;;
     can_filter: no
@@ -81,6 +87,13 @@ view: cohort {
     value_format_name: decimal_0
   }
 
+  dimension: transaction_revenue {
+    hidden:  yes
+    type: number
+    sql: ${TABLE}.transaction_revenue ;;
+    value_format_name: usd
+  }
+
   parameter: measure_picker {
     type: string
     allowed_value: { value: "Time On Site Total" }
@@ -88,6 +101,7 @@ view: cohort {
     allowed_value: { value: "Bounces" }
     allowed_value: { value: "Page Views" }
     allowed_value: { value: "Total Hits" }
+    allowed_value: { value: "Revenue" }
   }
 
   measure: selected_measure {
@@ -97,13 +111,35 @@ view: cohort {
         WHEN {% parameter measure_picker %} = 'Page Views Total' THEN ${pageviews_total}
         WHEN {% parameter measure_picker %} = 'Bounces' THEN ${bounces}
         WHEN {% parameter measure_picker %} = 'Total Hits' THEN ${hits_total}
+        WHEN {% parameter measure_picker %} = 'Revenue' THEN ${transaction_revenue}
         ELSE 0
       END ;;
     value_format_name: decimal_0
+  }
+
+  dimension: _date {
+    sql: ${first_date} ;;
+    hidden:  yes
+  }
+
+  dimension: date {
+    hidden:  yes
+  }
+
+  dimension: date_end_of_period {
+    hidden:  yes
+  }
+
+  dimension: date_last_period {
+    hidden:  yes
   }
 
 }
 
 explore: cohort {
   hidden:  yes
+  from: cohort
+  view_name: ga_sessions
+  label: "Cohort + Retention"
+  view_label: "Cohort + Retention"
 }
