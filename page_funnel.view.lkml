@@ -1,47 +1,51 @@
+include: "date_base.view"
+include: "period_base.view"
+
 view: page_funnel {
+  extends: [date_base, period_base]
   derived_table: {
     sql: SELECT CONCAT(CAST(sessions.fullVisitorId AS STRING), '|', COALESCE(CAST(sessions.visitId AS STRING),'')) as id
         , sessions.fullVisitorId as full_visitor_id
         , TIMESTAMP_SECONDS(sessions.visitStarttime) AS session_start
         , MIN(
             CASE WHEN
-              {% condition page_1 %} hits_page.pageTitle {% endcondition %}
+              {% condition ga_sessions.page_1 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_1
         , MIN(
             CASE WHEN
-              {% condition page_2 %} hits_page.pageTitle {% endcondition %}
+              {% condition ga_sessions.page_2 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_2_first
         , MAX(
             CASE WHEN
-              {% condition page_2 %} hits_page.pageTitle {% endcondition %}
+              {% condition ga_sessions.page_2 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_2_last
         , MIN(
             CASE WHEN
-              {% condition page_3 %} hits_page.pageTitle {% endcondition %}
+              {% condition ga_sessions.page_3 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_3_first
         , MAX(
             CASE WHEN
-              {% condition page_3 %} hits_page.pageTitle {% endcondition %}
+              {% condition ga_sessions.page_3 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_3_last
         , MIN(
             CASE WHEN
-              {% condition page_4 %} hits_page.pageTitle {% endcondition %}
+              {% condition ga_sessions.page_4 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_4_first
         , MAX(
             CASE WHEN
-              {% condition page_4 %} hits_page.pageTitle {% endcondition %}
+              {% condition ga_sessions.page_4 %} hits_page.pageTitle {% endcondition %}
               THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
               ELSE NULL END
             ) AS event_4_last
@@ -49,7 +53,6 @@ view: page_funnel {
       FROM `looker-ga360.69266980.ga_sessions_*` AS sessions
         LEFT JOIN UNNEST(sessions.hits) as hits
         LEFT JOIN UNNEST([hits.page]) as hits_page
-      WHERE {% condition event_time %} TIMESTAMP_SECONDS(sessions.visitStarttime) {% endcondition %}
       GROUP BY 1,2,3
        ;;
   }
@@ -79,14 +82,10 @@ view: page_funnel {
     suggest_explore: ga_sessions
   }
 
-  filter: event_time {
-    type: date_time
-  }
-
   dimension: id {
     type: string
     primary_key: yes
-    #     hidden: TRUE
+    hidden: yes
     sql: ${TABLE}.id ;;
   }
 
@@ -97,8 +96,8 @@ view: page_funnel {
   }
 
   dimension_group: session_start {
+    hidden: yes
     type: time
-    #     hidden: TRUE
     convert_tz: no
     timeframes: [
       time,
@@ -325,6 +324,23 @@ view: page_funnel {
     }
   }
 
+  dimension: _date {
+    sql: ${session_start_date} ;;
+    hidden:  yes
+  }
+
+  dimension: date {
+    hidden:  yes
+  }
+
+  dimension: date_end_of_period {
+    hidden:  yes
+  }
+
+  dimension: date_last_period {
+    hidden:  yes
+  }
+
   set: detail {
     fields: [id, full_visitor_id, session_start_time]
   }
@@ -332,4 +348,8 @@ view: page_funnel {
 
 explore: page_funnel {
   hidden:  yes
+  from: page_funnel
+  view_name: ga_sessions
+  label: "Page Funnel"
+  view_label: "Page Funnel"
 }
