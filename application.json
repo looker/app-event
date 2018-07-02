@@ -104,6 +104,16 @@
         "dashboardAlias": "Campaign",
         "name": "Campaign",
         "type": "Select"
+      },
+      {
+       "autoSuggest": {
+       "model": "event_analytics",
+       "view": "ga_sessions"
+       },
+        "field": "geoNetwork.country",
+        "name": "Country",
+        "type": "Select",
+        "dashboardAlias": "Country"
       }
     ]
   },
