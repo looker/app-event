@@ -90,7 +90,7 @@ view: period_fact {
   measure: transaction_revenue_total {
     type: sum
     sql: ${TABLE}.transaction_revenue ;;
-    value_format_name: usd
+    value_format_name: usd_large
   }
 
   measure: revenue_per_transaction {
