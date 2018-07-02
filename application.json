@@ -264,10 +264,9 @@
           "filters": [
             {
               "defaultValue": "28 day",
-              "field": "ga_sessions.partition_date",
+              "field": "ga_sessions.period",
               "name": "Time Frame",
-              "type": "TimeFrame",
-              "dashboardAlias": "Date"
+              "type": "TimeFrame"
             }
           ],
           "pageSections": [
@@ -298,39 +297,39 @@
                 {
                   "description": "See how your website is performing relative to previous periods.",
                   "name": "Period Over Period Analysis",
-                  "permalink": "ga360_period_over_period",
+                  "permalink": "period_over_period",
                   "variations": [
                     {
                       "description": "",
                       "exploreParams": "event_analytics/period_fact?fields=ga_sessions.date_day_of_period,ga_sessions.first_time_visitors,last_fact.first_time_visitors,ga_sessions.session_count,last_fact.session_count,ga_sessions.total_page_views,last_fact.total_page_views,ga_sessions.hits,last_fact.hits&f[ga_sessions.period]=28+day&f[ga_sessions.date_period]=before+0+days+ago&f[ga_sessions.date_period_latest]=Yes&sorts=ga_sessions.date_day_of_period&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22stacking%22%3A%22%22%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Atrue%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Afalse%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22show_null_points%22%3Atrue%2C%22point_style%22%3A%22none%22%2C%22interpolation%22%3A%22linear%22%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22type%22%3A%22looker_area%22%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22series_types%22%3A%7B%7D%2C%22hidden_series%22%3A%5B%22last_fact.session_count%22%2C%22last_fact.total_page_views%22%2C%22last_fact.hits%22%2C%22ga_sessions.hits%22%2C%22ga_sessions.session_count%22%2C%22ga_sessions.total_page_views%22%5D%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23FF666C%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22series_colors%22%3A%7B%7D%7D&filter_config=%7B%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%2228+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period%22%3A%5B%7B%22type%22%3A%22before%22%2C%22values%22%3A%5B%7B%22date%22%3A%222018-06-19T22%3A10%3A52.920Z%22%2C%22constant%22%3A%220%22%2C%22unit%22%3A%22day%22%2C%22tz%22%3Atrue%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%2C%22variant%22%3A%22relative%22%7D%5D%2C%22ga_sessions.date_period_latest%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A6%2C%22error%22%3Afalse%7D%5D%7D&dynamic_fields=%5B%5D&origin=share-expanded",
-                      "name": "Period Over Period Analysis Variation 1",
-                      "permalink": "ga360_period_over_period_variation1"
+                      "name": "Period Over Period Analysis",
+                      "permalink": "period_over_period_report"
                     }
                   ]
                 },
                 {
                   "description": "Dynamically segment your users to understand what's driving their behaviors.",
                   "name": "Cohort + Retention Explorer",
-                  "permalink": "ga360_retention",
+                  "permalink": "retention",
                   "variations": [
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/cohort?fields=cohort.selected_measure,cohort.first_start_date_week,cohort.weeks_active&pivots=cohort.weeks_active&fill_fields=cohort.first_start_date_week&f[cohort.measure_picker]=Total+Hits&f[cohort.date]=7+weeks&sorts=cohort.first_start_date_week,cohort.weeks_active&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22table%22%2C%22show_view_names%22%3Atrue%2C%22show_row_numbers%22%3Atrue%2C%22truncate_column_names%22%3Afalse%2C%22hide_totals%22%3Afalse%2C%22hide_row_totals%22%3Afalse%2C%22table_theme%22%3A%22editable%22%2C%22limit_displayed_rows%22%3Afalse%2C%22enable_conditional_formatting%22%3Atrue%2C%22conditional_formatting_include_totals%22%3Afalse%2C%22conditional_formatting_include_nulls%22%3Afalse%2C%22conditional_formatting%22%3A%5B%7B%22type%22%3A%22low+to+high%22%2C%22value%22%3Anull%2C%22background_color%22%3Anull%2C%22font_color%22%3Anull%2C%22palette%22%3A%7B%22name%22%3A%22Red+to+White%22%2C%22colors%22%3A%5B%22%23F36254%22%2C%22%23FFFFFF%22%5D%7D%2C%22bold%22%3Afalse%2C%22italic%22%3Afalse%2C%22strikethrough%22%3Afalse%2C%22fields%22%3Anull%7D%5D%7D&filter_config=%7B%22cohort.measure_picker%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Total+Hits%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22cohort.date%22%3A%5B%7B%22type%22%3A%22past%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%22%2C%22unit%22%3A%22wk%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
-                      "name": "Retention Variation 1",
-                      "permalink": "ga360_retention_variation1"
+                      "exploreParams": "event_analytics/cohort?fields=ga_sessions.selected_measure,ga_sessions.weeks_active,ga_sessions.first_start_week&pivots=ga_sessions.weeks_active&fill_fields=ga_sessions.first_start_week&f[ga_sessions.measure_picker]=Sessions+Count&f[ga_sessions.period]=28+day&f[ga_sessions.date_period_latest]=Yes&sorts=ga_sessions.first_start_week,ga_sessions.weeks_active+0&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22table%22%2C%22show_view_names%22%3Atrue%2C%22show_row_numbers%22%3Atrue%2C%22truncate_column_names%22%3Afalse%2C%22hide_totals%22%3Afalse%2C%22hide_row_totals%22%3Afalse%2C%22table_theme%22%3A%22editable%22%2C%22limit_displayed_rows%22%3Afalse%2C%22enable_conditional_formatting%22%3Atrue%2C%22conditional_formatting_include_totals%22%3Afalse%2C%22conditional_formatting_include_nulls%22%3Afalse%2C%22conditional_formatting%22%3A%5B%7B%22type%22%3A%22low+to+high%22%2C%22value%22%3Anull%2C%22background_color%22%3Anull%2C%22font_color%22%3Anull%2C%22palette%22%3A%7B%22name%22%3A%22Custom%22%2C%22colors%22%3A%5B%22%23cbd9ed%22%2C%22%233967de%22%2C%22%233d51e0%22%5D%7D%2C%22bold%22%3Afalse%2C%22italic%22%3Afalse%2C%22strikethrough%22%3Afalse%2C%22fields%22%3Anull%7D%5D%7D&filter_config=%7B%22ga_sessions.measure_picker%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Sessions+Count%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%2228+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period_latest%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "name": "",
+                      "permalink": "cohort_and_retention_report"
                     }
                   ]
                 },
                 {
                   "description": "Understand how valuable your users are - segmented by acquisiton date, source, or any other attribute.",
                   "name": "Lifetime Value",
-                  "permalink": "ga360_lifetime_value",
+                  "permalink": "lifetime_value",
                   "variations": [
                     {
                       "description": "",
                       "exploreParams": "event_analytics/ga_sessions?fields=user_session_facts.revenue_per_user,user_session_facts.sessions_per_user,user_session_facts.days_since_first_session,user_session_facts.transactions_per_user&f[user_session_facts.first_start_date]=2017%2F06%2F01+to+2017%2F08%2F01&sorts=user_session_facts.days_since_first_session&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22looker_line%22%2C%22stacking%22%3A%22%22%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Afalse%2C%22point_style%22%3A%22none%22%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Atrue%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22show_null_points%22%3Atrue%2C%22interpolation%22%3A%22linear%22%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23FF666C%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22series_colors%22%3A%7B%7D%2C%22hidden_series%22%3A%5B%5D%2C%22y_axes%22%3A%5B%7B%22label%22%3A%22%22%2C%22orientation%22%3A%22left%22%2C%22series%22%3A%5B%7B%22id%22%3A%22user_session_facts.revenue_per_user%22%2C%22name%22%3A%22Revenue+per+User%22%2C%22axisId%22%3A%22user_session_facts.revenue_per_user%22%7D%2C%7B%22id%22%3A%22user_session_facts.sessions_per_user%22%2C%22name%22%3A%22Sessions+per+User%22%2C%22axisId%22%3A%22user_session_facts.sessions_per_user%22%7D%5D%2C%22showLabels%22%3Atrue%2C%22showValues%22%3Atrue%2C%22unpinAxis%22%3Afalse%2C%22tickDensity%22%3A%22default%22%2C%22tickDensityCustom%22%3A5%2C%22type%22%3A%22linear%22%7D%2C%7B%22label%22%3Anull%2C%22orientation%22%3A%22right%22%2C%22series%22%3A%5B%7B%22id%22%3A%22user_session_facts.transactions_per_user%22%2C%22name%22%3A%22Transactions+per+User%22%2C%22axisId%22%3A%22user_session_facts.transactions_per_user%22%7D%5D%2C%22showLabels%22%3Atrue%2C%22showValues%22%3Atrue%2C%22unpinAxis%22%3Afalse%2C%22tickDensity%22%3A%22default%22%2C%22tickDensityCustom%22%3A5%2C%22type%22%3A%22linear%22%7D%5D%7D&filter_config=%7B%22user_session_facts.first_start_date%22%3A%5B%7B%22type%22%3A%22between%22%2C%22values%22%3A%5B%7B%22date%22%3A%222017-06-01T00%3A00%3A00.000Z%22%2C%22unit%22%3A%22wk%22%2C%22tz%22%3Atrue%2C%22constant%22%3A%227%22%7D%2C%7B%22date%22%3A%222017-08-01T00%3A00%3A00.000Z%22%2C%22unit%22%3A%22day%22%2C%22tz%22%3Atrue%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
-                      "name": "Lifetime Value Variation 1",
-                      "permalink": "ga360_lifetime_value_variation1"
+                      "name": "Lifetime Value",
+                      "permalink": "lifetime_value_report"
                     }
                   ]
                 }
@@ -350,7 +349,7 @@
                       "description": "",
                       "exploreParams": "",
                       "name": "Attribution Variation 1",
-                      "permalink": "ga360_attribution_variation1"
+                      "permalink": "ga360_attribution_report"
                     }
                   ]
                 }
