@@ -1,9 +1,10 @@
 include: "date_base.view"
 include: "period_base.view"
+include: "/app_event_analytics_config/ga360_config.view"
 
 
 view: cohort {
-  extends: [date_base, period_base]
+  extends: [date_base, period_base, ga360_config]
   derived_table: {
     sql:  WITH user_session_facts AS (SELECT
         ga_sessions.fullVisitorId AS ga_sessions_fullvisitorid,
@@ -15,7 +16,7 @@ view: cohort {
         (date_diff(max(date(TIMESTAMP_SECONDS(visitStartTime))), min(date(TIMESTAMP_SECONDS(visitStartTime))), day)+1) as days_active,
         (date_diff(max(date(TIMESTAMP_SECONDS(visitStartTime))), min(date(TIMESTAMP_SECONDS(visitStartTime))), week)+1) as weeks_active,
         date_diff(CURRENT_DATE, min(date(TIMESTAMP_SECONDS(visitStartTime))), day) as days_since_first_session
-      FROM `looker-ga360.69266980.ga_sessions_*` as ga_sessions
+      FROM  {{ ga_sessions.looker_data_schema._sql }} as ga_sessions
       GROUP BY 1
        )
       SELECT
@@ -29,7 +30,7 @@ view: cohort {
         COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
         COALESCE(SUM(totals.transactions ), 0) AS transactions_count,
         COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue
-      FROM `looker-ga360.69266980.ga_sessions_*`  AS ga_sessions
+      FROM  {{ ga_sessions.looker_data_schema._sql }} AS ga_sessions
       LEFT JOIN UNNEST([ga_sessions.totals]) as totals
       LEFT JOIN user_session_facts ON user_session_facts.ga_sessions_fullvisitorid = ga_sessions.fullVisitorId
       GROUP BY 1,2,3;;

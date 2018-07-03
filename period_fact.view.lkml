@@ -24,7 +24,7 @@ explore: period_fact {
 }
 
 view: period_fact {
-  extends: [date_base, period_base]
+  extends: [date_base, period_base, ga360_config]
   derived_table: {
     sql:
       SELECT
@@ -49,7 +49,7 @@ view: period_fact {
         COALESCE(SUM(totals.transactions ), 0) AS transactions,
         COALESCE(SUM(totals.screenViews ), 0) AS totals_screenviews,
         COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue
-      FROM `looker-ga360.69266980.ga_sessions_*` AS ga_sessions
+      FROM {{ ga_sessions.looker_data_schema._sql }} AS ga_sessions
       LEFT JOIN UNNEST([ga_sessions.totals]) as totals
       LEFT JOIN UNNEST([ga_sessions.trafficSource]) as trafficSource
       LEFT JOIN UNNEST([ga_sessions.geoNetwork]) as geoNetwork

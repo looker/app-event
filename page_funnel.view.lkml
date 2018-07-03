@@ -1,8 +1,10 @@
 include: "date_base.view"
 include: "period_base.view"
+include: "/app_event_analytics_config/ga360_config.view"
+
 
 view: page_funnel {
-  extends: [date_base, period_base]
+  extends: [date_base, period_base, ga360_config]
   derived_table: {
     sql: SELECT CONCAT(CAST(sessions.fullVisitorId AS STRING), '|', COALESCE(CAST(sessions.visitId AS STRING),'')) as id
         , sessions.fullVisitorId as full_visitor_id
@@ -50,7 +52,7 @@ view: page_funnel {
               ELSE NULL END
             ) AS event_4_last
 
-      FROM `looker-ga360.69266980.ga_sessions_*` AS sessions
+      FROM {{ ga_sessions.looker_data_schema._sql }} AS sessions
         LEFT JOIN UNNEST(sessions.hits) as hits
         LEFT JOIN UNNEST([hits.page]) as hits_page
       GROUP BY 1,2,3
