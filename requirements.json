@@ -1,0 +1,88 @@
+{
+  "disableSetup": true,
+  "configProject": "app_event_analytics_config",
+  "projects": {
+    "aea_event_adapter": [
+      "ga360"
+    ]
+  },
+  "vendors": [
+    {
+      "id": "ga360",
+      "name": "Google Analytics 360",
+      "url": "https://www.google.com/analytics/360-suite/#?modal_active=none",
+      "gitUrl": "https://github.com/looker/aea_ga360_adapter.git"
+    }
+  ],
+  "steps": [
+    {
+      "name": "Looker Instance Settings",
+      "actions": [
+        {
+          "id": "embedDomainWhiteList",
+          "type": "embedDomainWhiteList"
+        },
+        {
+          "id": "enableLabsFeature:project_import",
+          "type": "enableLabsFeature",
+          "data": {
+            "feature": "project_import"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Setup Projects",
+      "actions": [
+        {
+          "id": "createProject:aea_event_adapter",
+          "type": "createProject",
+          "data": {
+            "project": "aea_event_adapter"
+          }
+        },
+        {
+          "id": "createProject",
+          "type": "createProject",
+          "data": {
+            "bare": true,
+            "project": "app_event_analytics_config"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Database Connection",
+      "actions": [
+        {
+          "id": "writeConfigModel:db-connection",
+          "type": "writeConfigModel",
+          "data": {
+            "config": "someFile.lookml.model"
+          }
+        }
+      ],
+      "fields": [
+        {
+          "name": "connection_name",
+          "label": "Database Connection",
+          "type": "chooseDatabaseConnection"
+        }
+      ]
+    },
+    {
+      "name": "Test Configuration",
+      "test": true,
+      "actions": [
+        {
+          "id": "testDbConnection",
+          "type": "testDbConnection"
+        },
+        {
+          "id": "testModelConfig-ga360",
+          "type": "testConfig"
+        }
+      ]
+    }
+  ]
+}
