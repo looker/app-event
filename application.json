@@ -356,7 +356,7 @@
                       "permalink": "cohort_and_retention_report",
                       "filters": [
                         {
-                          "field": "cohort.measure_picker",
+                          "field": "ga_sessions.measure_picker",
                           "multiple": false,
                           "name": "Metric Selector",
                           "type": "Select"
