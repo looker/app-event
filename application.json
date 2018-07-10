@@ -356,6 +356,14 @@
                       "permalink": "cohort_and_retention_report",
                       "filters": [
                         {
+                          "options": [
+                            "Bounces",
+                            "Page Views",
+                            "Revenue",
+                            "Sessions Count" ,
+                            "Time On Site Total" ,
+                            "Total Hits"
+                          ],
                           "field": "ga_sessions.measure_picker",
                           "multiple": false,
                           "name": "Metric Selector",
