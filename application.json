@@ -578,14 +578,14 @@
                       "permalink": "peer_comparison_report",
                       "filters": [
                       {
-                        "field": "peer_comparison.brand_select",
+                        "field": "ga_sessions.brand_select",
                         "name": "Brand Select",
                         "multiple": false,
                         "type": "Table",
                         "tableID": "brand"
                       },
                       {
-                        "field": "peer_comparison.category_select",
+                        "field": "ga_sessions.category_select",
                         "multiple": false,
                         "name": " Category Select",
                         "type": "Table",
