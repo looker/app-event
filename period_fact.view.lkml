@@ -79,13 +79,13 @@ view: period_fact {
   measure: session_count {
     type: sum
     sql: ${TABLE}.session_count ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: total_visits {
     type: sum
     sql: ${TABLE}.visits ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: transaction_revenue_total {
@@ -115,49 +115,49 @@ view: period_fact {
   measure: total_transactions {
     type: sum
     sql: ${TABLE}.transactions ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: hits {
     type: sum
     sql: ${TABLE}.hits ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: totals_screenviews {
     type: sum
     sql: ${TABLE}.totals_screenviews ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: first_time_visitors {
     type: sum
     sql: ${TABLE}.first_time_visitors ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: returning_visitors {
     type: sum
     sql: ${TABLE}.returning_visitors ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: unique_visitors {
     type: sum
     sql: ${TABLE}.unique_visitors ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: total_visitors {
     type: sum
     sql: ${TABLE}.total_visitors ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: bounces {
     type: sum
     sql: ${TABLE}.bounces ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: bounce_rate {
@@ -169,7 +169,7 @@ view: period_fact {
   measure: total_page_views {
     type: sum
     sql: ${TABLE}.page_views ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   measure: total_time_on_screen{
