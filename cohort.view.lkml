@@ -34,6 +34,7 @@ view: cohort {
       LEFT JOIN UNNEST([ga_sessions.totals]) as totals
       LEFT JOIN user_session_facts ON user_session_facts.ga_sessions_fullvisitorid = ga_sessions.fullVisitorId
       GROUP BY 1,2,3;;
+      persist_for: "24 hours"
       }
 
   dimension: weeks_active {

@@ -29,6 +29,7 @@ view: peer_comparison {
       LEFT JOIN UNNEST([hits.eventInfo]) as hits_eventInfo
       LEFT JOIN UNNEST(hits.product) as  hits_product
       GROUP BY 1,2,3,4,5,6,7;;
+      persist_for: "24 hours"
     }
 
   filter: category_select {
