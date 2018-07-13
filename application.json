@@ -596,26 +596,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "description": "",
-              "name": "User Acquisition",
-              "permalink": "ga360_retention",
-              "reports": [
-                              {
-                  "description": "Understand what content and functionality drives customer acquisition.",
-                  "name": "Attribution",
-                  "permalink": "ga360_attribution",
-                  "variations": [
-                    {
-                      "description": "",
-                      "exploreParams": "",
-                      "name": "Attribution Variation 1",
-                      "permalink": "ga360_attribution_report"
-                    }
-                  ]
-                }
-              ]
             }
           ]
         }
