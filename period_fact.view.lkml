@@ -18,7 +18,9 @@ explore: period_fact {
       ${ga_sessions.date_last_period} = ${last_fact.date_period}
       AND ${ga_sessions.date_day_of_period} = ${last_fact.date_day_of_period}
       AND ${ga_sessions.channel_grouping} = ${last_fact.channel_grouping}
-      AND ${ga_sessions.social_engagement_type} = ${last_fact.social_engagement_type};;
+      AND ${ga_sessions.social_engagement_type} = ${last_fact.social_engagement_type}
+      AND ${ga_sessions.campaign} =  ${last_fact.campaign}
+      AND ${ga_sessions.country} = ${last_fact.country} ;;
     relationship: one_to_one
   }
 }
