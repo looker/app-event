@@ -1,4 +1,6 @@
-connection: "looker_app"
+label: "GA360"
+
+include: "/app_event_analytics_config/ga360_config.model"
 
 # include all the views
 include: "*.view"
