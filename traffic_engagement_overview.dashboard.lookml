@@ -2324,7 +2324,7 @@
   - name: Period
     title: Period
     type: field_filter
-    default_value: 364 day
+    default_value: 7 day
     allow_multiple_values: true
     required: false
     model: event_analytics
