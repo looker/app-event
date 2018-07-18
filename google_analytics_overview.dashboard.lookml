@@ -6,6 +6,8 @@
     title_color: "#3a4245"
     tile_text_color: "#3a4245"
     text_tile_text_color: ''
+
+
   elements:
   - title: Users
     name: Users
@@ -84,6 +86,9 @@
     col: 0
     width: 6
     height: 3
+
+
+
   - title: Average Session Duration
     name: Average Session Duration
     model: event_analytics
@@ -211,6 +216,8 @@
     col: 0
     width: 6
     height: 3
+
+
   - title: Returning Users
     name: Returning Users
     model: event_analytics
@@ -855,7 +862,7 @@
     type: text
     title_text: Where should you acquire your users for Engagement?
     subtitle_text: ''
-    body_text: Check out the [Traffic Engagement Overview Dashboard]() for more analysis
+    body_text: ''
     row: 14
     col: 0
     width: 24
@@ -863,7 +870,7 @@
   - name: Where should you acquire your users for Revenue?
     type: text
     title_text: Where should you acquire your users for Revenue?
-    body_text: Check out the [Transaction and Revenue Dashboard]() for more analysis
+    body_text: ''
     row: 43
     col: 0
     width: 24
@@ -1055,8 +1062,8 @@
     filters:
       ga_sessions.date_period_latest: 'Yes'
     sorts:
-    - totals.avg_pageview_per_user desc
-    limit: 500
+    - ga_sessions.unique_visitors desc
+    limit: 8
     column_limit: 50
     stacking: ''
     show_value_labels: true
@@ -1067,7 +1074,7 @@
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
-    show_y_axis_labels: true
+    show_y_axis_labels: false
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
@@ -1096,8 +1103,8 @@
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 567
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1144,8 +1151,8 @@
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 615
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1191,8 +1198,8 @@
     filters:
       ga_sessions.date_period_latest: 'Yes'
     sorts:
-    - totals.avg_pageview_per_user desc
-    limit: 500
+    - ga_sessions.unique_visitors desc
+    limit: 8
     column_limit: 50
     stacking: ''
     show_value_labels: true
@@ -1203,7 +1210,7 @@
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: true
-    show_y_axis_labels: true
+    show_y_axis_labels: false
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
@@ -1232,8 +1239,8 @@
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 702
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1280,8 +1287,8 @@
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 750
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1508,7 +1515,7 @@
     dynamic_fields:
     - table_calculation: referral_path
       label: Referral Path
-      expression: substring(${trafficSource.referralPath},0,11)
+      expression: substring(${trafficSource.referralPath},0,15)
       value_format:
       value_format_name:
       _kind_hint: dimension
@@ -1551,8 +1558,8 @@
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 846
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1599,8 +1606,8 @@
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 894
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1649,7 +1656,7 @@
       ga_sessions.date_period_latest: 'Yes'
     sorts:
     - ga_sessions.unique_visitors desc
-    limit: 500
+    limit: 7
     column_limit: 50
     stacking: ''
     show_value_labels: true
@@ -1705,8 +1712,8 @@
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 1306
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1737,8 +1744,8 @@
         axisId: totals.transactionRevenue_total
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 1338
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1791,7 +1798,7 @@
     dynamic_fields:
     - table_calculation: referral_path
       label: Referral Path
-      expression: substring(${trafficSource.referralPath},0,11)
+      expression: substring(${trafficSource.referralPath},0,15)
       value_format:
       value_format_name:
       _kind_hint: dimension
@@ -1850,8 +1857,8 @@
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 1619
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1882,8 +1889,8 @@
         axisId: totals.transactionRevenue_total
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 1651
-      showLabels: true
-      showValues: true
+      showLabels: false
+      showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
@@ -1932,7 +1939,7 @@
       ga_sessions.date_period_latest: 'Yes'
     sorts:
     - ga_sessions.unique_visitors desc
-    limit: 500
+    limit: 7
     column_limit: 50
     stacking: ''
     show_value_labels: true
