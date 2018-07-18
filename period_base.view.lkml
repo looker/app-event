@@ -79,6 +79,7 @@ view: period_base {
     allow_fill: no
   }
   dimension: date_period_latest {
+    description: "Is the selected period (This Period) the current period?"
     type: yesno
     group_label: "Event"
     sql: ${date_period} < CURRENT_DATE() AND ${date_end_of_period} >= CURRENT_DATE() ;;
