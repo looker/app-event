@@ -232,14 +232,14 @@
     },
     "filters": [
       {
-        "defaultValue": "364 day",
+        "defaultValue": "28 day",
         "field": "ga_sessions.partition_date",
         "name": "Time Frame",
         "type": "TimeFrame",
         "dashboardAlias": "Period"
       },
       {
-        "defaultValue": "Yes",
+        "defaultValue": "",
         "field": "ga_sessions.first_time_visitor",
         "name": "First Time Visitor",
         "type": "YesNo",
