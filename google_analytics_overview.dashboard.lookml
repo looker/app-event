@@ -1,5 +1,6 @@
-- dashboard: google_analytics_overview_edit
-  title: Google Analytics Overview (edit)
+- dashboard: google_analytics_overview
+  extends: event_analytics_dash_base
+  title: Google Analytics Overview
   layout: newspaper
   embed_style:
     background_color: "#ffffff"
