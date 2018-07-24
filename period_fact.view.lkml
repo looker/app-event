@@ -56,7 +56,7 @@ view: period_fact {
       LEFT JOIN UNNEST([ga_sessions.trafficSource]) as trafficSource
       LEFT JOIN UNNEST([ga_sessions.geoNetwork]) as geoNetwork
       GROUP BY 1,2,3,4,5,6;;
-      persist_for: "24 hours"
+      sql_trigger_value: SELECT CURRENT_DATE() ;;
 
   }
   dimension: social_engagement_type {}
