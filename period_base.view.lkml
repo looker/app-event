@@ -86,7 +86,7 @@ view: period_base {
     # expression: ${date_period} <= now() AND ${date_end_of_period} >= now() ;;
   }
   dimension: date_period_comparison_period {
-    hidden: yes
+#     hidden: yes
     description: "Is the selected period (This Period) in the last two periods?"
     type: yesno
     group_label: "Event"
