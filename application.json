@@ -233,7 +233,7 @@
     "filters": [
       {
         "defaultValue": "28 day",
-        "field": "ga_sessions.partition_date",
+        "field": "ga_sessions.period",
         "name": "Time Frame",
         "type": "TimeFrame",
         "dashboardAlias": "Period"
@@ -297,7 +297,7 @@
           "filters": [
             {
               "defaultValue": "364 day",
-              "field": "ga_sessions.partition_date",
+              "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
@@ -341,7 +341,7 @@
           "filters": [
             {
               "defaultValue": "364 day",
-              "field": "ga_sessions.partition_date",
+              "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
@@ -385,7 +385,7 @@
           "filters": [
             {
               "defaultValue": "364 day",
-              "field": "ga_sessions.partition_date",
+              "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
@@ -429,7 +429,7 @@
           "filters": [
             {
               "defaultValue": "364 day",
-              "field": "ga_sessions.partition_date",
+              "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
