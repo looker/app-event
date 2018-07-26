@@ -5,6 +5,7 @@ view: date_base {
     group_label: "Event"
     label: ""
     type: time
+    convert_tz: no
     datatype: date
     timeframes: [
       raw,
@@ -18,7 +19,6 @@ view: date_base {
       day_of_month,
       day_of_year
     ]
-    convert_tz: no
     sql: ${_date} ;;
   }
 
@@ -27,6 +27,7 @@ view: date_base {
     label: "Week Date"
     hidden: yes
     type: date
+    convert_tz: no
     sql: CAST(${date_week} AS DATE) ;;
 #     expression: to_date(${date_week}) ;;
   }
@@ -36,6 +37,7 @@ view: date_base {
     label: "Month Date"
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_TRUNC(${date_date}, MONTH) ;;
 #     expression: trunc_months(${date_date});;
   }
@@ -45,6 +47,7 @@ view: date_base {
     label: "Quarter Date"
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_TRUNC(${date_date}, QUARTER) ;;
 #     expression: trunc_quarters(${date_date});;
   }
@@ -54,6 +57,7 @@ view: date_base {
     label: "Year Date"
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_TRUNC(${date_date}, YEAR) ;;
 #     expression: trunc_years(${date_date}) ;;
   }
@@ -72,6 +76,7 @@ view: date_base {
     label: "Last Week"
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL -1 WEEK) ;;
 #     expression: add_days(${date_date}, 7) ;;
   }
@@ -81,6 +86,7 @@ view: date_base {
     label: "Last Month"
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL -1 MONTH) ;;
 #     expression: add_months(${date_date}, 1) ;;
   }
@@ -90,6 +96,7 @@ view: date_base {
     label: "Last Quarter"
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL -1 QUARTER) ;;
 #     expression: add_months(${date_date}, -3) ;;
   }
@@ -97,6 +104,7 @@ view: date_base {
   dimension: date_next_week {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL 1 WEEK) ;;
 #     expression: add_days(${date_date}, 7) ;;
   }
@@ -104,6 +112,7 @@ view: date_base {
   dimension: date_next_month {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL 1 MONTH) ;;
 #     expression: add_months(${date_date}, 1) ;;
   }
@@ -111,6 +120,7 @@ view: date_base {
   dimension: date_next_quarter {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL 1 QUARTER) ;;
 #     expression: add_months(${date_date}, 3) ;;
   }
@@ -118,6 +128,7 @@ view: date_base {
   dimension: date_next_year {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL 1 YEAR) ;;
 #     expression: add_years(${date_date}, 1) ;;
   }
@@ -125,6 +136,7 @@ view: date_base {
   dimension: date_last_year {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}), INTERVAL -1 YEAR) ;;
 #     expression: add_years(${date_date}, -1) ;;
   }
@@ -167,6 +179,7 @@ view: date_base {
   dimension: date_date_7_days_prior {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}, INTERVAL -${date_day_of_7_days_prior} DAY) ;;
 #     expression: add_days(-1 * ${date_day_of_7_days_prior}, ${date_date}) ;;
   }
@@ -174,6 +187,7 @@ view: date_base {
   dimension: date_date_28_days_prior {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}, INTERVAL -${date_day_of_28_days_prior} DAY) ;;
 #     expression: add_days(-1 * ${date_day_of_28_days_prior}, ${date_date}) ;;
   }
@@ -181,6 +195,7 @@ view: date_base {
   dimension: date_date_91_days_prior {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}, INTERVAL -${date_day_of_91_days_prior} DAY) ;;
 #     expression: add_days(-1 * ${date_day_of_91_days_prior}, ${date_date}) ;;
   }
@@ -188,6 +203,7 @@ view: date_base {
   dimension: date_date_364_days_prior {
     hidden: yes
     type: date
+    convert_tz: no
     sql: DATE_ADD(${date_date}, INTERVAL -${date_day_of_364_days_prior} DAY) ;;
 #     expression: add_days(-1 * ${date_day_of_364_days_prior}, ${date_date}) ;;
   }

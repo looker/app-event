@@ -44,11 +44,13 @@ view: cohort {
   dimension: first_date {
     hidden: yes
     type: date
+    convert_tz: no
     sql: TIMESTAMP(${TABLE}.first_start_date);;
   }
 
   dimension: first_start_week {
     type: date_week
+    convert_tz: no
     sql: ${TABLE}.first_start_date ;;
     can_filter: no
   }

@@ -44,6 +44,7 @@ view: period_base {
   }
   dimension: date_period {
     type: date
+    convert_tz: no
     label_from_parameter: period
     group_label: "Event"
     sql: TIMESTAMP({% if ga_sessions.period._parameter_value contains "day" %}
@@ -62,6 +63,7 @@ view: period_base {
   }
   dimension: date_end_of_period {
     type: date
+    convert_tz: no
     label_from_parameter: period
     group_label: "Event"
     sql: TIMESTAMP({% if ga_sessions.period._parameter_value contains "day" %}
@@ -106,6 +108,7 @@ view: period_base {
   dimension: date_period_dynamic_grain {
     hidden: yes
     type: date
+    convert_tz: no
     group_label: "Event"
     label: "{% if ga_sessions.period._parameter_value contains 'year'
     # or ga_sessions.period._parameter_value contains '364 day' %}Month{% elsif ga_sessions.period._parameter_value contains 'quarter'
@@ -143,11 +146,12 @@ view: period_base {
     # html: {{ value | plus: 1 }} - {{ date_date }};;
     # required_fields: [date_date]
     }
-    dimension: date_last_period {
-      group_label: "Event"
-      label: "Prior Period"
-      type: date
-      sql: DATE_ADD(${date_period}, INTERVAL -{% if ga_sessions.period._parameter_value == "'7 day'" %}7{% elsif ga_sessions.period._parameter_value == "'28 day'" %}28{% elsif ga_sessions.period._parameter_value == "'91 day'" %}91{% elsif ga_sessions.period._parameter_value == "'364 day'" %}364{% else %}1{% endif %} {% if ga_sessions.period._parameter_value contains "day" %}day{% elsif ga_sessions.period._parameter_value contains "week" %}week{% elsif ga_sessions.period._parameter_value contains "month" %}month{% elsif ga_sessions.period._parameter_value contains "quarter" %}quarter{% elsif ga_sessions.period._parameter_value contains "year" %}year{% endif %}) ;;
-      allow_fill: no
-    }
+  dimension: date_last_period {
+    group_label: "Event"
+    label: "Prior Period"
+    type: date
+    convert_tz: no
+    sql: DATE_ADD(${date_period}, INTERVAL -{% if ga_sessions.period._parameter_value == "'7 day'" %}7{% elsif ga_sessions.period._parameter_value == "'28 day'" %}28{% elsif ga_sessions.period._parameter_value == "'91 day'" %}91{% elsif ga_sessions.period._parameter_value == "'364 day'" %}364{% else %}1{% endif %} {% if ga_sessions.period._parameter_value contains "day" %}day{% elsif ga_sessions.period._parameter_value contains "week" %}week{% elsif ga_sessions.period._parameter_value contains "month" %}month{% elsif ga_sessions.period._parameter_value contains "quarter" %}quarter{% elsif ga_sessions.period._parameter_value contains "year" %}year{% endif %}) ;;
+    allow_fill: no
   }
+}
