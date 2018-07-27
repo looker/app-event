@@ -25,7 +25,7 @@
     fields:
     - ga_sessions.channelGrouping
     - totals.avg_pageview_per_user
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     - totals.timeonsite_average_per_session
     - ga_sessions.unique_visitors
     filters:
@@ -99,9 +99,9 @@
     - label:
       orientation: left
       series:
-      - id: ga_sessions.average_sessions_ver_visitor
+      - id: ga_sessions.average_sessions_per_visitor
         name: Average Sessions Ver Visitor
-        axisId: ga_sessions.average_sessions_ver_visitor
+        axisId: ga_sessions.average_sessions_per_visitor
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 1133
       showLabels: false
@@ -142,7 +142,7 @@
     series_colors: {}
     hidden_series:
     - totals.avg_pageview_per_user
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     x_axis_label_rotation: -45
     listen:
       Period: ga_sessions.period
@@ -160,7 +160,7 @@
     type: looker_line
     fields:
     - totals.avg_pageview_per_user
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     - totals.timeonsite_average_per_session
     - ga_sessions.unique_visitors
     - trafficSource.medium
@@ -235,9 +235,9 @@
     - label:
       orientation: left
       series:
-      - id: ga_sessions.average_sessions_ver_visitor
+      - id: ga_sessions.average_sessions_per_visitor
         name: Average Sessions Ver Visitor
-        axisId: ga_sessions.average_sessions_ver_visitor
+        axisId: ga_sessions.average_sessions_per_visitor
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 1269
       showLabels: false
@@ -278,7 +278,7 @@
     series_colors: {}
     hidden_series:
     - totals.avg_pageview_per_user
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     x_axis_label_rotation: -45
     listen:
       Period: ga_sessions.period
@@ -466,7 +466,7 @@
     fields:
     - trafficSource.referralPath
     - totals.avg_pageview_per_user
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     - totals.timeonsite_average_per_session
     - ga_sessions.unique_visitors
     filters:
@@ -549,9 +549,9 @@
     - label:
       orientation: left
       series:
-      - id: ga_sessions.average_sessions_ver_visitor
+      - id: ga_sessions.average_sessions_per_visitor
         name: Average Sessions Ver Visitor
-        axisId: ga_sessions.average_sessions_ver_visitor
+        axisId: ga_sessions.average_sessions_per_visitor
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 1588
       showLabels: false
@@ -592,7 +592,7 @@
     series_colors: {}
     hidden_series:
     - totals.avg_pageview_per_user
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     hidden_fields:
     - trafficSource.referralPath
     x_axis_label_rotation: -45

@@ -388,7 +388,7 @@
     - totals.transaction_conversion_rate
     - totals.bounce_rate
     - totals.bounces_total
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     filters:
       geoNetwork.country: ''
       ga_sessions.date_period_comparison_period: 'Yes'
@@ -455,8 +455,8 @@
       _type_hint: number
     - table_calculation: sessions_per_visitor
       label: Sessions Per Visitor
-      expression: "(${ga_sessions.average_sessions_ver_visitor} - offset(${ga_sessions.average_sessions_ver_visitor},\
-        \ 1)) / offset(${ga_sessions.average_sessions_ver_visitor}, 1)"
+      expression: "(${ga_sessions.average_sessions_per_visitor} - offset(${ga_sessions.average_sessions_per_visitor},\
+        \ 1)) / offset(${ga_sessions.average_sessions_per_visitor}, 1)"
       value_format:
       value_format_name: percent_2
       _kind_hint: measure
