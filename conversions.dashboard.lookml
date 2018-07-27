@@ -254,6 +254,7 @@
     - ga_sessions.returning_visitors
     - ga_sessions.unique_visitors
     - users
+    - returning_users
     listen:
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
