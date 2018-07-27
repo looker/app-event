@@ -10,14 +10,14 @@
   - name: Where are your conversions coming from?
     type: text
     title_text: Where are your conversions coming from?
-    row: 16
+    row: 12
     col: 0
     width: 24
     height: 2
   - name: Which pages and keywords bring the most conversions?
     type: text
     title_text: Which pages and keywords bring the most conversions?
-    row: 34
+    row: 30
     col: 0
     width: 24
     height: 3
@@ -137,95 +137,95 @@
       - id: ga_sessions.unique_visitors
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1351
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 137
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1348
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 134
     - label:
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1363
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 153
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1360
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 150
     - label:
       orientation: left
       series:
       - id: ga_sessions.session_count
         name: Session Count
         axisId: ga_sessions.session_count
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1375
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 169
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1372
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 166
     - label:
       orientation: left
       series:
       - id: totals.timeonsite_average_per_session
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1387
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 185
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1384
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 182
     - label: ''
       orientation: left
       series:
       - id: percent_new_visitors
         name: Percent New Visitors
         axisId: percent_new_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1399
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 201
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1396
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 198
     - label:
       orientation: right
       series:
       - id: totals.transaction_conversion_rate
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1410
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 216
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1407
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 213
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -258,7 +258,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 3
+    row: 0
     col: 6
     width: 6
     height: 3
@@ -368,95 +368,95 @@
       - id: ga_sessions.unique_visitors
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1351
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 368
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1348
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 365
     - label:
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1363
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 384
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1360
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 381
     - label:
       orientation: left
       series:
       - id: ga_sessions.session_count
         name: Session Count
         axisId: ga_sessions.session_count
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1375
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 400
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1372
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 397
     - label:
       orientation: left
       series:
       - id: totals.timeonsite_average_per_session
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1387
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 416
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1384
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 413
     - label: ''
       orientation: left
       series:
       - id: percent_new_visitors
         name: Percent New Visitors
         axisId: percent_new_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1399
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 432
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1396
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 429
     - label:
       orientation: right
       series:
       - id: totals.transaction_conversion_rate
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1410
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 447
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1407
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 444
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -487,7 +487,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 3
+    row: 0
     col: 0
     width: 6
     height: 3
@@ -597,95 +597,95 @@
       - id: ga_sessions.unique_visitors
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1351
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 597
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1348
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 594
     - label:
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1363
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 613
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1360
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 610
     - label:
       orientation: left
       series:
       - id: ga_sessions.session_count
         name: Session Count
         axisId: ga_sessions.session_count
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1375
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 629
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1372
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 626
     - label:
       orientation: left
       series:
       - id: totals.timeonsite_average_per_session
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1387
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 645
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1384
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 642
     - label: ''
       orientation: left
       series:
       - id: percent_new_visitors
         name: Percent New Visitors
         axisId: percent_new_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1399
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 661
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1396
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 658
     - label:
       orientation: right
       series:
       - id: totals.transaction_conversion_rate
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1410
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 676
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1407
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 673
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -717,470 +717,10 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 3
+    row: 0
     col: 12
     width: 6
     height: 3
-  - title: Top Medium
-    name: Top Medium
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_bar
-    fields:
-    - trafficSource.medium
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - totals.transaction_conversion_rate
-    - totals.transactionRevenue_total
-    - totals.average_revenue_per_transaction
-    filters:
-      trafficSource.keyword: "-NULL"
-      totals.transactionRevenue_total: ">0"
-      ga_sessions.date_period_latest: 'Yes'
-    sorts:
-    - totals.transaction_conversion_rate desc
-    limit: 10
-    column_limit: 50
-    dynamic_fields:
-    - table_calculation: medium
-      label: Medium
-      expression: substring(${trafficSource.medium},0,16)
-      value_format:
-      value_format_name:
-      _kind_hint: dimension
-      _type_hint: string
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    point_style: circle
-    limit_displayed_rows: false
-    y_axis_combined: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    query_timezone: America/Los_Angeles
-    show_null_points: true
-    interpolation: monotone
-    series_types: {}
-    y_axis_labels: []
-    hidden_series:
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    - totals.average_revenue_per_transaction
-    y_axis_orientation:
-    - left
-    - right
-    hidden_fields:
-    - trafficSource.medium
-    series_colors:
-      totals.transaction_conversion_rate: "#5EC0C4"
-    series_labels:
-      ga_sessions.total_visitors: Visitors
-      totals.transactions_count: Conversions
-      totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
-      totals.transaction_conversion_rate: Conversion Rate
-    y_axes:
-    - label: ''
-      orientation: bottom
-      series:
-      - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
-        axisId: percent_of_visitors_w_transactions
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 793
-      - id: ga_sessions.total_visitors
-        name: Total Visitors
-        axisId: ga_sessions.total_visitors
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 796
-      - id: totals.transactions_count
-        name: Transactions Count
-        axisId: totals.transactions_count
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 799
-      - id: totals.transactionRevenue_total
-        name: Transaction Revenue Total
-        axisId: totals.transactionRevenue_total
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 802
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 790
-    colors:
-    - "#B9E49A"
-    - "#FF666C"
-    - "#58A9F5"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    listen:
-      Period: ga_sessions.period
-      Campaign: trafficSource.campaign
-      First Time User: ga_sessions.first_time_visitor
-    row: 18
-    col: 0
-    width: 8
-    height: 9
-  - title: Top Referrers
-    name: Top Referrers
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_bar
-    fields:
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - totals.transaction_conversion_rate
-    - totals.transactionRevenue_total
-    - totals.average_revenue_per_transaction
-    - trafficSource.source
-    filters:
-      trafficSource.keyword: "-NULL"
-      totals.transactionRevenue_total: ">0"
-      ga_sessions.date_period_latest: 'Yes'
-    sorts:
-    - totals.transaction_conversion_rate desc
-    limit: 10
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    point_style: circle
-    limit_displayed_rows: false
-    y_axis_combined: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    query_timezone: America/Los_Angeles
-    show_null_points: true
-    interpolation: monotone
-    series_types: {}
-    y_axis_labels: []
-    hidden_series:
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    - totals.average_revenue_per_transaction
-    y_axis_orientation:
-    - left
-    - right
-    hidden_fields:
-    series_colors:
-      totals.transaction_conversion_rate: "#5EC0C4"
-    series_labels:
-      ga_sessions.total_visitors: Visitors
-      totals.transactions_count: Conversions
-      totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
-      totals.transaction_conversion_rate: Conversion Rate
-    y_axes:
-    - label: ''
-      orientation: bottom
-      series:
-      - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
-        axisId: percent_of_visitors_w_transactions
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 904
-      - id: ga_sessions.total_visitors
-        name: Total Visitors
-        axisId: ga_sessions.total_visitors
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 907
-      - id: totals.transactions_count
-        name: Transactions Count
-        axisId: totals.transactions_count
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 910
-      - id: totals.transactionRevenue_total
-        name: Transaction Revenue Total
-        axisId: totals.transactionRevenue_total
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 913
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 901
-    colors:
-    - "#B9E49A"
-    - "#FF666C"
-    - "#58A9F5"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    listen:
-      Period: ga_sessions.period
-      Campaign: trafficSource.campaign
-      First Time User: ga_sessions.first_time_visitor
-    row: 18
-    col: 8
-    width: 8
-    height: 9
-  - title: Conversions Over Time
-    name: Conversions Over Time
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_line
-    fields:
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - ga_sessions.visitStart_date
-    - totals.transaction_conversion_rate
-    - totals.average_revenue_per_transaction
-    filters:
-      trafficSource.keyword: "-NULL"
-      totals.transactionRevenue_total: ">0"
-      ga_sessions.date_period_latest: 'Yes'
-    sorts:
-    - ga_sessions.visitStart_date desc
-    limit: 14
-    column_limit: 50
-    dynamic_fields:
-    - table_calculation: percent_of_visitors_w_transactions
-      label: Percent of Visitors w/ Transactions
-      expression: "${totals.transactions_count}/${ga_sessions.total_visitors}"
-      value_format:
-      value_format_name: percent_2
-      _kind_hint: measure
-      _type_hint: number
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: true
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    query_timezone: America/Los_Angeles
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    ordering: none
-    show_null_labels: false
-    series_types: {}
-    y_axis_labels: []
-    hidden_series:
-    - totals.transactions_count
-    - totals.transaction_conversion_rate
-    - percent_of_visitors_w_transactions
-    y_axis_orientation:
-    - left
-    - right
-    hidden_fields:
-    series_colors: {}
-    series_labels:
-      totals.transactions_count: Conversions
-      ga_sessions.total_visitors: Visitors
-      totals.average_revenue_per_transaction: Avg Conversion Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
-    label_color: []
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
-        axisId: percent_of_visitors_w_transactions
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 453
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 441
-    - label:
-      maxValue:
-      minValue:
-      orientation: left
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: ga_sessions.total_visitors
-        name: Total Visitors
-        axisId: ga_sessions.total_visitors
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 472
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 460
-    - label:
-      orientation: left
-      series:
-      - id: totals.transactions_count
-        name: Transactions Count
-        axisId: totals.transactions_count
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 482
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 479
-    - label:
-      orientation: left
-      series:
-      - id: totals.transactionRevenue_total
-        name: Transaction Revenue Total
-        axisId: totals.transactionRevenue_total
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 501
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 498
-    - label:
-      orientation: left
-      series:
-      - id: totals.transaction_conversion_rate
-        name: Transaction Conversion Rate
-        axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 520
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 517
-    - label:
-      orientation: left
-      series:
-      - id: totals.average_revenue_per_transaction
-        name: Average Revenue per Transaction
-        axisId: totals.average_revenue_per_transaction
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 539
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 536
-    colors:
-    - "#B9E49A"
-    - "#FF666C"
-    - "#58A9F5"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    listen:
-      Period: ga_sessions.period
-      Campaign: trafficSource.campaign
-      First Time User: ga_sessions.first_time_visitor
-    row: 6
-    col: 0
-    width: 24
-    height: 10
   - title: Avg Conversion Value
     name: Avg Conversion Value
     model: event_analytics
@@ -1297,95 +837,95 @@
       - id: ga_sessions.unique_visitors
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1351
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1297
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1348
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1294
     - label:
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1363
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1313
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1360
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1310
     - label:
       orientation: left
       series:
       - id: ga_sessions.session_count
         name: Session Count
         axisId: ga_sessions.session_count
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1375
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1329
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1372
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1326
     - label:
       orientation: left
       series:
       - id: totals.timeonsite_average_per_session
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1387
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1345
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1384
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1342
     - label: ''
       orientation: left
       series:
       - id: percent_new_visitors
         name: Percent New Visitors
         axisId: percent_new_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1399
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1361
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1396
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1358
     - label:
       orientation: right
       series:
       - id: totals.transaction_conversion_rate
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1410
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1376
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1407
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1373
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -1418,7 +958,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 3
+    row: 0
     col: 18
     width: 6
     height: 3
@@ -1510,7 +1050,7 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1282
+        __LINE_NUM: 1509
       showLabels: false
       showValues: false
       maxValue:
@@ -1521,7 +1061,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1279
+      __LINE_NUM: 1506
     - label:
       orientation: top
       series:
@@ -1529,7 +1069,7 @@
         name: Average Transaction Revenue
         axisId: average_transaction_revenue
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1301
+        __LINE_NUM: 1528
       showLabels: false
       showValues: false
       maxValue:
@@ -1540,7 +1080,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1298
+      __LINE_NUM: 1525
     - label: ''
       orientation: bottom
       series:
@@ -1548,7 +1088,7 @@
         name: Percent of Visitors w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1320
+        __LINE_NUM: 1547
       showLabels: false
       showValues: false
       maxValue:
@@ -1559,7 +1099,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1317
+      __LINE_NUM: 1544
     colors:
     - "#B9E49A"
     - "#FF666C"
@@ -1579,132 +1119,10 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 27
+    row: 23
     col: 0
     width: 16
     height: 7
-  - title: Top Channels
-    name: Top Channels
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_bar
-    fields:
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - totals.transaction_conversion_rate
-    - totals.transactionRevenue_total
-    - totals.average_revenue_per_transaction
-    - ga_sessions.channelGrouping
-    filters:
-      trafficSource.keyword: "-NULL"
-      totals.transactionRevenue_total: ">0"
-      ga_sessions.date_period_latest: 'Yes'
-    sorts:
-    - totals.transaction_conversion_rate desc
-    limit: 10
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    point_style: circle
-    limit_displayed_rows: false
-    y_axis_combined: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    query_timezone: America/Los_Angeles
-    show_null_points: true
-    interpolation: monotone
-    series_types: {}
-    y_axis_labels: []
-    hidden_series:
-    - ga_sessions.total_visitors
-    - totals.transactions_count
-    - totals.transactionRevenue_total
-    - totals.average_revenue_per_transaction
-    y_axis_orientation:
-    - left
-    - right
-    hidden_fields:
-    series_colors:
-      totals.transaction_conversion_rate: "#5EC0C4"
-    series_labels:
-      ga_sessions.total_visitors: Visitors
-      totals.transactions_count: Conversions
-      totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
-      totals.transaction_conversion_rate: Conversion Rate
-    y_axes:
-    - label: ''
-      orientation: bottom
-      series:
-      - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
-        axisId: percent_of_visitors_w_transactions
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1015
-      - id: ga_sessions.total_visitors
-        name: Total Visitors
-        axisId: ga_sessions.total_visitors
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1018
-      - id: totals.transactions_count
-        name: Transactions Count
-        axisId: totals.transactions_count
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1021
-      - id: totals.transactionRevenue_total
-        name: Transaction Revenue Total
-        axisId: totals.transactionRevenue_total
-        __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1024
-      showLabels: false
-      showValues: false
-      maxValue:
-      minValue:
-      valueFormat:
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1012
-    colors:
-    - "#B9E49A"
-    - "#FF666C"
-    - "#58A9F5"
-    - "#FDCB6C"
-    - "#F6659A"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
-    listen:
-      Period: ga_sessions.period
-      Campaign: trafficSource.campaign
-      First Time User: ga_sessions.first_time_visitor
-    row: 18
-    col: 16
-    width: 8
-    height: 9
   - title: Conversions by Device
     name: Conversions by Device
     model: event_analytics
@@ -1772,7 +1190,7 @@
         name: Total Transaction Revenue
         axisId: total_transaction_revenue
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1125
+        __LINE_NUM: 1771
       showLabels: false
       showValues: false
       maxValue:
@@ -1783,7 +1201,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1122
+      __LINE_NUM: 1768
     - label:
       orientation: top
       series:
@@ -1791,7 +1209,7 @@
         name: Average Transaction Revenue
         axisId: average_transaction_revenue
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1144
+        __LINE_NUM: 1790
       showLabels: false
       showValues: false
       maxValue:
@@ -1802,7 +1220,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1141
+      __LINE_NUM: 1787
     - label: ''
       orientation: bottom
       series:
@@ -1810,7 +1228,7 @@
         name: Percent of Visitors w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1163
+        __LINE_NUM: 1809
       showLabels: false
       showValues: false
       maxValue:
@@ -1821,7 +1239,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1160
+      __LINE_NUM: 1806
     colors:
     - "#B9E49A"
     - "#FF666C"
@@ -1838,10 +1256,591 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 27
+    row: 23
     col: 16
     width: 8
     height: 7
+  - title: Conversions Over Time
+    name: Conversions Over Time
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - ga_sessions.visitStart_date
+    - ga_sessions.total_visitors
+    - totals.average_revenue_per_transaction
+    - totals.transaction_conversion_rate
+    - totals.transactions_count
+    fill_fields:
+    - ga_sessions.visitStart_date
+    filters:
+      trafficSource.keyword: "-NULL"
+      ga_sessions.date_period_latest: 'Yes'
+    sorts:
+    - ga_sessions.visitStart_date desc
+    limit: 14
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: percent_of_visitors_w_transactions
+      label: Percent of Visitors w/ Transactions
+      expression: "${totals.transactions_count}/${ga_sessions.total_visitors}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: true
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    show_null_points: true
+    point_style: circle
+    interpolation: monotone
+    query_timezone: America/Los_Angeles
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    ordering: none
+    show_null_labels: false
+    series_types: {}
+    y_axis_labels: []
+    hidden_series:
+    - totals.average_revenue_per_transaction
+    - totals.transaction_conversion_rate
+    - totals.transactions_count
+    - percent_of_visitors_w_transactions
+    y_axis_orientation:
+    - left
+    - right
+    hidden_fields:
+    series_colors: {}
+    series_labels:
+      totals.transactions_count: Conversions
+      ga_sessions.total_visitors: Visitors
+      totals.average_revenue_per_transaction: Avg Conversion Value
+      percent_of_visitors_w_transactions: "% Converting Visitors"
+    label_color: []
+    y_axes:
+    - label: ''
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: percent_of_visitors_w_transactions
+        name: Percent of Visitors w/ Transactions
+        axisId: percent_of_visitors_w_transactions
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1062
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1050
+    - label:
+      maxValue:
+      minValue:
+      orientation: left
+      showLabels: false
+      showValues: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      unpinAxis: false
+      valueFormat:
+      series:
+      - id: ga_sessions.total_visitors
+        name: Total Visitors
+        axisId: ga_sessions.total_visitors
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1081
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1069
+    - label:
+      orientation: left
+      series:
+      - id: totals.transactions_count
+        name: Transactions Count
+        axisId: totals.transactions_count
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1091
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1088
+    - label:
+      orientation: left
+      series:
+      - id: totals.transactionRevenue_total
+        name: Transaction Revenue Total
+        axisId: totals.transactionRevenue_total
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1110
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1107
+    - label:
+      orientation: left
+      series:
+      - id: totals.transaction_conversion_rate
+        name: Transaction Conversion Rate
+        axisId: totals.transaction_conversion_rate
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1129
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1126
+    - label:
+      orientation: left
+      series:
+      - id: totals.average_revenue_per_transaction
+        name: Average Revenue per Transaction
+        axisId: totals.average_revenue_per_transaction
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1148
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1145
+    colors:
+    - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    listen:
+      Period: ga_sessions.period
+      Campaign: trafficSource.campaign
+      First Time User: ga_sessions.first_time_visitor
+    row: 3
+    col: 0
+    width: 24
+    height: 9
+  - title: Top Medium
+    name: Top Medium
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_bar
+    fields:
+    - trafficSource.medium
+    - ga_sessions.total_visitors
+    - totals.transaction_conversion_rate
+    - totals.transactionRevenue_total
+    - totals.transactions_count
+    - totals.average_revenue_per_transaction
+    filters:
+      trafficSource.keyword: "-NULL"
+      ga_sessions.date_period_latest: 'Yes'
+    sorts:
+    - totals.transactions_count desc
+    limit: 10
+    column_limit: 50
+    dynamic_fields:
+    - table_calculation: medium
+      label: Medium
+      expression: substring(${trafficSource.medium},0,16)
+      value_format:
+      value_format_name:
+      _kind_hint: dimension
+      _type_hint: string
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    point_style: circle
+    limit_displayed_rows: false
+    y_axis_combined: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    query_timezone: America/Los_Angeles
+    show_null_points: true
+    interpolation: monotone
+    series_types: {}
+    y_axis_labels: []
+    hidden_series:
+    - ga_sessions.total_visitors
+    - totals.transaction_conversion_rate
+    - totals.transactionRevenue_total
+    - totals.average_revenue_per_transaction
+    y_axis_orientation:
+    - left
+    - right
+    hidden_fields:
+    - trafficSource.medium
+    series_colors:
+      totals.transaction_conversion_rate: "#5EC0C4"
+    series_labels:
+      ga_sessions.total_visitors: Visitors
+      totals.transactions_count: Conversions
+      totals.transactionRevenue_total: Total Value
+      percent_of_visitors_w_transactions: "% Converting Visitors"
+      totals.transaction_conversion_rate: Conversion Rate
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: percent_of_visitors_w_transactions
+        name: Percent of Visitors w/ Transactions
+        axisId: percent_of_visitors_w_transactions
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 804
+      - id: ga_sessions.total_visitors
+        name: Total Visitors
+        axisId: ga_sessions.total_visitors
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 809
+      - id: totals.transactions_count
+        name: Transactions Count
+        axisId: totals.transactions_count
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 814
+      - id: totals.transactionRevenue_total
+        name: Transaction Revenue Total
+        axisId: totals.transactionRevenue_total
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 819
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 801
+    colors:
+    - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    listen:
+      Period: ga_sessions.period
+      Campaign: trafficSource.campaign
+      First Time User: ga_sessions.first_time_visitor
+    row: 14
+    col: 0
+    width: 8
+    height: 9
+  - title: Top Referrers
+    name: Top Referrers
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_bar
+    fields:
+    - trafficSource.source
+    - ga_sessions.total_visitors
+    - totals.transaction_conversion_rate
+    - totals.transactionRevenue_total
+    - totals.transactions_count
+    - totals.average_revenue_per_transaction
+    filters:
+      trafficSource.keyword: "-NULL"
+      ga_sessions.date_period_latest: 'Yes'
+    sorts:
+    - totals.transaction_conversion_rate desc
+    limit: 10
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    point_style: circle
+    limit_displayed_rows: false
+    y_axis_combined: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    query_timezone: America/Los_Angeles
+    show_null_points: true
+    interpolation: monotone
+    series_types: {}
+    y_axis_labels: []
+    hidden_series:
+    - ga_sessions.total_visitors
+    - totals.transaction_conversion_rate
+    - totals.transactionRevenue_total
+    - totals.average_revenue_per_transaction
+    y_axis_orientation:
+    - left
+    - right
+    hidden_fields:
+    series_colors:
+      totals.transaction_conversion_rate: "#5EC0C4"
+    series_labels:
+      ga_sessions.total_visitors: Visitors
+      totals.transactions_count: Conversions
+      totals.transactionRevenue_total: Total Value
+      percent_of_visitors_w_transactions: "% Converting Visitors"
+      totals.transaction_conversion_rate: Conversion Rate
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: percent_of_visitors_w_transactions
+        name: Percent of Visitors w/ Transactions
+        axisId: percent_of_visitors_w_transactions
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 926
+      - id: ga_sessions.total_visitors
+        name: Total Visitors
+        axisId: ga_sessions.total_visitors
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 931
+      - id: totals.transactions_count
+        name: Transactions Count
+        axisId: totals.transactions_count
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 936
+      - id: totals.transactionRevenue_total
+        name: Transaction Revenue Total
+        axisId: totals.transactionRevenue_total
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 941
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 923
+    colors:
+    - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    listen:
+      Period: ga_sessions.period
+      Campaign: trafficSource.campaign
+      First Time User: ga_sessions.first_time_visitor
+    row: 14
+    col: 8
+    width: 8
+    height: 9
+  - title: Top Channels
+    name: Top Channels
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_bar
+    fields:
+    - ga_sessions.channelGrouping
+    - ga_sessions.total_visitors
+    - totals.transaction_conversion_rate
+    - totals.transactionRevenue_total
+    - totals.transactions_count
+    - totals.average_revenue_per_transaction
+    filters:
+      trafficSource.keyword: "-NULL"
+      ga_sessions.date_period_latest: 'Yes'
+    sorts:
+    - totals.transaction_conversion_rate desc
+    limit: 10
+    column_limit: 50
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    point_style: circle
+    limit_displayed_rows: false
+    y_axis_combined: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    query_timezone: America/Los_Angeles
+    show_null_points: true
+    interpolation: monotone
+    series_types: {}
+    y_axis_labels: []
+    hidden_series:
+    - ga_sessions.total_visitors
+    - totals.transaction_conversion_rate
+    - totals.transactionRevenue_total
+    - totals.average_revenue_per_transaction
+    y_axis_orientation:
+    - left
+    - right
+    hidden_fields:
+    series_colors:
+      totals.transaction_conversion_rate: "#5EC0C4"
+    series_labels:
+      ga_sessions.total_visitors: Visitors
+      totals.transactions_count: Conversions
+      totals.transactionRevenue_total: Total Value
+      percent_of_visitors_w_transactions: "% Converting Visitors"
+      totals.transaction_conversion_rate: Conversion Rate
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: percent_of_visitors_w_transactions
+        name: Percent of Visitors w/ Transactions
+        axisId: percent_of_visitors_w_transactions
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1657
+      - id: ga_sessions.total_visitors
+        name: Total Visitors
+        axisId: ga_sessions.total_visitors
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1662
+      - id: totals.transactions_count
+        name: Transactions Count
+        axisId: totals.transactions_count
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1667
+      - id: totals.transactionRevenue_total
+        name: Transaction Revenue Total
+        axisId: totals.transactionRevenue_total
+        __FILE: app_event_analytics/conversions.dashboard.lookml
+        __LINE_NUM: 1672
+      showLabels: false
+      showValues: false
+      maxValue:
+      minValue:
+      valueFormat:
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/conversions.dashboard.lookml
+      __LINE_NUM: 1654
+    colors:
+    - "#B9E49A"
+    - "#FF666C"
+    - "#58A9F5"
+    - "#FDCB6C"
+    - "#F6659A"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    listen:
+      Period: ga_sessions.period
+      Campaign: trafficSource.campaign
+      First Time User: ga_sessions.first_time_visitor
+    row: 14
+    col: 16
+    width: 8
+    height: 9
   - title: Top Converting Landing Pages
     name: Top Converting Landing Pages
     model: event_analytics
@@ -1853,7 +1852,6 @@
     - totals.transactions_count
     - totals.transaction_conversion_rate
     filters:
-      totals.transactionRevenue_total: ">0"
       ga_sessions.date_period_latest: 'Yes'
     sorts:
     - totals.transactions_count desc
@@ -1921,22 +1919,22 @@
         name: Visitors
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1441
+        __LINE_NUM: 1920
       - id: totals.transactions_count
         name: Conversions
         axisId: totals.transactions_count
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1444
+        __LINE_NUM: 1925
       - id: totals.transactionRevenue_total
         name: Total Value
         axisId: totals.transactionRevenue_total
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1447
+        __LINE_NUM: 1930
       - id: totals.average_revenue_per_transaction
         name: Average Revenue per Transaction
         axisId: totals.average_revenue_per_transaction
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1450
+        __LINE_NUM: 1935
       showLabels: false
       showValues: false
       maxValue:
@@ -1947,7 +1945,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1438
+      __LINE_NUM: 1917
     - label:
       orientation: bottom
       series:
@@ -1955,7 +1953,7 @@
         name: Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1465
+        __LINE_NUM: 1954
       showLabels: false
       showValues: false
       maxValue:
@@ -1966,7 +1964,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1462
+      __LINE_NUM: 1951
     colors:
     - "#B9E49A"
     - "#FF666C"
@@ -1990,14 +1988,14 @@
         - "#FFFFFF"
         - "#5EC0C4"
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1495
+        __LINE_NUM: 1988
       bold: false
       italic: false
       strikethrough: false
       fields:
       - totals.transactions_count
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1490
+      __LINE_NUM: 1983
     - type: low to high
       value:
       background_color:
@@ -2008,19 +2006,19 @@
         - "#FFFFFF"
         - "#5EC0C4"
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1509
+        __LINE_NUM: 2006
       bold: false
       italic: false
       strikethrough: false
       fields:
       - totals.transaction_conversion_rate
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1504
+      __LINE_NUM: 2001
     listen:
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 37
+    row: 33
     col: 0
     width: 13
     height: 12
@@ -2035,7 +2033,6 @@
     - totals.transaction_conversion_rate
     - trafficSource.keyword
     filters:
-      totals.transactionRevenue_total: ">0"
       ga_sessions.date_period_latest: 'Yes'
     sorts:
     - totals.transactions_count desc
@@ -2103,22 +2100,22 @@
         name: Visitors
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1601
+        __LINE_NUM: 2102
       - id: totals.transactions_count
         name: Conversions
         axisId: totals.transactions_count
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1604
+        __LINE_NUM: 2107
       - id: totals.transactionRevenue_total
         name: Total Value
         axisId: totals.transactionRevenue_total
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1607
+        __LINE_NUM: 2112
       - id: totals.average_revenue_per_transaction
         name: Average Revenue per Transaction
         axisId: totals.average_revenue_per_transaction
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1610
+        __LINE_NUM: 2117
       showLabels: false
       showValues: false
       maxValue:
@@ -2129,7 +2126,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1598
+      __LINE_NUM: 2099
     - label:
       orientation: bottom
       series:
@@ -2137,7 +2134,7 @@
         name: Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1625
+        __LINE_NUM: 2136
       showLabels: false
       showValues: false
       maxValue:
@@ -2148,7 +2145,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1622
+      __LINE_NUM: 2133
     colors:
     - "#B9E49A"
     - "#FF666C"
@@ -2172,14 +2169,14 @@
         - "#FFFFFF"
         - "#5EC0C4"
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1655
+        __LINE_NUM: 2170
       bold: false
       italic: false
       strikethrough: false
       fields:
       - totals.transactions_count
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1650
+      __LINE_NUM: 2165
     - type: low to high
       value:
       background_color:
@@ -2190,19 +2187,19 @@
         - "#FFFFFF"
         - "#5EC0C4"
         __FILE: app_event_analytics/conversions.dashboard.lookml
-        __LINE_NUM: 1669
+        __LINE_NUM: 2188
       bold: false
       italic: false
       strikethrough: false
       fields:
       - totals.transaction_conversion_rate
       __FILE: app_event_analytics/conversions.dashboard.lookml
-      __LINE_NUM: 1664
+      __LINE_NUM: 2183
     listen:
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First Time User: ga_sessions.first_time_visitor
-    row: 37
+    row: 33
     col: 13
     width: 11
     height: 12
