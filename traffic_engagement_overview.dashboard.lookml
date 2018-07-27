@@ -1866,7 +1866,7 @@
     - ga_sessions.visitStart_date
     - ga_sessions.unique_visitors
     - ga_sessions.returning_visitors
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     - totals.timeonsite_average_per_session
     - totals.page_views_session
     - totals.bounce_rate
@@ -1938,9 +1938,9 @@
     - label:
       orientation: left
       series:
-      - id: ga_sessions.average_sessions_ver_visitor
+      - id: ga_sessions.average_sessions_per_visitor
         name: Session Average Sessions Ver Visitor
-        axisId: ga_sessions.average_sessions_ver_visitor
+        axisId: ga_sessions.average_sessions_per_visitor
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1157
       showLabels: false
@@ -2017,7 +2017,7 @@
       __LINE_NUM: 1218
     hidden_series:
     - ga_sessions.returning_visitors
-    - ga_sessions.average_sessions_ver_visitor
+    - ga_sessions.average_sessions_per_visitor
     - totals.page_views_session
     - totals.bounce_rate
     listen:
