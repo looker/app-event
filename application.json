@@ -118,7 +118,7 @@
   },
   {
       "id": "brand",
-      "name": "Breand",
+      "name": "Brand",
       "model": "event_analytics",
       "view": "ga_sessions",
       "params": "sorts=ga_sessions.total_visitors+desc&limit=1000",
