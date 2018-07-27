@@ -166,7 +166,7 @@
         }
       ]
     },
-  {
+    {
       "id": "product_category",
       "name": "Product Category",
       "model": "event_analytics",
@@ -232,7 +232,7 @@
     },
     "filters": [
       {
-        "defaultValue": "28 day",
+        "defaultValue": "7 day",
         "field": "ga_sessions.period",
         "name": "Time Frame",
         "type": "TimeFrame",
@@ -296,7 +296,7 @@
           },
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "7 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -340,7 +340,7 @@
           },
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "7 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -384,7 +384,7 @@
           },
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "7 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -428,7 +428,7 @@
           },
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "7 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -464,7 +464,7 @@
           "type": "reports",
           "filters": [
             {
-              "defaultValue": "28 day",
+              "defaultValue": "7 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame"
