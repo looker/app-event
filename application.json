@@ -296,7 +296,7 @@
           },
           "filters": [
             {
-              "defaultValue": "364 day",
+              "defaultValue": "28 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -340,7 +340,7 @@
           },
           "filters": [
             {
-              "defaultValue": "364 day",
+              "defaultValue": "28 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -384,7 +384,7 @@
           },
           "filters": [
             {
-              "defaultValue": "364 day",
+              "defaultValue": "28 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -428,7 +428,7 @@
           },
           "filters": [
             {
-              "defaultValue": "364 day",
+              "defaultValue": "28 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
               "type": "TimeFrame",
@@ -519,7 +519,7 @@
                     },
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/page_funnel?fields=ga_sessions.count_sessions_event1,ga_sessions.count_sessions_event12,ga_sessions.count_sessions_event123,ga_sessions.count_sessions_event1234&f[ga_sessions.period]=28+day&f[ga_sessions.page_1]=Business+Intelligence+and+Big+Data+Analytics+Software&f[ga_sessions.date_period_latest]=Yes&f[ga_sessions.page_2]=Looker+Documentation&f[ga_sessions.page_3]=Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C+Looker&f[ga_sessions.page_4]=Demo+%7C+Looker&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22looker_column%22%2C%22stacking%22%3A%22%22%2C%22show_value_labels%22%3Atrue%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Afalse%2C%22point_style%22%3A%22none%22%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Atrue%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23FF666C%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22series_colors%22%3A%7B%7D%2C%22y_axes%22%3A%5B%7B%22label%22%3A%22%22%2C%22orientation%22%3A%22left%22%2C%22series%22%3A%5B%7B%22id%22%3A%22ga_sessions.count_sessions_event1%22%2C%22name%22%3A%22Page+1%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event12%22%2C%22name%22%3A%22Page+2%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event12%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event123%22%2C%22name%22%3A%22Page+3%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event123%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event1234%22%2C%22name%22%3A%22Page+4%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1234%22%7D%5D%2C%22showLabels%22%3Atrue%2C%22showValues%22%3Atrue%2C%22unpinAxis%22%3Afalse%2C%22tickDensity%22%3A%22default%22%2C%22tickDensityCustom%22%3A5%2C%22type%22%3A%22log%22%7D%5D%7D&filter_config=%7B%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22364+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_1%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Business+Intelligence+and+Big+Data+Analytics+Software%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period_latest%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_2%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Looker+Documentation%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_3%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C+Looker%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_4%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Demo+%7C+Looker%22%7D%2C%7B%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "exploreParams": "event_analytics/page_funnel?fields=ga_sessions.count_sessions_event1,ga_sessions.count_sessions_event12,ga_sessions.count_sessions_event123,ga_sessions.count_sessions_event1234&f[ga_sessions.period]=28+day&f[ga_sessions.page_1]=Business+Intelligence+and+Big+Data+Analytics+Software&f[ga_sessions.date_period_latest]=Yes&f[ga_sessions.page_2]=Looker+Documentation&f[ga_sessions.page_3]=Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C+Looker&f[ga_sessions.page_4]=Demo+%7C+Looker&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22looker_column%22%2C%22stacking%22%3A%22%22%2C%22show_value_labels%22%3Atrue%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Afalse%2C%22point_style%22%3A%22none%22%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Atrue%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23FF666C%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22series_colors%22%3A%7B%7D%2C%22y_axes%22%3A%5B%7B%22label%22%3A%22%22%2C%22orientation%22%3A%22left%22%2C%22series%22%3A%5B%7B%22id%22%3A%22ga_sessions.count_sessions_event1%22%2C%22name%22%3A%22Page+1%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event12%22%2C%22name%22%3A%22Page+2%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event12%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event123%22%2C%22name%22%3A%22Page+3%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event123%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event1234%22%2C%22name%22%3A%22Page+4%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1234%22%7D%5D%2C%22showLabels%22%3Atrue%2C%22showValues%22%3Atrue%2C%22unpinAxis%22%3Afalse%2C%22tickDensity%22%3A%22default%22%2C%22tickDensityCustom%22%3A5%2C%22type%22%3A%22log%22%7D%5D%7D&filter_config=%7B%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%2228+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_1%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Business+Intelligence+and+Big+Data+Analytics+Software%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period_latest%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_2%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Looker+Documentation%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_3%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C+Looker%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_4%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Demo+%7C+Looker%22%7D%2C%7B%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
                       "name": "Page Funnel",
                       "permalink": "page_funnel",
                       "filters": [
