@@ -40,7 +40,7 @@ view: period_base {
       value: "364 day"
       label: "Last 364 Days"
     }
-    default_value: "28 day"
+    default_value: "7 day"
   }
   dimension: date_period {
     type: date
