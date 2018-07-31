@@ -1,6 +1,6 @@
-- dashboard: traffic_engagement_overview
+- dashboard: behavior
   extends: event_analytics_dash_base
-  title: Traffic Engagement Overview
+  title: Behavior
   embed_style:
     background_color: "#ffffff"
     title_color: "#3a4245"

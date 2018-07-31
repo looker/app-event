@@ -60,6 +60,25 @@ view: page_funnel {
   }
 
 
+  dimension: date_period_comparison_period {
+#     hidden: yes
+    description: "Is the selected period (This Period) in the last two periods?"
+    type: yesno
+    group_label: "Event"
+    sql: ${date_period} >= {% if ga_sessions.period._parameter_value contains "day" %}
+        {% if ga_sessions.period._parameter_value == "'7 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*7 DAY)
+        {% elsif ga_sessions.period._parameter_value == "'28 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*28 DAY)
+        {% elsif ga_sessions.period._parameter_value == "'91 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*91 DAY)
+        {% elsif ga_sessions.period._parameter_value == "'364 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*364 DAY)
+        {% else %}${date_date}
+        {% endif %}
+      {% elsif ga_sessions.period._parameter_value contains "week" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 WEEK)
+      {% elsif ga_sessions.period._parameter_value contains "month" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 MONTH)
+      {% elsif ga_sessions.period._parameter_value contains "quarter" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 QUARTER)
+      {% elsif ga_sessions.period._parameter_value contains "year" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 YEAR)
+      {% endif %} ;;
+  }
+
   filter: page_1 {
     type: string
     suggest_dimension: hits_page.pageTitle
