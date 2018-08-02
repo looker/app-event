@@ -14,9 +14,9 @@
     col: 0
     width: 24
     height: 2
-  - name: Hows your content performing?
+  - name: How is your content performing?
     type: text
-    title_text: Hows your content performing?
+    title_text: How is your content performing?
     row: 38
     col: 0
     width: 24
