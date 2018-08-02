@@ -28,8 +28,8 @@
     col: 0
     width: 24
     height: 2
-  - title: Total Sessions
-    name: Total Sessions
+  - title: Sessions
+    name: Sessions
     model: event_analytics
     explore: ga_sessions
     type: single_value
@@ -148,7 +148,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 150
@@ -196,7 +196,7 @@
       orientation: left
       series:
       - id: percent_new_visitors
-        name: Percent New Visitors
+        name: Percent New Users
         axisId: percent_new_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 198
@@ -258,8 +258,8 @@
     col: 0
     width: 5
     height: 3
-  - title: New Visitors
-    name: New Visitors
+  - title: New Users
+    name: New Users
     model: event_analytics
     explore: ga_sessions
     type: single_value
@@ -329,7 +329,7 @@
       _kind_hint: measure
       _type_hint: number
     - table_calculation: new_visitors
-      label: New Visitors
+      label: New Users
       expression: "(${totals.newVisits_total} - offset(${totals.newVisits_total},\
         \ 1)) / offset(${totals.newVisits_total}, 1)"
       value_format:
@@ -387,7 +387,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 389
@@ -435,7 +435,7 @@
       orientation: left
       series:
       - id: percent_new_visitors
-        name: Percent New Visitors
+        name: Percent New Users
         axisId: percent_new_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 437
@@ -499,8 +499,8 @@
     col: 5
     width: 5
     height: 3
-  - title: Avg Pages Per Session
-    name: Avg Pages Per Session
+  - title: Pages / Session
+    name: Pages / Session
     model: event_analytics
     explore: ga_sessions
     type: single_value
@@ -571,7 +571,7 @@
       _kind_hint: measure
       _type_hint: number
     - table_calculation: new_visitors
-      label: New Visitors
+      label: New Users
       expression: "(${totals.newVisits_total} - offset(${totals.newVisits_total},\
         \ 1)) / offset(${totals.newVisits_total}, 1)"
       value_format:
@@ -637,7 +637,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 639
@@ -685,7 +685,7 @@
       orientation: left
       series:
       - id: percent_new_visitors
-        name: Percent New Visitors
+        name: Percent New Users
         axisId: percent_new_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 687
@@ -874,7 +874,7 @@
       _kind_hint: measure
       _type_hint: number
     - table_calculation: new_visitors
-      label: New Visitors
+      label: New Users
       expression: "(${totals.newVisits_total} - offset(${totals.newVisits_total},\
         \ 1)) / offset(${totals.newVisits_total}, 1)"
       value_format:
@@ -940,7 +940,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 942
@@ -988,7 +988,7 @@
       orientation: left
       series:
       - id: percent_new_visitors
-        name: Percent New Visitors
+        name: Percent New Users
         axisId: percent_new_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 990
@@ -1174,7 +1174,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1176
@@ -1222,7 +1222,7 @@
       orientation: left
       series:
       - id: percent_new_visitors
-        name: Percent New Visitors
+        name: Percent New Users
         axisId: percent_new_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1224
@@ -1284,8 +1284,8 @@
     col: 10
     width: 5
     height: 3
-  - title: Returning Visitors
-    name: Returning Visitors
+  - title: Returning Users
+    name: Returning Users
     model: event_analytics
     explore: ga_sessions
     type: single_value
@@ -1404,7 +1404,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1406
@@ -1452,7 +1452,7 @@
       orientation: left
       series:
       - id: percent_new_visitors
-        name: Percent New Visitors
+        name: Percent New Users
         axisId: percent_new_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1454
@@ -1554,7 +1554,7 @@
       _kind_hint: measure
       _type_hint: number
     - table_calculation: total_sessions
-      label: Total Sessions
+      label: Sessions
       expression: "${ga_sessions.session_count}"
       value_format:
       value_format_name: decimal_2
@@ -1638,7 +1638,7 @@
       orientation: bottom
       series:
       - id: total_sessions
-        name: Total Sessions
+        name: Sessions
         axisId: total_sessions
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1640
@@ -1726,7 +1726,7 @@
       _kind_hint: measure
       _type_hint: number
     - table_calculation: total_sessions
-      label: Total Sessions
+      label: Sessions
       expression: "${ga_sessions.session_count}"
       value_format:
       value_format_name: decimal_2
@@ -1810,7 +1810,7 @@
       orientation: bottom
       series:
       - id: total_sessions
-        name: Total Sessions
+        name: Sessions
         axisId: total_sessions
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1812
@@ -1955,7 +1955,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Session Returning Visitors
+        name: Session Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1957
@@ -2068,7 +2068,7 @@
       _kind_hint: measure
       _type_hint: number
     - table_calculation: total_sessions
-      label: Total Sessions
+      label: Sessions
       expression: "${ga_sessions.session_count}"
       value_format:
       value_format_name: decimal_2
@@ -2152,7 +2152,7 @@
       orientation: bottom
       series:
       - id: total_sessions
-        name: Total Sessions
+        name: Sessions
         axisId: total_sessions
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 2154
