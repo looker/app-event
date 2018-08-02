@@ -21,7 +21,7 @@
       "name": "Page",
       "model": "event_analytics",
       "view": "ga_sessions",
-      "params": "sorts=ga_sessions.total_visitors+desc&limit=1000",
+      "params": "f[ga_sessions.period]=month&f[ga_sessions.date_period_comparison_period]=Yes&sorts=ga_sessions.total_visitors+desc&limit=1000",
       "keyColumn": "first_page.pageTitle",
       "columns": [
         {
@@ -71,7 +71,7 @@
       "name": "Event",
       "model": "event_analytics",
       "view": "ga_sessions",
-      "params": "sorts=ga_sessions.total_visitors+desc&limit=1000",
+      "params": "f[ga_sessions.period]=month&f[ga_sessions.date_period_comparison_period]=Yes&sorts=ga_sessions.total_visitors+desc&limit=1000",
       "keyColumn": "hits_eventInfo.eventCategory",
       "columns": [
         {
@@ -121,7 +121,7 @@
       "name": "Brand",
       "model": "event_analytics",
       "view": "ga_sessions",
-      "params": "sorts=ga_sessions.total_visitors+desc&limit=1000",
+      "params": "f[ga_sessions.period]=month&f[ga_sessions.date_period_comparison_period]=Yes&sorts=ga_sessions.total_visitors+desc&limit=1000",
       "keyColumn": "hits_product.productBrand",
       "columns": [
         {
@@ -171,7 +171,7 @@
       "name": "Product Category",
       "model": "event_analytics",
       "view": "ga_sessions",
-      "params": "sorts=ga_sessions.total_visitors+desc&limit=1000",
+      "params": "f[ga_sessions.period]=month&f[ga_sessions.date_period_comparison_period]=Yes&sorts=ga_sessions.total_visitors+desc&limit=1000",
       "keyColumn": "hits_product.v2ProductCategory",
       "columns": [
         {
