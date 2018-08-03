@@ -6,7 +6,7 @@ include: "/app_event_analytics_config/ga360_config.view"
 view: event_funnel {
   extends: [date_base, period_base, ga360_config]
   derived_table: {
-    sql: SELECT CONCAT(CAST(sessions.fullVisitorId AS STRING), '|', COALESCE(CAST(sessions.visitId AS STRING),'')) as id
+    sql: SELECT CONCAT(CAST(hits_product.productBrand AS STRING), '|', CAST(hits_page.pageTitle AS STRING), '|', CAST(PARSE_DATE('%Y%m%d', date))) as id
         , sessions.fullVisitorId as full_visitor_id
         , TIMESTAMP_SECONDS(sessions.visitStarttime) AS session_start
         , MIN(
