@@ -442,7 +442,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 520
+        __LINE_NUM: 441
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -450,7 +450,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 517
+      __LINE_NUM: 438
     - label:
       orientation: left
       series:
@@ -458,7 +458,7 @@
         name: Average Pageviews per User
         axisId: totals.avg_pageview_per_user
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 536
+        __LINE_NUM: 457
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -466,7 +466,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 533
+      __LINE_NUM: 454
     - label:
       orientation: left
       series:
@@ -474,7 +474,7 @@
         name: Average Sessions Ver Visitor
         axisId: ga_sessions.average_sessions_per_visitor
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 552
+        __LINE_NUM: 473
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -482,7 +482,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 549
+      __LINE_NUM: 470
     - label:
       orientation: right
       series:
@@ -490,7 +490,7 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 568
+        __LINE_NUM: 489
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -498,7 +498,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 565
+      __LINE_NUM: 486
     colors:
     - "#F6659A"
     - "#B9E49A"
@@ -592,7 +592,7 @@
         name: Transaction Revenue Total
         axisId: totals.transactionRevenue_total
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 670
+        __LINE_NUM: 591
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -600,7 +600,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 667
+      __LINE_NUM: 588
     - label: ''
       orientation: bottom
       series:
@@ -608,7 +608,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 686
+        __LINE_NUM: 607
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -616,7 +616,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 683
+      __LINE_NUM: 604
     - label:
       orientation: bottom
       series:
@@ -624,7 +624,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 702
+        __LINE_NUM: 623
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -632,7 +632,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 699
+      __LINE_NUM: 620
     - label:
       orientation: bottom
       series:
@@ -640,7 +640,7 @@
         name: Average Revenue per User
         axisId: totals.average_revenue_per_user
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 718
+        __LINE_NUM: 639
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -648,7 +648,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 715
+      __LINE_NUM: 636
     colors:
     - 'palette: Fuchsia to Green'
     series_colors:
@@ -722,7 +722,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 800
+        __LINE_NUM: 721
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -730,7 +730,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 797
+      __LINE_NUM: 718
     - label:
       orientation: bottom
       series:
@@ -738,7 +738,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 812
+        __LINE_NUM: 737
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -746,7 +746,7 @@
       tickDensityCustom: 3
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 809
+      __LINE_NUM: 734
     - label: ''
       orientation: bottom
       series:
@@ -754,14 +754,14 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 824
+        __LINE_NUM: 753
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 821
+      __LINE_NUM: 750
     colors:
     - "#B9E49A"
     - "#FDCB6C"
@@ -852,7 +852,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 918
+        __LINE_NUM: 851
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -860,13 +860,76 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 915
+      __LINE_NUM: 848
     - label:
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
+        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+        __LINE_NUM: 867
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+      __LINE_NUM: 864
+    - label:
+      orientation: left
+      series:
+      - id: ga_sessions.session_count
+        name: Session Count
+        axisId: ga_sessions.session_count
+        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+        __LINE_NUM: 883
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+      __LINE_NUM: 880
+    - label:
+      orientation: left
+      series:
+      - id: totals.timeonsite_average_per_session
+        name: Time On Site Average Per Session
+        axisId: totals.timeonsite_average_per_session
+        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+        __LINE_NUM: 899
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+      __LINE_NUM: 896
+    - label: ''
+      orientation: left
+      series:
+      - id: percent_new_visitors
+        name: Percent New Visitors
+        axisId: percent_new_visitors
+        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+        __LINE_NUM: 915
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
+      __LINE_NUM: 912
+    - label:
+      orientation: right
+      series:
+      - id: totals.transaction_conversion_rate
+        name: Transaction Conversion Rate
+        axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
         __LINE_NUM: 930
       showLabels: false
@@ -877,69 +940,6 @@
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
       __LINE_NUM: 927
-    - label:
-      orientation: left
-      series:
-      - id: ga_sessions.session_count
-        name: Session Count
-        axisId: ga_sessions.session_count
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 942
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 939
-    - label:
-      orientation: left
-      series:
-      - id: totals.timeonsite_average_per_session
-        name: Time On Site Average Per Session
-        axisId: totals.timeonsite_average_per_session
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 954
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 951
-    - label: ''
-      orientation: left
-      series:
-      - id: percent_new_visitors
-        name: Percent New Visitors
-        axisId: percent_new_visitors
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 966
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 963
-    - label:
-      orientation: right
-      series:
-      - id: totals.transaction_conversion_rate
-        name: Transaction Conversion Rate
-        axisId: totals.transaction_conversion_rate
-        __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 977
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 974
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -1080,7 +1080,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1122
+        __LINE_NUM: 1079
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1088,7 +1088,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1119
+      __LINE_NUM: 1076
     - label:
       orientation: left
       series:
@@ -1096,7 +1096,7 @@
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1138
+        __LINE_NUM: 1095
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1104,7 +1104,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1135
+      __LINE_NUM: 1092
     - label:
       orientation: left
       series:
@@ -1112,7 +1112,7 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1154
+        __LINE_NUM: 1111
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1120,7 +1120,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1151
+      __LINE_NUM: 1108
     - label:
       orientation: left
       series:
@@ -1128,7 +1128,7 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1170
+        __LINE_NUM: 1127
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1136,7 +1136,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1167
+      __LINE_NUM: 1124
     - label: ''
       orientation: left
       series:
@@ -1144,14 +1144,14 @@
         name: Percent New Visitors
         axisId: percent_new_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1186
+        __LINE_NUM: 1143
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1183
+      __LINE_NUM: 1140
     - label:
       orientation: right
       series:
@@ -1159,7 +1159,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1201
+        __LINE_NUM: 1158
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1167,7 +1167,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1198
+      __LINE_NUM: 1155
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -1310,7 +1310,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1352
+        __LINE_NUM: 1309
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1318,7 +1318,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1349
+      __LINE_NUM: 1306
     - label:
       orientation: left
       series:
@@ -1326,7 +1326,7 @@
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1368
+        __LINE_NUM: 1325
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1334,7 +1334,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1365
+      __LINE_NUM: 1322
     - label:
       orientation: left
       series:
@@ -1342,7 +1342,7 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1384
+        __LINE_NUM: 1341
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1350,7 +1350,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1381
+      __LINE_NUM: 1338
     - label:
       orientation: left
       series:
@@ -1358,7 +1358,7 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1400
+        __LINE_NUM: 1357
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1366,7 +1366,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1397
+      __LINE_NUM: 1354
     - label: ''
       orientation: left
       series:
@@ -1374,14 +1374,14 @@
         name: Percent New Visitors
         axisId: percent_new_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1416
+        __LINE_NUM: 1373
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1413
+      __LINE_NUM: 1370
     - label:
       orientation: right
       series:
@@ -1389,7 +1389,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1431
+        __LINE_NUM: 1388
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1397,7 +1397,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1428
+      __LINE_NUM: 1385
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -1540,7 +1540,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1582
+        __LINE_NUM: 1539
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1548,7 +1548,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1579
+      __LINE_NUM: 1536
     - label:
       orientation: left
       series:
@@ -1556,7 +1556,7 @@
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1598
+        __LINE_NUM: 1555
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1564,7 +1564,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1595
+      __LINE_NUM: 1552
     - label:
       orientation: left
       series:
@@ -1572,7 +1572,7 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1614
+        __LINE_NUM: 1571
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1580,7 +1580,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1611
+      __LINE_NUM: 1568
     - label:
       orientation: left
       series:
@@ -1588,7 +1588,7 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1630
+        __LINE_NUM: 1587
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1596,7 +1596,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1627
+      __LINE_NUM: 1584
     - label: ''
       orientation: left
       series:
@@ -1604,14 +1604,14 @@
         name: Percent New Visitors
         axisId: percent_new_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1646
+        __LINE_NUM: 1603
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1643
+      __LINE_NUM: 1600
     - label:
       orientation: right
       series:
@@ -1619,7 +1619,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1661
+        __LINE_NUM: 1618
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1627,7 +1627,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1658
+      __LINE_NUM: 1615
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -1770,7 +1770,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1812
+        __LINE_NUM: 1769
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1778,7 +1778,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1809
+      __LINE_NUM: 1766
     - label:
       orientation: left
       series:
@@ -1786,7 +1786,7 @@
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1828
+        __LINE_NUM: 1785
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1794,7 +1794,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1825
+      __LINE_NUM: 1782
     - label:
       orientation: left
       series:
@@ -1802,7 +1802,7 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1844
+        __LINE_NUM: 1801
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1810,7 +1810,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1841
+      __LINE_NUM: 1798
     - label:
       orientation: left
       series:
@@ -1818,7 +1818,7 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1860
+        __LINE_NUM: 1817
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1826,7 +1826,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1857
+      __LINE_NUM: 1814
     - label: ''
       orientation: left
       series:
@@ -1834,14 +1834,14 @@
         name: Percent New Visitors
         axisId: percent_new_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1876
+        __LINE_NUM: 1833
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1873
+      __LINE_NUM: 1830
     - label:
       orientation: right
       series:
@@ -1849,7 +1849,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 1891
+        __LINE_NUM: 1848
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -1857,7 +1857,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 1888
+      __LINE_NUM: 1845
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -2000,7 +2000,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2042
+        __LINE_NUM: 1999
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2008,7 +2008,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2039
+      __LINE_NUM: 1996
     - label:
       orientation: left
       series:
@@ -2016,7 +2016,7 @@
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2058
+        __LINE_NUM: 2015
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2024,7 +2024,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2055
+      __LINE_NUM: 2012
     - label:
       orientation: left
       series:
@@ -2032,7 +2032,7 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2074
+        __LINE_NUM: 2031
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2040,7 +2040,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2071
+      __LINE_NUM: 2028
     - label:
       orientation: left
       series:
@@ -2048,7 +2048,7 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2090
+        __LINE_NUM: 2047
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2056,7 +2056,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2087
+      __LINE_NUM: 2044
     - label: ''
       orientation: left
       series:
@@ -2064,14 +2064,14 @@
         name: Percent New Visitors
         axisId: percent_new_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2106
+        __LINE_NUM: 2063
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2103
+      __LINE_NUM: 2060
     - label:
       orientation: right
       series:
@@ -2079,7 +2079,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2121
+        __LINE_NUM: 2078
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2087,7 +2087,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2118
+      __LINE_NUM: 2075
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -2230,7 +2230,7 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2272
+        __LINE_NUM: 2229
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2238,7 +2238,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2269
+      __LINE_NUM: 2226
     - label:
       orientation: left
       series:
@@ -2246,7 +2246,7 @@
         name: Returning Visitors
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2288
+        __LINE_NUM: 2245
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2254,7 +2254,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2285
+      __LINE_NUM: 2242
     - label:
       orientation: left
       series:
@@ -2262,7 +2262,7 @@
         name: Session Count
         axisId: ga_sessions.session_count
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2304
+        __LINE_NUM: 2261
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2270,7 +2270,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2301
+      __LINE_NUM: 2258
     - label:
       orientation: left
       series:
@@ -2278,7 +2278,7 @@
         name: Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2320
+        __LINE_NUM: 2277
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2286,7 +2286,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2317
+      __LINE_NUM: 2274
     - label: ''
       orientation: left
       series:
@@ -2294,14 +2294,14 @@
         name: Percent New Visitors
         axisId: percent_new_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2336
+        __LINE_NUM: 2293
       showLabels: false
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2333
+      __LINE_NUM: 2290
     - label:
       orientation: right
       series:
@@ -2309,7 +2309,7 @@
         name: Transaction Conversion Rate
         axisId: totals.transaction_conversion_rate
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 2351
+        __LINE_NUM: 2308
       showLabels: false
       showValues: false
       unpinAxis: false
@@ -2317,7 +2317,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 2348
+      __LINE_NUM: 2305
     colors:
     - "#58A9F5"
     - "#B9E49A"
@@ -2361,12 +2361,9 @@
     type: looker_column
     fields:
     - ga_sessions.unique_visitors
-    - user_session_facts.lifetime_sessions
+    - ga_sessions.visitnumber
     filters:
       ga_sessions.date_period_latest: 'Yes'
-      user_session_facts.lifetime_sessions: NOT NULL
-    sorts:
-    - user_session_facts.lifetime_sessions
     limit: 7
     column_limit: 5
     stacking: ''
@@ -2400,14 +2397,14 @@
         name: Unique Visitors
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-        __LINE_NUM: 429
+        __LINE_NUM: 2399
       showLabels: true
       showValues: false
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: app_event_analytics/google_analytics_overview.dashboard.lookml
-      __LINE_NUM: 426
+      __LINE_NUM: 2396
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
