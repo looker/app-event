@@ -118,7 +118,7 @@ view: cohort {
         WHEN {% parameter measure_picker %} = 'Revenue' THEN ${transaction_revenue}
         ELSE 0
       END ;;
-    value_format_name: decimal_0
+    value_format_name: decimal_large
   }
 
   dimension: _date {
