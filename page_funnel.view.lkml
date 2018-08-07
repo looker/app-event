@@ -55,6 +55,7 @@ view: page_funnel {
       FROM {{ ga_sessions.looker_data_schema._sql }} AS sessions
         LEFT JOIN UNNEST(sessions.hits) as hits
         LEFT JOIN UNNEST([hits.page]) as hits_page
+        WHERE (((TIMESTAMP(PARSE_DATE('%Y%m%d', REGEXP_EXTRACT(_TABLE_SUFFIX,r'^\d\d\d\d\d\d\d\d')))  ) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -363 DAY))) AND (TIMESTAMP(PARSE_DATE('%Y%m%d', REGEXP_EXTRACT(_TABLE_SUFFIX,r'^\d\d\d\d\d\d\d\d')))  ) < ((TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -363 DAY), INTERVAL 364 DAY)))))
       GROUP BY 1,2,3
        ;;
   }
