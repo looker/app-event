@@ -29,8 +29,7 @@ view: cohort {
         COALESCE(SUM(totals.pageviews ), 0) AS page_views_total,
         COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
         COALESCE(SUM(totals.transactions ), 0) AS transactions_count,
-        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue,
-        COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_users
+        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue
       FROM  {{ ga_sessions.looker_data_schema._sql }} AS ga_sessions
       LEFT JOIN UNNEST([ga_sessions.totals]) as totals
       LEFT JOIN user_session_facts ON user_session_facts.ga_sessions_fullvisitorid = ga_sessions.fullVisitorId
