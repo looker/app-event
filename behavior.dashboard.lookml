@@ -1879,33 +1879,6 @@
     limit: 500
     column_limit: 50
     stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    show_null_points: true
-    point_style: circle
-    interpolation: monotone
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
     colors:
     - "#58A9F5"
     - "#FF666C"
@@ -1917,7 +1890,26 @@
     - "#D0A997"
     - "#8696B8"
     - "#C5D4B2"
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    point_style: circle
     series_colors: {}
+    series_labels:
+      ga_sessions.unique_visitors: Users
+      totals.page_views_session: Pages / Session
+      ga_sessions.average_sessions_per_visitor: Sessions / User
+      totals.timeonsite_average_per_session: Session Duration
+    series_types: {}
+    limit_displayed_rows: false
+    hidden_series:
+    - ga_sessions.returning_visitors
+    - ga_sessions.average_sessions_per_visitor
+    - totals.page_views_session
+    - totals.bounce_rate
     y_axes:
     - label: ''
       orientation: left
@@ -1925,7 +1917,7 @@
       - id: ga_sessions.unique_visitors
         name: Session Unique Visitors
         axisId: ga_sessions.unique_visitors
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __FILE: app_event_analytics/behavior.dashboard.lookml
         __LINE_NUM: 1925
       showLabels: false
       showValues: false
@@ -1933,7 +1925,7 @@
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __FILE: app_event_analytics/behavior.dashboard.lookml
       __LINE_NUM: 1922
     - label:
       orientation: left
@@ -1941,7 +1933,7 @@
       - id: ga_sessions.average_sessions_per_visitor
         name: Session Average Sessions Ver Visitor
         axisId: ga_sessions.average_sessions_per_visitor
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __FILE: app_event_analytics/behavior.dashboard.lookml
         __LINE_NUM: 1941
       showLabels: false
       showValues: false
@@ -1949,7 +1941,7 @@
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __FILE: app_event_analytics/behavior.dashboard.lookml
       __LINE_NUM: 1938
     - label:
       orientation: left
@@ -1957,7 +1949,7 @@
       - id: ga_sessions.returning_visitors
         name: Session Returning Users
         axisId: ga_sessions.returning_visitors
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __FILE: app_event_analytics/behavior.dashboard.lookml
         __LINE_NUM: 1957
       showLabels: false
       showValues: false
@@ -1965,7 +1957,7 @@
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __FILE: app_event_analytics/behavior.dashboard.lookml
       __LINE_NUM: 1954
     - label:
       orientation: left
@@ -1973,7 +1965,7 @@
       - id: totals.timeonsite_average_per_session
         name: Session Time On Site Average Per Session
         axisId: totals.timeonsite_average_per_session
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __FILE: app_event_analytics/behavior.dashboard.lookml
         __LINE_NUM: 1973
       showLabels: false
       showValues: false
@@ -1981,7 +1973,7 @@
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __FILE: app_event_analytics/behavior.dashboard.lookml
       __LINE_NUM: 1970
     - label:
       orientation: left
@@ -1989,7 +1981,7 @@
       - id: totals.bounce_rate
         name: Session Bounce Rate
         axisId: totals.bounce_rate
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __FILE: app_event_analytics/behavior.dashboard.lookml
         __LINE_NUM: 1989
       showLabels: false
       showValues: false
@@ -1997,7 +1989,7 @@
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __FILE: app_event_analytics/behavior.dashboard.lookml
       __LINE_NUM: 1986
     - label:
       orientation: left
@@ -2005,7 +1997,7 @@
       - id: totals.page_views_session
         name: Session PageViews Per Session
         axisId: totals.page_views_session
-        __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+        __FILE: app_event_analytics/behavior.dashboard.lookml
         __LINE_NUM: 2005
       showLabels: false
       showValues: false
@@ -2013,17 +2005,32 @@
       tickDensity: default
       tickDensityCustom: 5
       type: linear
-      __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
+      __FILE: app_event_analytics/behavior.dashboard.lookml
       __LINE_NUM: 2002
-    hidden_series:
-    - ga_sessions.returning_visitors
-    - ga_sessions.average_sessions_per_visitor
-    - totals.page_views_session
-    - totals.bounce_rate
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    show_null_points: true
+    interpolation: monotone
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
     listen:
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+    title_hidden: true
     row: 8
     col: 0
     width: 24
