@@ -1,4 +1,4 @@
-view: period_base {
+view: period_parameter {
   extension: required
 
   parameter: period {
@@ -42,6 +42,12 @@ view: period_base {
     }
     default_value: "7 day"
   }
+}
+
+view: period_base {
+  extends: [period_parameter]
+  extension: required
+
   dimension: date_period {
     type: date
     convert_tz: no

@@ -1,115 +1,69 @@
 include: "date_base.view"
 include: "period_base.view"
 include: "/app_event_analytics_config/ga360_config.view"
-
+include: "sessions.view"
 
 view: event_funnel {
-  extends: [date_base, period_base, ga360_config]
+  extends: [ga360_config, event_filters, period_parameter]
   derived_table: {
-    sql: SELECT CONCAT(CAST(hits_product.productBrand AS STRING), '|', CAST(hits_page.pageTitle AS STRING), '|', CAST(PARSE_DATE('%Y%m%d', date))) as id
-        , sessions.fullVisitorId as full_visitor_id
-        , TIMESTAMP_SECONDS(sessions.visitStarttime) AS session_start
-        , MIN(
-            CASE WHEN
-              {% condition ga_sessions.filter_1 %} hits_eventInfo.eventCategory {% endcondition %}
-              THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
-              ELSE NULL END
-            ) AS event_1
-        , MIN(
-            CASE WHEN
-              {% condition ga_sessions.event_2 %} hits_eventInfo.eventCategory {% endcondition %}
-              THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
-              ELSE NULL END
-            ) AS event_2_first
-        , MAX(
-            CASE WHEN
-              {% condition ga_sessions.event_2 %} hits_eventInfo.eventCategory {% endcondition %}
-              THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
-              ELSE NULL END
-            ) AS event_2_last
-        , MIN(
-            CASE WHEN
-              {% condition ga_sessions.event_3 %} hits_eventInfo.eventCategory {% endcondition %}
-              THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
-              ELSE NULL END
-            ) AS event_3_first
-        , MAX(
-            CASE WHEN
-              {% condition ga_sessions.event_3 %} hits_eventInfo.eventCategory {% endcondition %}
-              THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
-              ELSE NULL END
-            ) AS event_3_last
-        , MIN(
-            CASE WHEN
-              {% condition ga_sessions.event_4 %} hits_eventInfo.eventCategory {% endcondition %}
-              THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
-              ELSE NULL END
-            ) AS event_4_first
-        , MAX(
-            CASE WHEN
-              {% condition ga_sessions.event_4 %} hits_eventInfo.eventCategory {% endcondition %}
-              THEN TIMESTAMP_MILLIS(UNIX_MILLIS(TIMESTAMP_SECONDS(sessions.visitStarttime)) + hits.time)
-              ELSE NULL END
-            ) AS event_4_last
+    explore_source: ga_sessions {
+      column: date { field: ga_sessions.visitStart_date }
+      column: visit_id { field: ga_sessions.visitId }
+      column: full_visitor_id { field: ga_sessions.fullVisitorId }
+      column: session_start { field: ga_sessions.visitStartSeconds }
+      column: event_1 { field: ga_sessions.min_event_1_ts }
+      column: event_2_first { field: ga_sessions.min_event_2_ts }
+      column: event_2_last { field: ga_sessions.max_event_2_ts }
+      column: event_3_first { field: ga_sessions.min_event_3_ts }
+      column: event_3_last { field: ga_sessions.max_event_3_ts }
+      column: event_4_first { field: ga_sessions.min_event_4_ts }
+      column: event_4_last { field: ga_sessions.max_event_4_ts }
 
-      FROM {{ ga_sessions.looker_data_schema._sql }} AS sessions
-        LEFT JOIN UNNEST(sessions.hits) as hits
-        LEFT JOIN UNNEST([hits.eventInfo]) as hits_eventInfo
-      GROUP BY 1,2,3
-       ;;
+      bind_filters: {
+        from_field: event_funnel.period
+        to_field: ga_sessions.period
+      }
+      bind_filters: {
+        from_field: event_funnel.event_1_filter
+        to_field: ga_sessions.event_1_filter
+      }
+      bind_filters: {
+        from_field: event_funnel.event_2_filter
+        to_field: ga_sessions.event_2_filter
+      }
+      bind_filters: {
+        from_field: event_funnel.event_3_filter
+        to_field: ga_sessions.event_3_filter
+      }
+      bind_filters: {
+        from_field: event_funnel.event_4_filter
+        to_field: ga_sessions.event_4_filter
+      }
+      filters: {
+        field: ga_sessions.date_period_latest
+        value: "Yes"
+      }
+    }
   }
-
-
-  filter: filter_1 {
-    label: "Event 1"
-    type: string
-    suggest_dimension: hits_eventInfo.eventCategory
-    suggest_explore: ga_sessions
-  }
-
-  filter: event_2 {
-    type: string
-    suggest_dimension: hits_eventInfo.eventCategory
-    suggest_explore: ga_sessions
-  }
-
-  filter: event_3 {
-    type: string
-    suggest_dimension: hits_eventInfo.eventCategory
-    suggest_explore: ga_sessions
-  }
-
-  filter: event_4 {
-    type: string
-    suggest_dimension: hits_eventInfo.eventCategory
-    suggest_explore: ga_sessions
-  }
-
-
-  dimension: date_period_comparison_period {
-#     hidden: yes
-    description: "Is the selected period (This Period) in the last two periods?"
-    type: yesno
-    group_label: "Event"
-    sql: ${date_period} >= {% if ga_sessions.period._parameter_value contains "day" %}
-        {% if ga_sessions.period._parameter_value == "'7 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*7 DAY)
-        {% elsif ga_sessions.period._parameter_value == "'28 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*28 DAY)
-        {% elsif ga_sessions.period._parameter_value == "'91 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*91 DAY)
-        {% elsif ga_sessions.period._parameter_value == "'364 day'" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2*364 DAY)
-        {% else %}${date_date}
-        {% endif %}
-      {% elsif ga_sessions.period._parameter_value contains "week" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 WEEK)
-      {% elsif ga_sessions.period._parameter_value contains "month" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 MONTH)
-      {% elsif ga_sessions.period._parameter_value contains "quarter" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 QUARTER)
-      {% elsif ga_sessions.period._parameter_value contains "year" %}DATE_ADD(CURRENT_DATE(), INTERVAL -2 YEAR)
-      {% endif %} ;;
-}
 
   dimension: id {
     type: string
     primary_key: yes
+    sql: concat(
+      CAST(${visit_id} AS STRING), "|",
+      CAST(${full_visitor_id} AS STRING), "|",
+      CAST(${date} AS STRING)) ;;
     hidden: yes
-    sql: ${TABLE}.id ;;
+  }
+
+  dimension: date {
+    type: date
+    sql: ${TABLE}.date ;;
+  }
+
+  dimension: visit_id {
+    type: string
+    sql: ${TABLE}.visit_id ;;
   }
 
   dimension: full_visitor_id {
@@ -129,70 +83,63 @@ view: event_funnel {
       year,
       raw
     ]
-    sql:  ${TABLE}.session_start ;;
+    sql: ${TABLE}.session_start ;;
   }
 
-  dimension_group: event_1 {
+  dimension: event_1 {
     description: "First occurrence of event 1"
-    type: time
+    type: date_time
     convert_tz: no
-    timeframes: [time]
     hidden: yes
-    sql: ${TABLE}.event_1 ;;
+    sql: TIMESTAMP(${TABLE}.event_1) ;;
   }
 
-  dimension_group: event_2_first {
+  dimension: event_2_first {
     description: "First occurrence of event 2"
-    type: time
+    type: date_time
     convert_tz: no
-    timeframes: [time]
     hidden: yes
-    sql: ${TABLE}.event_2_first ;;
+    sql: TIMESTAMP(${TABLE}.event_2_first) ;;
   }
 
-  dimension_group: event_2_last {
+  dimension: event_2_last {
     description: "Last occurrence of event 2"
-    type: time
+    type: date_time
     convert_tz: no
-    timeframes: [time]
     hidden: yes
-    sql: ${TABLE}.event_2_last ;;
+    sql: TIMESTAMP(${TABLE}.event_2_last) ;;
   }
 
-  dimension_group: event_3_first {
+  dimension: event_3_first {
     description: "First occurrence of event 3"
-    type: time
+    type: date_time
     convert_tz: no
-    timeframes: [time]
     hidden: yes
-    sql: ${TABLE}.event_3_first ;;
+    sql: TIMESTAMP(${TABLE}.event_3_first) ;;
   }
 
-  dimension_group: event_3_last {
+  dimension: event_3_last {
     description: "Last occurrence of event 3"
-    type: time
+    type: date_time
     convert_tz: no
-    timeframes: [time]
     hidden: yes
-    sql: ${TABLE}.event_3_last ;;
+    sql: TIMESTAMP(${TABLE}.event_3_last) ;;
   }
 
-  dimension_group: event_4_first {
+  dimension: event_4_first {
     description: "First occurrence of event 4"
-    type: time
+    type: date_time
     convert_tz: no
-    timeframes: [time]
     hidden: yes
-    sql: ${TABLE}.event_4_first ;;
+    sql: TIMESTAMP(${TABLE}.event_4_first) ;;
   }
 
-  dimension_group: event_4_last {
+  dimension: event_4_last {
     description: "Last occurrence of event 4"
-    type: time
+    type: date_time
     convert_tz: no
-    timeframes: [time]
     hidden: yes
-    sql: ${TABLE}.event_4_last ;;
+    sql: TIMESTAMP(${TABLE}.event_4_last) ;;
   }
 
   dimension: event1_before_event2 {
@@ -234,30 +181,29 @@ view: event_funnel {
   dimension: reached_event_1 {
     hidden: yes
     type: yesno
-    sql: (${event_1_time} IS NOT NULL)
-      ;;
+    sql: (${event_1} IS NOT NULL) ;;
   }
 
   dimension: reached_event_2 {
     hidden: yes
     type: yesno
-    sql: (${event_1_time} IS NOT NULL AND ${event_2_first_time} IS NOT NULL AND ${event_1_time} < ${event_2_last_time})
+    sql: (${event_1} IS NOT NULL AND ${event_2_first} IS NOT NULL AND ${event_1} < ${event_2_last})
       ;;
   }
 
   dimension: reached_event_3 {
     hidden: yes
     type: yesno
-    sql: (${event_1_time} IS NOT NULL AND ${event_2_last_time} IS NOT NULL AND ${event_3_last_time}  IS NOT NULL
-      AND ${event_1_time} < ${event_2_last_time} AND ${event_1_time} < ${event_3_last_time} AND ${event_2_first_time} < ${event_3_last_time})
+    sql: (${event_1} IS NOT NULL AND ${event_2_last} IS NOT NULL AND ${event_3_last}  IS NOT NULL
+      AND ${event_1} < ${event_2_last} AND ${event_1} < ${event_3_last} AND ${event_2_first} < ${event_3_last})
        ;;
   }
 
   dimension: reached_event_4 {
     hidden: yes
     type: yesno
-    sql: (${event_1_time} IS NOT NULL AND ${event_2_last_time} IS NOT NULL AND ${event_3_last_time}  IS NOT NULL AND ${event_4_last_time} IS NOT NULL
-      AND ${event_1_time} < ${event_2_last_time} AND ${event_1_time} < ${event_3_last_time} AND ${event_1_time} < ${event_4_last_time} AND ${event_2_first_time} < ${event_3_last_time} AND ${event_2_first_time} < ${event_4_last_time} AND ${event_3_first_time} < ${event_4_last_time})
+    sql: (${event_1} IS NOT NULL AND ${event_2_last} IS NOT NULL AND ${event_3_last}  IS NOT NULL AND ${event_4_last} IS NOT NULL
+      AND ${event_1} < ${event_2_last} AND ${event_1} < ${event_3_last} AND ${event_1} < ${event_4_last} AND ${event_2_first} < ${event_3_last} AND ${event_2_first} < ${event_4_last} AND ${event_3_first} < ${event_4_last})
  ;;
   }
 
@@ -346,32 +292,13 @@ view: event_funnel {
     }
   }
 
-  dimension: _date {
-    sql: ${session_start_date} ;;
-    hidden:  yes
-  }
-
-  dimension: date {
-    hidden:  yes
-  }
-
-  dimension: date_end_of_period {
-    hidden:  yes
-  }
-
-  dimension: date_last_period {
-    hidden:  yes
-  }
-
   set: detail {
     fields: [id, full_visitor_id, session_start_time]
   }
-  }
+}
 
 explore: event_funnel {
   hidden:  yes
-  from: event_funnel
-  view_name: ga_sessions
   label: "Event Funnel"
   view_label: "Event Funnel"
 }

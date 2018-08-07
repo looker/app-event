@@ -483,33 +483,33 @@
                   "variations": [
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/event_funnel?fields=ga_sessions.count_sessions_event1,ga_sessions.count_sessions_event12,ga_sessions.count_sessions_event123,ga_sessions.count_sessions_event1234&f[ga_sessions.filter_1]=Customer+Resources%3A+Nav&f[ga_sessions.event_2]=Docs+-+Site+Nav&f[ga_sessions.event_3]=Docs+-+On+Page+Expand+Nav&f[ga_sessions.event_4]=External+Link+Click&f[ga_sessions.period]=7+day&f[ga_sessions.date_period_comparison_period]=Yes&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22ga_sessions.filter_1%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Customer+Resources%3A+Nav%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.event_2%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Docs+-+Site+Nav%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.event_3%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Docs+-+On+Page+Expand+Nav%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.event_4%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22External+Link+Click%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period_comparison_period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "exploreParams": "event_analytics/event_funnel?fields=event_funnel.count_sessions_event1,event_funnel.count_sessions_event12,event_funnel.count_sessions_event123,event_funnel.count_sessions_event1234&f[event_funnel.event_1_filter]=Customer+Resources%3A+Nav&f[event_funnel.event_2_filter]=Docs+-+Site+Nav&f[event_funnel.event_3_filter]=Docs+-+On+Page+Expand+Nav&f[event_funnel.event_4_filter]=External+Link+Click&f[event_funnel.period]=7+day&limit=500&vis=%7B%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22event_funnel.event_1_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Customer%2BResources%3A%2BNav%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.event_2_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Docs%2B-%2BSite%2BNav%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.event_3_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Docs%2B-%2BOn%2BPage%2BExpand%2BNav%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.event_4_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22External%2BLink%2BClick%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%2Bday%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%7D",
                       "name": "Event Funnel",
                       "permalink": "event_funnel",
                       "filters": [
                       {
-                        "field": "ga_sessions.filter_1",
+                        "field": "event_funnel.event_1_filter",
                         "name": "Event 1",
                         "multiple": false,
                         "type": "Table",
                         "tableID": "event"
                       },
                       {
-                        "field": "ga_sessions.event_2",
+                        "field": "event_funnel.event_2_filter",
                         "multiple": false,
                         "name": "Event 2",
                         "type": "Table",
                         "tableID": "event"
                       },
                       {
-                        "field": "ga_sessions.event_3",
+                        "field": "event_funnel.event_3_filter",
                         "multiple": false,
                         "name": "Event 3",
                         "type": "Table",
                         "tableID": "event"
                       },
                       {
-                        "field": "ga_sessions.event_4",
+                        "field": "event_funnel.event_4_filter",
                         "multiple": false,
                         "name": "Event 4",
                         "type": "Table",
