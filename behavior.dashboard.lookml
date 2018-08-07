@@ -1533,7 +1533,7 @@
     column_limit: 50
     dynamic_fields:
     - table_calculation: average_time_spent_per_page
-      label: Average Time Spent per Page
+      label: Avg. Time on Page
       expression: "${totals.timeonsite_average_per_session}/${totals.page_views_session}"
       value_format:
       value_format_name: decimal_2
@@ -1614,7 +1614,7 @@
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1611
       - id: average_time_spent_per_page
-        name: Average Time Spent per Page
+        name: Avg. Time on Page
         axisId: average_time_spent_per_page
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1616
@@ -1705,7 +1705,7 @@
     column_limit: 50
     dynamic_fields:
     - table_calculation: average_time_spent_per_page
-      label: Average Time Spent per Page
+      label: Avg. Time on Page
       expression: "${totals.timeonsite_average_per_session}/${totals.page_views_session}"
       value_format:
       value_format_name: decimal_2
@@ -1786,7 +1786,7 @@
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1783
       - id: average_time_spent_per_page
-        name: Average Time Spent per Page
+        name: Avg. Time on Page
         axisId: average_time_spent_per_page
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 1788
@@ -2054,7 +2054,7 @@
     column_limit: 50
     dynamic_fields:
     - table_calculation: average_time_spent_per_page
-      label: Average Time Spent per Page
+      label: Avg. Time on Page
       expression: "${totals.timeonsite_average_per_session}/${totals.page_views_session}"
       value_format:
       value_format_name: decimal_2
@@ -2135,7 +2135,7 @@
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 2125
       - id: average_time_spent_per_page
-        name: Average Time Spent per Page
+        name: Avg. Time on Page
         axisId: average_time_spent_per_page
         __FILE: app_event_analytics/traffic_engagement_overview.dashboard.lookml
         __LINE_NUM: 2130
