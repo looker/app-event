@@ -491,28 +491,28 @@
                         "field": "ga_sessions.filter_1",
                         "name": "Event 1",
                         "multiple": false,
-                        "type": "Table",
+                        "type": "Select",
                         "tableID": "event"
                       },
                       {
                         "field": "ga_sessions.event_2",
                         "multiple": false,
                         "name": "Event 2",
-                        "type": "Table",
+                        "type": "Select",
                         "tableID": "event"
                       },
                       {
                         "field": "ga_sessions.event_3",
                         "multiple": false,
                         "name": "Event 3",
-                        "type": "Table",
+                        "type": "Select",
                         "tableID": "event"
                       },
                       {
                         "field": "ga_sessions.event_4",
                         "multiple": false,
                         "name": "Event 4",
-                        "type": "Table",
+                        "type": "Select",
                         "tableID": "event"
                       }
                       ]
