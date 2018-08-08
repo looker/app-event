@@ -5,6 +5,7 @@ view: page_filters {
     type: string
     suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
+    hidden: yes
   }
 
   filter: page_2 {
@@ -12,6 +13,7 @@ view: page_filters {
     type: string
     suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
+    hidden: yes
   }
 
   filter: page_3 {
@@ -19,6 +21,7 @@ view: page_filters {
     type: string
     suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
+    hidden: yes
   }
 
   filter: page_4 {
@@ -26,6 +29,7 @@ view: page_filters {
     type: string
     suggest_dimension: hits_page.pageTitle
     suggest_explore: ga_sessions
+    hidden: yes
   }
 }
 
