@@ -519,33 +519,33 @@
                     },
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/page_funnel?fields=ga_sessions.count_sessions_event1,ga_sessions.count_sessions_event12,ga_sessions.count_sessions_event123,ga_sessions.count_sessions_event1234&f[ga_sessions.page_1]=Business+Intelligence+and+Big+Data+Analytics+Software&f[ga_sessions.page_2]=Looker+Documentation&f[ga_sessions.page_3]=Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C&f[ga_sessions.page_4]=Recorded+Demo+%7C+Looker&f[ga_sessions.period]=28+day&f[ga_sessions.date_period_comparison_period]=Yes&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22ga_sessions.page_1%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Business+Intelligence+and+Big+Data+Analytics+Software%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_2%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Looker+Documentation%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_3%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.page_4%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Recorded+Demo+%7C+Looker%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%2228+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period_comparison_period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "exploreParams": "event_analytics/page_funnel?fields=page_funnel.count_sessions_event1,page_funnel.count_sessions_event12,page_funnel.count_sessions_event123,page_funnel.count_sessions_event1234&f[page_funnel.page_1]=Business+Intelligence+and+Big+Data+Analytics+Software&f[page_funnel.page_2]=Looker+Documentation&f[page_funnel.page_3]=Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C&f[page_funnel.page_4]=Recorded+Demo+%7C+Looker&f[page_funnel.period]=7+day&limit=500&vis=%7B%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22page_funnel.page_1%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Business%2BIntelligence%2Band%2BBig%2BData%2BAnalytics%2BSoftware%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.page_2%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Looker%2BDocumentation%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.page_3%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Pricing%2B%2B%2BValue%2Bof%2BLooker%E2%80%99s%2BAdvanced%2BBI%2BPlatform%2B%7C%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.page_4%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Recorded%2BDemo%2B%7C%2BLooker%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%2Bday%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%7D",
                       "name": "Page Funnel",
                       "permalink": "page_funnel",
                       "filters": [
                         {
-                          "field": "ga_sessions.page_1",
+                          "field": "page_funnel.page_1",
                           "name": "Page 1",
                           "multiple": false,
                           "type": "Table",
                           "tableID": "page"
                         },
                         {
-                          "field": "ga_sessions.page_2",
+                          "field": "page_funnel.page_2",
                           "multiple": false,
                           "name": "Page 2",
                           "type": "Table",
                           "tableID": "page"
                         },
                         {
-                          "field": "ga_sessions.page_3",
+                          "field": "page_funnel.page_3",
                           "multiple": false,
                           "name": "Page 3",
                           "type": "Table",
                           "tableID": "page"
                         },
                         {
-                          "field": "ga_sessions.page_4",
+                          "field": "page_funnel.page_4",
                           "multiple": false,
                           "name": "Page 4",
                           "type": "Table",
