@@ -135,7 +135,7 @@
       orientation: left
       series:
       - id: ga_sessions.unique_visitors
-        name: Unique Visitors
+        name: Users
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 137
@@ -151,7 +151,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 153
@@ -367,7 +367,7 @@
       orientation: left
       series:
       - id: ga_sessions.unique_visitors
-        name: Unique Visitors
+        name: Users
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 368
@@ -383,7 +383,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 384
@@ -596,7 +596,7 @@
       orientation: left
       series:
       - id: ga_sessions.unique_visitors
-        name: Unique Visitors
+        name: Users
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 597
@@ -612,7 +612,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 613
@@ -836,7 +836,7 @@
       orientation: left
       series:
       - id: ga_sessions.unique_visitors
-        name: Unique Visitors
+        name: Users
         axisId: ga_sessions.unique_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1297
@@ -852,7 +852,7 @@
       orientation: left
       series:
       - id: ga_sessions.returning_visitors
-        name: Returning Visitors
+        name: Returning Users
         axisId: ga_sessions.returning_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1313
@@ -1086,7 +1086,7 @@
       orientation: bottom
       series:
       - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
+        name: Percent of Users w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1547
@@ -1226,7 +1226,7 @@
       orientation: bottom
       series:
       - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
+        name: Percent of Users w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1809
@@ -1283,7 +1283,7 @@
     column_limit: 50
     dynamic_fields:
     - table_calculation: percent_of_visitors_w_transactions
-      label: Percent of Visitors w/ Transactions
+      label: Percent of Users w/ Transactions
       expression: "${totals.transactions_count}/${ga_sessions.total_visitors}"
       value_format:
       value_format_name: percent_2
@@ -1331,9 +1331,9 @@
     series_colors: {}
     series_labels:
       totals.transactions_count: Conversions
-      ga_sessions.total_visitors: Visitors
+      ga_sessions.total_visitors: Users
       totals.average_revenue_per_transaction: Avg Conversion Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
+      percent_of_visitors_w_transactions: "% Converting Users"
     label_color: []
     y_axes:
     - label: ''
@@ -1349,7 +1349,7 @@
       valueFormat:
       series:
       - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
+        name: Percent of Users w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1062
@@ -1368,7 +1368,7 @@
       valueFormat:
       series:
       - id: ga_sessions.total_visitors
-        name: Total Visitors
+        name: Total Users
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1081
@@ -1540,22 +1540,22 @@
     series_colors:
       totals.transaction_conversion_rate: "#5EC0C4"
     series_labels:
-      ga_sessions.total_visitors: Visitors
+      ga_sessions.total_visitors: Users
       totals.transactions_count: Conversions
       totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
+      percent_of_visitors_w_transactions: "% Converting Users"
       totals.transaction_conversion_rate: Conversion Rate
     y_axes:
     - label: ''
       orientation: bottom
       series:
       - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
+        name: Percent of Users w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 804
       - id: ga_sessions.total_visitors
-        name: Total Visitors
+        name: Total Users
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 809
@@ -1661,22 +1661,22 @@
     series_colors:
       totals.transaction_conversion_rate: "#5EC0C4"
     series_labels:
-      ga_sessions.total_visitors: Visitors
+      ga_sessions.total_visitors: Users
       totals.transactions_count: Conversions
       totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
+      percent_of_visitors_w_transactions: "% Converting Users"
       totals.transaction_conversion_rate: Conversion Rate
     y_axes:
     - label: ''
       orientation: bottom
       series:
       - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
+        name: Percent of Users w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 926
       - id: ga_sessions.total_visitors
-        name: Total Visitors
+        name: Total Users
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 931
@@ -1782,22 +1782,22 @@
     series_colors:
       totals.transaction_conversion_rate: "#5EC0C4"
     series_labels:
-      ga_sessions.total_visitors: Visitors
+      ga_sessions.total_visitors: Users
       totals.transactions_count: Conversions
       totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
+      percent_of_visitors_w_transactions: "% Converting Users"
       totals.transaction_conversion_rate: Conversion Rate
     y_axes:
     - label: ''
       orientation: bottom
       series:
       - id: percent_of_visitors_w_transactions
-        name: Percent of Visitors w/ Transactions
+        name: Percent of Users w/ Transactions
         axisId: percent_of_visitors_w_transactions
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1657
       - id: ga_sessions.total_visitors
-        name: Total Visitors
+        name: Total Users
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1662
@@ -1907,17 +1907,17 @@
     series_colors:
       totals.transaction_conversion_rate: "#5EC0C4"
     series_labels:
-      ga_sessions.total_visitors: Visitors
+      ga_sessions.total_visitors: Users
       totals.transactions_count: Conversions
       totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
+      percent_of_visitors_w_transactions: "% Converting Users"
       totals.transaction_conversion_rate: Conversion Rate
     y_axes:
     - label: ''
       orientation: bottom
       series:
       - id: ga_sessions.total_visitors
-        name: Visitors
+        name: Users
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 1920
@@ -2088,17 +2088,17 @@
     series_colors:
       totals.transaction_conversion_rate: "#5EC0C4"
     series_labels:
-      ga_sessions.total_visitors: Visitors
+      ga_sessions.total_visitors: Users
       totals.transactions_count: Conversions
       totals.transactionRevenue_total: Total Value
-      percent_of_visitors_w_transactions: "% Converting Visitors"
+      percent_of_visitors_w_transactions: "% Converting Users"
       totals.transaction_conversion_rate: Conversion Rate
     y_axes:
     - label: ''
       orientation: bottom
       series:
       - id: ga_sessions.total_visitors
-        name: Visitors
+        name: Users
         axisId: ga_sessions.total_visitors
         __FILE: app_event_analytics/conversions.dashboard.lookml
         __LINE_NUM: 2102
