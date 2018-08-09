@@ -38,6 +38,7 @@ view: event_base {
   extension: required
 
   dimension: event_1_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.event_1_filter %} ${hits_eventInfo.eventCategory} {% endcondition %}
@@ -47,6 +48,7 @@ view: event_base {
   }
 
   dimension: event_2_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.event_2_filter %} ${hits_eventInfo.eventCategory} {% endcondition %}
@@ -56,6 +58,7 @@ view: event_base {
   }
 
   dimension: event_3_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.event_3_filter %} ${hits_eventInfo.eventCategory} {% endcondition %}
@@ -65,6 +68,7 @@ view: event_base {
   }
 
   dimension: event_4_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.event_4_filter %} ${hits_eventInfo.eventCategory} {% endcondition %}
@@ -74,36 +78,43 @@ view: event_base {
   }
 
   measure: min_event_1_ts {
+    hidden: yes
     type: min
     sql: ${event_1_ts} ;;
   }
 
   measure: min_event_2_ts {
+    hidden: yes
     type: min
     sql: ${event_2_ts} ;;
   }
 
   measure: min_event_3_ts {
+    hidden: yes
     type: min
     sql: ${event_3_ts} ;;
   }
 
   measure: min_event_4_ts {
+    hidden: yes
     type: min
     sql: ${event_4_ts} ;;
   }
 
   measure: max_event_2_ts {
+    hidden: yes
     type: max
     sql: ${event_2_ts} ;;
   }
 
   measure: max_event_3_ts {
+    hidden: yes
     type: max
     sql: ${event_3_ts} ;;
   }
 
   measure: max_event_4_ts {
+    hidden: yes
     type: max
     sql: ${event_4_ts} ;;
   }

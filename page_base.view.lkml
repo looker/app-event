@@ -38,6 +38,7 @@ view: page_base {
   extension: required
 
   dimension: page_1_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.page_1 %} ${hits_page.pageTitle} {% endcondition %}
@@ -47,6 +48,7 @@ view: page_base {
   }
 
   dimension: page_2_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.page_2 %} ${hits_page.pageTitle} {% endcondition %}
@@ -56,6 +58,7 @@ view: page_base {
   }
 
   dimension: page_3_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.page_3 %} ${hits_page.pageTitle} {% endcondition %}
@@ -65,6 +68,7 @@ view: page_base {
   }
 
   dimension: page_4_ts {
+    hidden: yes
     type: number
     sql: CASE WHEN
       {% condition ga_sessions.page_4 %} ${hits_page.pageTitle} {% endcondition %}
@@ -74,36 +78,43 @@ view: page_base {
   }
 
   measure: min_page_1_ts {
+    hidden: yes
     type: min
     sql: ${page_1_ts} ;;
   }
 
   measure: min_page_2_ts {
+    hidden: yes
     type: min
     sql: ${page_2_ts} ;;
   }
 
   measure: min_page_3_ts {
+    hidden: yes
     type: min
     sql: ${page_3_ts} ;;
   }
 
   measure: min_page_4_ts {
+    hidden: yes
     type: min
     sql: ${page_4_ts} ;;
   }
 
   measure: max_page_2_ts {
+    hidden: yes
     type: max
     sql: ${page_2_ts} ;;
   }
 
   measure: max_page_3_ts {
+    hidden: yes
     type: max
     sql: ${page_3_ts} ;;
   }
 
   measure: max_page_4_ts {
+    hidden: yes
     type: max
     sql: ${page_4_ts} ;;
   }
