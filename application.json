@@ -483,33 +483,33 @@
                   "variations": [
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/event_funnel?fields=ga_sessions.count_sessions_event1,ga_sessions.count_sessions_event12,ga_sessions.count_sessions_event123,ga_sessions.count_sessions_event1234&f[ga_sessions.period]=7+day&f[ga_sessions.date_period_comparison_period]=Yes&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22stacking%22%3A%22%22%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Afalse%2C%22point_style%22%3A%22none%22%2C%22series_colors%22%3A%7B%7D%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axes%22%3A%5B%7B%22label%22%3A%22%22%2C%22orientation%22%3A%22left%22%2C%22series%22%3A%5B%7B%22id%22%3A%22ga_sessions.count_sessions_event1%22%2C%22name%22%3A%22Event+1%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event12%22%2C%22name%22%3A%22Event+2%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event12%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event123%22%2C%22name%22%3A%22Event+3%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event123%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event1234%22%2C%22name%22%3A%22Event+4%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1234%22%7D%5D%2C%22showLabels%22%3Afalse%2C%22showValues%22%3Afalse%2C%22unpinAxis%22%3Afalse%2C%22tickDensity%22%3A%22default%22%2C%22tickDensityCustom%22%3A5%2C%22type%22%3A%22linear%22%7D%5D%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Atrue%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22plot_size_by_field%22%3Afalse%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period_comparison_period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "exploreParams": "event_analytics/event_funnel?fields=event_funnel.count_sessions_event1,event_funnel.count_sessions_event12,event_funnel.count_sessions_event123,event_funnel.count_sessions_event1234&f[event_funnel.event_1_filter]=Customer+Resources%3A+Nav&f[event_funnel.event_2_filter]=Docs+-+Site+Nav&f[event_funnel.event_3_filter]=Docs+-+On+Page+Expand+Nav&f[event_funnel.event_4_filter]=External+Link+Click&f[event_funnel.period]=7+day&limit=500&vis=%7B%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22event_funnel.event_1_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Customer%2BResources%3A%2BNav%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.event_2_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Docs%2B-%2BSite%2BNav%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.event_3_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Docs%2B-%2BOn%2BPage%2BExpand%2BNav%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.event_4_filter%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22External%2BLink%2BClick%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22event_funnel.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%2Bday%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%7D",
                       "name": "Event Funnel",
                       "permalink": "event_funnel",
                       "filters": [
                       {
-                        "field": "ga_sessions.filter_1",
+                        "field": "event_funnel.event_1_filter",
                         "name": "Event 1",
                         "multiple": false,
                         "type": "Table",
                         "tableID": "event"
                       },
                       {
-                        "field": "ga_sessions.event_2",
+                        "field": "event_funnel.event_2_filter",
                         "multiple": false,
                         "name": "Event 2",
                         "type": "Table",
                         "tableID": "event"
                       },
                       {
-                        "field": "ga_sessions.event_3",
+                        "field": "event_funnel.event_3_filter",
                         "multiple": false,
                         "name": "Event 3",
                         "type": "Table",
                         "tableID": "event"
                       },
                       {
-                        "field": "ga_sessions.event_4",
+                        "field": "event_funnel.event_4_filter",
                         "multiple": false,
                         "name": "Event 4",
                         "type": "Table",
@@ -519,33 +519,33 @@
                     },
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/page_funnel?fields=ga_sessions.count_sessions_event1,ga_sessions.count_sessions_event12,ga_sessions.count_sessions_event123,ga_sessions.count_sessions_event1234&f[ga_sessions.period]=7+day&f[ga_sessions.date_period_comparison_period]=Yes&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22stacking%22%3A%22%22%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Afalse%2C%22point_style%22%3A%22none%22%2C%22series_colors%22%3A%7B%7D%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axes%22%3A%5B%7B%22label%22%3A%22%22%2C%22orientation%22%3A%22left%22%2C%22series%22%3A%5B%7B%22id%22%3A%22ga_sessions.count_sessions_event1%22%2C%22name%22%3A%22Page+1%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event12%22%2C%22name%22%3A%22Page+2%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event12%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event123%22%2C%22name%22%3A%22Page+3%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event123%22%7D%2C%7B%22id%22%3A%22ga_sessions.count_sessions_event1234%22%2C%22name%22%3A%22Page+4%22%2C%22axisId%22%3A%22ga_sessions.count_sessions_event1234%22%7D%5D%2C%22showLabels%22%3Afalse%2C%22showValues%22%3Afalse%2C%22unpinAxis%22%3Afalse%2C%22tickDensity%22%3A%22default%22%2C%22tickDensityCustom%22%3A5%2C%22type%22%3A%22linear%22%7D%5D%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Atrue%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22plot_size_by_field%22%3Afalse%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period_comparison_period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded",
+                      "exploreParams": "event_analytics/page_funnel?fields=page_funnel.count_sessions_event1,page_funnel.count_sessions_event12,page_funnel.count_sessions_event123,page_funnel.count_sessions_event1234&f[page_funnel.page_1]=Business+Intelligence+and+Big+Data+Analytics+Software&f[page_funnel.page_2]=Looker+Documentation&f[page_funnel.page_3]=Pricing+%2B+Value+of+Looker%E2%80%99s+Advanced+BI+Platform+%7C&f[page_funnel.page_4]=Recorded+Demo+%7C+Looker&f[page_funnel.period]=7+day&limit=500&vis=%7B%22type%22%3A%22looker_column%22%7D&filter_config=%7B%22page_funnel.page_1%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Business%2BIntelligence%2Band%2BBig%2BData%2BAnalytics%2BSoftware%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.page_2%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Looker%2BDocumentation%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.page_3%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Pricing%2B%2B%2BValue%2Bof%2BLooker%E2%80%99s%2BAdvanced%2BBI%2BPlatform%2B%7C%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.page_4%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Recorded%2BDemo%2B%7C%2BLooker%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22page_funnel.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%2Bday%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%7D",
                       "name": "Page Funnel",
                       "permalink": "page_funnel",
                       "filters": [
                         {
-                          "field": "ga_sessions.page_1",
+                          "field": "page_funnel.page_1",
                           "name": "Page 1",
                           "multiple": false,
                           "type": "Table",
                           "tableID": "page"
                         },
                         {
-                          "field": "ga_sessions.page_2",
+                          "field": "page_funnel.page_2",
                           "multiple": false,
                           "name": "Page 2",
                           "type": "Table",
                           "tableID": "page"
                         },
                         {
-                          "field": "ga_sessions.page_3",
+                          "field": "page_funnel.page_3",
                           "multiple": false,
                           "name": "Page 3",
                           "type": "Table",
                           "tableID": "page"
                         },
                         {
-                          "field": "ga_sessions.page_4",
+                          "field": "page_funnel.page_4",
                           "multiple": false,
                           "name": "Page 4",
                           "type": "Table",
@@ -562,7 +562,8 @@
                   "variations": [
                     {
                       "description": "",
-                      "exploreParams": "event_analytics/period_fact?fields=ga_sessions.date_day_of_period,ga_sessions.first_time_visitors,last_fact.first_time_visitors,ga_sessions.session_count,last_fact.session_count,ga_sessions.total_page_views,last_fact.total_page_views,ga_sessions.hits,last_fact.hits&f[ga_sessions.period]=28+day&f[ga_sessions.date_period]=before+0+days+ago&f[ga_sessions.date_period_latest]=Yes&sorts=ga_sessions.date_day_of_period&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22stacking%22%3A%22%22%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Atrue%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Afalse%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22show_null_points%22%3Atrue%2C%22point_style%22%3A%22none%22%2C%22interpolation%22%3A%22linear%22%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22type%22%3A%22looker_area%22%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22series_types%22%3A%7B%7D%2C%22hidden_series%22%3A%5B%22last_fact.session_count%22%2C%22last_fact.total_page_views%22%2C%22last_fact.hits%22%2C%22ga_sessions.hits%22%2C%22ga_sessions.session_count%22%2C%22ga_sessions.total_page_views%22%5D%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23FF666C%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22series_colors%22%3A%7B%7D%7D&filter_config=%7B%22ga_sessions.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%2228+day%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22ga_sessions.date_period%22%3A%5B%7B%22type%22%3A%22before%22%2C%22values%22%3A%5B%7B%22date%22%3A%222018-06-19T22%3A10%3A52.920Z%22%2C%22constant%22%3A%220%22%2C%22unit%22%3A%22day%22%2C%22tz%22%3Atrue%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%2C%22variant%22%3A%22relative%22%7D%5D%2C%22ga_sessions.date_period_latest%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A6%2C%22error%22%3Afalse%7D%5D%7D&dynamic_fields=%5B%5D&origin=share-expanded",
+                      "exploreParams": "event_analytics/period_fact?fields=period_fact.date_day_of_period,period_fact.first_time_visitors,last_fact.first_time_visitors,period_fact.session_count,last_fact.session_count,period_fact.total_page_views,last_fact.total_page_views,period_fact.hits,last_fact.hits&f[period_fact.period]=7+day&f[period_fact.date_period_latest]=Yes&sorts=period_fact.date_day_of_period&limit=500&vis=%7B%22stacking%22%3A%22%22%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Atrue%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Afalse%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22show_null_points%22%3Atrue%2C%22point_style%22%3A%22none%22%2C%22interpolation%22%3A%22linear%22%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22type%22%3A%22looker_area%22%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22series_types%22%3A%7B%7D%2C%22hidden_series%22%3A%5B%22last_fact.session_count%22%2C%22last_fact.total_page_views%22%2C%22last_fact.hits%22%2C%22period_fact.hits%22%2C%22period_fact.session_count%22%2C%22period_fact.total_page_views%22%5D%2C%22colors%22%3A%5B%22%2358A9F5%22%2C%22%23FF666C%22%2C%22%23B9E49A%22%2C%22%23FDCB6C%22%2C%22%23F6659A%22%2C%22%235EC0C4%22%2C%22%23BFBFBF%22%2C%22%237DC06A%22%2C%22%23D0A997%22%2C%22%238696B8%22%2C%22%23C5D4B2%22%5D%2C%22series_colors%22%3A%7B%7D%7D&filter_config=%7B%22period_fact.period%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%227%2Bday%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22period_fact.date_period_latest%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22Yes%22%7D%2C%7B%7D%5D%2C%22id%22%3A6%2C%22error%22%3Afalse%7D%5D%7D
+",
                       "name": "Period Over Period Analysis",
                       "permalink": "period_over_period_report"
                     }
