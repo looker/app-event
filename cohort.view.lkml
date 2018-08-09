@@ -29,7 +29,8 @@ view: cohort {
         COALESCE(SUM(totals.pageviews ), 0) AS page_views_total,
         COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
         COALESCE(SUM(totals.transactions ), 0) AS transactions_count,
-        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue
+        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue,
+        COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_users
       FROM  {{ ga_sessions.looker_data_schema._sql }} AS ga_sessions
       LEFT JOIN UNNEST([ga_sessions.totals]) as totals
       LEFT JOIN user_session_facts ON user_session_facts.ga_sessions_fullvisitorid = ga_sessions.fullVisitorId
@@ -72,6 +73,11 @@ view: cohort {
     hidden:  yes
   }
 
+  dimension: returning_users {
+    sql: ${TABLE}.returning_users ;;
+    hidden:  yes
+  }
+
   dimension: pageviews_total {
     sql: ${TABLE}.page_views_total ;;
     value_format_name: decimal_0
@@ -106,6 +112,7 @@ view: cohort {
     allowed_value: { value: "Page Views" }
     allowed_value: { value: "Total Hits" }
     allowed_value: { value: "Revenue" }
+    allowed_value: { value: "Returning Users" }
   }
 
   measure: selected_measure {
@@ -116,6 +123,7 @@ view: cohort {
         WHEN {% parameter measure_picker %} = 'Bounces' THEN ${bounces}
         WHEN {% parameter measure_picker %} = 'Total Hits' THEN ${hits_total}
         WHEN {% parameter measure_picker %} = 'Revenue' THEN ${transaction_revenue}
+        WHEN {% parameter measure_picker %} = 'Returning Users' THEN ${returning_users}
         ELSE 0
       END ;;
     value_format_name: decimal_large
