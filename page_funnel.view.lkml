@@ -1,9 +1,8 @@
-include: "/app_event_analytics_config/ga360_config.view"
 include: "sessions.view"
 include: "funnel_base.view"
 
 view: page_funnel {
-  extends: [ga360_config, page_filters, funnel_base]
+  extends: [page_filters, funnel_base]
   derived_table: {
     explore_source: ga_sessions {
       column: date { field: ga_sessions.visitStart_date }

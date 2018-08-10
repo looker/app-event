@@ -6,37 +6,28 @@ include: "/app_event_analytics_config/ga360_config.view"
 view: cohort {
   extends: [date_base, period_base, ga360_config]
   derived_table: {
-    sql:  WITH user_session_facts AS (SELECT
-        ga_sessions.fullVisitorId AS ga_sessions_fullvisitorid,
-        min(TIMESTAMP_SECONDS(visitStartTime)) as first_start_date,
-        max(TIMESTAMP_SECONDS(visitStartTime)) as latest_start_date,
-        COUNT(*) AS lifetime_sessions,
-        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS lifetime_transaction_revenue,
-        COALESCE(SUM(totals.transactions ), 0) AS lifetime_transaction_count,
-        (date_diff(max(date(TIMESTAMP_SECONDS(visitStartTime))), min(date(TIMESTAMP_SECONDS(visitStartTime))), day)+1) as days_active,
-        (date_diff(max(date(TIMESTAMP_SECONDS(visitStartTime))), min(date(TIMESTAMP_SECONDS(visitStartTime))), week)+1) as weeks_active,
-        date_diff(CURRENT_DATE, min(date(TIMESTAMP_SECONDS(visitStartTime))), day) as days_since_first_session
-      FROM  {{ ga_sessions.looker_data_schema._sql }} as ga_sessions
-      GROUP BY 1
-       )
-      SELECT
-        CAST(PARSE_DATE('%Y%m%d', date) AS DATE) AS date,
-        user_session_facts.weeks_active  AS weeks_active,
-        CAST(user_session_facts.first_start_date AS DATE) AS first_start_date,
-        COUNT(*) AS session_count,
-        1.0 * (COALESCE(SUM(totals.bounces ), 0))  AS bounces,
-        COALESCE(SUM(totals.hits ), 0) AS hits_total,
-        COALESCE(SUM(totals.pageviews ), 0) AS page_views_total,
-        COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
-        COALESCE(SUM(totals.transactions ), 0) AS transactions_count,
-        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue,
-        COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_users
-      FROM  {{ ga_sessions.looker_data_schema._sql }} AS ga_sessions
-      LEFT JOIN UNNEST([ga_sessions.totals]) as totals
-      LEFT JOIN user_session_facts ON user_session_facts.ga_sessions_fullvisitorid = ga_sessions.fullVisitorId
-      GROUP BY 1,2,3;;
-      persist_for: "24 hours"
+    explore_source: ga_sessions {
+      column: _date { field: ga_sessions.visitStart_date }
+      column: weeks_active { field: user_session_facts.weeks_active }
+      column: first_start_date { field: user_session_facts.first_start_date }
+      column: sessions { field: ga_sessions.total_visitors }
+      column: bounces { field: totals.bounces_total }
+      column: hits { field: totals.hits_total }
+      column: page_views { field: totals.pageviews_total }
+      column: time_on_site { field: totals.timeonsite_total }
+      column: transactions { field: totals.transactions_count }
+      column: transaction_revenue { field: totals.transactionRevenue_total }
+      column: returning_users { field: ga_sessions.returning_visitors }
+      bind_filters: {
+        from_field: cohort.period
+        to_field: ga_sessions.period
       }
+      filters: {
+        field: ga_sessions.date_period_latest
+        value: "Yes"
+      }
+    }
+  }
 
   dimension: weeks_active {
     type: number
@@ -56,8 +47,8 @@ view: cohort {
     can_filter: no
   }
 
-  dimension: session_count {
-    sql:  ${TABLE}.session_count ;;
+  dimension: sessions {
+    sql:  ${TABLE}.sessions ;;
     value_format_name: decimal_0
     hidden:  yes
   }
@@ -68,8 +59,14 @@ view: cohort {
     hidden:  yes
   }
 
-  dimension: hits_total {
-    sql: ${TABLE}.hits_total ;;
+  dimension: hits {
+    sql: ${TABLE}.hits ;;
+    hidden:  yes
+  }
+
+  dimension: pageviews {
+    sql: ${TABLE}.page_views ;;
+    value_format_name: decimal_0
     hidden:  yes
   }
 
@@ -80,20 +77,18 @@ view: cohort {
 
   dimension: pageviews_total {
     sql: ${TABLE}.page_views_total ;;
-    value_format_name: decimal_0
-    hidden:  yes
   }
 
-  dimension: timeonsite_total {
+  dimension: timeonsite {
     label: "Time On Site Total"
     sql: ${TABLE}.time_on_site ;;
     hidden:  yes
   }
 
-  measure: transactions_count {
+  measure: transactions {
     hidden:  yes
     type: sum
-    sql: ${TABLE}.transactions_count ;;
+    sql: ${TABLE}.transactions ;;
     value_format_name: decimal_0
   }
 
@@ -106,52 +101,36 @@ view: cohort {
 
   parameter: measure_picker {
     type: string
-    allowed_value: { value: "Time On Site Total" }
-    allowed_value: { value: "Sessions Count" }
+    allowed_value: { value: "Time On Site" }
+    allowed_value: { value: "Sessions" }
     allowed_value: { value: "Bounces" }
     allowed_value: { value: "Page Views" }
-    allowed_value: { value: "Total Hits" }
+    allowed_value: { value: "Hits" }
     allowed_value: { value: "Revenue" }
     allowed_value: { value: "Returning Users" }
+    default_value: "Sessions"
   }
 
   measure: selected_measure {
     type: sum
-    sql: CASE WHEN {% parameter measure_picker %} = 'Time On Site Total' THEN ${timeonsite_total}
-        WHEN {% parameter measure_picker %} = 'Sessions Count' THEN ${session_count}
-        WHEN {% parameter measure_picker %} = 'Page Views Total' THEN ${pageviews_total}
-        WHEN {% parameter measure_picker %} = 'Bounces' THEN ${bounces}
-        WHEN {% parameter measure_picker %} = 'Total Hits' THEN ${hits_total}
-        WHEN {% parameter measure_picker %} = 'Revenue' THEN ${transaction_revenue}
-        WHEN {% parameter measure_picker %} = 'Returning Users' THEN ${returning_users}
-        ELSE 0
-      END ;;
+    sql: {% if measure_picker._parameter_value == "'Time On Site'" %}${timeonsite}
+      {% elsif measure_picker._parameter_value == "'Sessions'" %}${sessions}
+      {% elsif measure_picker._parameter_value == "'Page Views'" %}${pageviews}
+      {% elsif measure_picker._parameter_value == "'Bounces'" %}${bounces}
+      {% elsif measure_picker._parameter_value == "'Hits'" %}${hits}
+      {% elsif measure_picker._parameter_value == "'Revenue'" %}${transaction_revenue}
+      {% elsif measure_picker._parameter_value == "'Returning Users'" %}${returning_users}
+      {% endif %} ;;
     value_format_name: decimal_large
   }
 
   dimension: _date {
-    sql: ${first_date} ;;
     hidden:  yes
   }
-
-  dimension: date {
-    hidden:  yes
-  }
-
-  dimension: date_end_of_period {
-    hidden:  yes
-  }
-
-  dimension: date_last_period {
-    hidden:  yes
-  }
-
 }
 
 explore: cohort {
   hidden:  yes
-  from: cohort
-  view_name: ga_sessions
   label: "Cohort + Retention"
   view_label: "Cohort + Retention"
 }

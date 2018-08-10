@@ -1,7 +1,3 @@
-include: "/aea_event_adapter/ga_block.view"
-include: "/aea_event_adapter/ga_sessions.view"
-include: "/app_event_analytics_config/ga360_config.view"
-
 include: "date_base.view"
 include: "period_base.view"
 
@@ -24,7 +20,7 @@ explore: period_fact {
 }
 
 view: period_fact {
-  extends: [date_base, period_fact_period_base, ga360_config]
+  extends: [date_base, period_fact_period_base]
   derived_table: {
     explore_source: ga_sessions {
       column: channel_grouping { field: ga_sessions.channelGrouping }
