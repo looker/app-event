@@ -1,76 +1,72 @@
-include: "/aea_event_adapter/ga_block.view"
-include: "/aea_event_adapter/ga_sessions.view"
-include: "/app_event_analytics_config/ga360_config.view"
-
 include: "date_base.view"
 include: "period_base.view"
 
 explore: period_fact {
   hidden: yes
-  from: period_fact
-  view_name: ga_sessions
   label: "This Period"
   view_label: "This Period"
   join: last_fact {
     from: period_fact
     view_label: "Prior Period"
     sql_on:
-      ${ga_sessions.date_last_period} = ${last_fact.date_period}
-      AND ${ga_sessions.date_day_of_period} = ${last_fact.date_day_of_period}
-      AND ${ga_sessions.channel_grouping} = ${last_fact.channel_grouping}
-      AND ${ga_sessions.social_engagement_type} = ${last_fact.social_engagement_type}
-      AND ${ga_sessions.campaign} =  ${last_fact.campaign}
-      AND ${ga_sessions.country} = ${last_fact.country} ;;
+      ${period_fact.date_last_period} = ${last_fact.date_period}
+      AND ${period_fact.date_day_of_period} = ${last_fact.date_day_of_period}
+      AND ${period_fact.channel_grouping} = ${last_fact.channel_grouping}
+      AND ${period_fact.social_engagement_type} = ${last_fact.social_engagement_type}
+      AND ${period_fact.campaign} =  ${last_fact.campaign}
+      AND ${period_fact.country} = ${last_fact.country} ;;
     relationship: one_to_one
   }
 }
 
 view: period_fact {
-  extends: [date_base, period_base, ga360_config]
+  extends: [date_base, period_fact_period_base]
   derived_table: {
-    sql:
-      SELECT
-        CONCAT(CAST(ga_sessions.channelGrouping AS STRING), '|', CAST(ga_sessions.socialEngagementType AS STRING), '|', CAST(PARSE_DATE('%Y%m%d', date) AS STRING), '|', CAST(trafficSource.campaign AS STRING), '|', CAST(geoNetwork.country AS STRING)) AS id,
-        ga_sessions.channelGrouping AS channel_grouping,
-        ga_sessions.socialEngagementType AS social_engagement_type,
-        trafficSource.campaign AS campaign,
-        geoNetwork.country AS country,
-        PARSE_DATE('%Y%m%d', date) AS _date,
-        COUNT(CASE WHEN (ga_sessions.visitnumber = 1) THEN 1 ELSE NULL END) as first_time_visitors,
-        COUNT(CASE WHEN (ga_sessions.visitnumber <> 1) THEN 1 ELSE NULL END) AS returning_visitors,
-        COALESCE(SUM(totals.newVisits ), 0) AS new_visits,
-        COUNT(DISTINCT ga_sessions.fullVisitorId ) AS unique_visitors,
-        COUNT(ga_sessions.fullVisitorId ) AS total_visitors,
-        1.0 * (COALESCE(SUM(totals.bounces ), 0))  AS bounces,
-        COALESCE(SUM(totals.hits ), 0) AS hits,
-        COALESCE(SUM(totals.pageviews ), 0) AS page_views,
-        COUNT(*) AS session_count,
-        COALESCE(SUM(totals.timeOnScreen ), 0) AS time_on_screen,
-        COALESCE(SUM(totals.timeonsite ), 0) AS time_on_site,
-        COALESCE(SUM(totals.visits ), 0) AS visits,
-        COALESCE(SUM(totals.transactions ), 0) AS transactions,
-        COALESCE(SUM(totals.screenViews ), 0) AS totals_screenviews,
-        COALESCE(SUM((totals.transactionRevenue/1000000) ), 0) AS transaction_revenue
-      FROM {{ ga_sessions.looker_data_schema._sql }} AS ga_sessions
-      LEFT JOIN UNNEST([ga_sessions.totals]) as totals
-      LEFT JOIN UNNEST([ga_sessions.trafficSource]) as trafficSource
-      LEFT JOIN UNNEST([ga_sessions.geoNetwork]) as geoNetwork
-      GROUP BY 1,2,3,4,5,6;;
-      sql_trigger_value: SELECT CURRENT_DATE() ;;
+    explore_source: ga_sessions {
+      column: channel_grouping { field: ga_sessions.channelGrouping }
+      column: social_engagement_type { field: ga_sessions.socialEngagementType }
+      column: campaign { field: trafficSource.campaign }
+      column: country { field: geoNetwork.country }
+      column: _date { field: ga_sessions.visitStart_date }
+      column: session_count { field: ga_sessions.total_visitors }
+      column: visits { field: totals.visits_total }
+      column: transaction_revenue { field: totals.transactionRevenue_total }
+      column: first_time_visitors {}
+      column: returning_visitors {}
+      column: unique_visitors {}
+      column: bounces { field: totals.bounces_total }
+      column: hits { field: totals.hits_total }
+      column: page_views { field: totals.pageviews_total }
+      column: time_on_screen { field: totals.timeOnScreen_total }
+      column: time_on_site { field: totals.timeonsite_total }
+      column: transactions { field: totals.transactions_count }
+      column: screenviews { field: totals.screenViews_total }
 
+      bind_filters: {
+        from_field: period_fact.period
+        to_field: ga_sessions.period
+      }
+      filters: {
+        field: ga_sessions.date_period_comparison_period
+        value: "Yes"
+      }
+    }
   }
   dimension: social_engagement_type {}
-
   dimension: channel_grouping {}
-
   dimension: campaign {}
-
   dimension: country {}
 
   dimension: id {
     type: string
     primary_key: yes
-    sql: CONCAT(CAST(${channel_grouping} AS STRING), '|', CAST(${social_engagement_type} AS STRING), '|', CAST(${_date} AS STRING), '|', CAST(${country} AS STRING), '|', CAST(${campaign} AS STRING));;
+    sql: CONCAT(
+      CAST(${channel_grouping} AS STRING), '|',
+      CAST(${social_engagement_type} AS STRING), '|',
+      CAST(${_date} AS STRING), '|',
+      CAST(${country} AS STRING), '|',
+      CAST(${campaign} AS STRING)
+    );;
   }
 
   dimension: _date {
@@ -213,6 +209,4 @@ view: period_fact {
     sql: ${total_time_on_site}/NULLIF(${session_count}, 0) ;;
     value_format_name: decimal_1
   }
-
-
 }

@@ -2286,8 +2286,8 @@
     col: 0
     width: 13
     height: 12
-  - title: How many seconds are user spending on your site?
-    name: How many seconds are user spending on your site?
+  - title: How many seconds are users spending on your site?
+    name: How many seconds are users spending on your site?
     model: event_analytics
     explore: ga_sessions
     type: looker_column
