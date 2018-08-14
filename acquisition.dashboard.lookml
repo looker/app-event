@@ -1,6 +1,7 @@
 - dashboard: acquisition
   title: Acquisition
   layout: newspaper
+  extends: event_analytics_dash_base
   embed_style:
     background_color: "#ffffff"
     title_color: "#3a4245"
