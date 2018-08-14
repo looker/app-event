@@ -239,6 +239,17 @@
         "dashboardAlias": "Period"
       },
       {
+       "autoSuggest": {
+        "model": "event_analytics",
+        "view": "ga_sessions"
+        },
+        "defaultValue": "",
+        "field": "hits_page.hostName",
+        "name": "Host Page",
+        "type": "Select",
+        "dashboardAlias": "Host"
+      },
+      {
         "defaultValue": "",
         "field": "ga_sessions.first_time_visitor",
         "name": "First Time Visitor",
@@ -281,62 +292,18 @@
       "permalink": "events",
       "name": "GA 360",
       "pages": [
-        {"name": "Bounce Rates",
-          "permalink": "bounce-rates",
+        {"name": "Acquisition",
+          "permalink": "acquisition",
           "type": "dashboardCollection",
           "dashboardCollection": {
             "dashboards": [
               {
-                "lookmlID": "event_analytics::bounce_rates",
-                "name": "Bounce Rates",
-                "permalink": "bounce-rates"
+                "lookmlID": "event_analytics::acquisition",
+                "name": "Acquisition",
+                "permalink": "acquisition"
               }
             ],
-            "defaultDashboard": "bounce-rates"
-          },
-          "filters": [
-            {
-              "defaultValue": "7 day",
-              "field": "ga_sessions.period",
-              "name": "Time Frame",
-              "type": "TimeFrame",
-              "dashboardAlias": "Period"
-            },
-            {
-              "autoSuggest": {
-                "model": "event_analytics",
-                "view": "ga_sessions"
-              },
-              "field": "trafficSource.campaign",
-              "dashboardAlias": "Campaign",
-              "name": "Campaign",
-              "type": "Select"
-            },
-            {
-              "autoSuggest": {
-              "model": "event_analytics",
-              "view": "ga_sessions"
-              },
-              "field": "ga_sessions.first_time_visitor",
-              "name": "First Time Visitor",
-              "type": "Select",
-              "dashboardAlias": "First Time Visitor"
-            }
-          ]
-        },
-        {
-          "name": "Revenue",
-          "permalink": "revenue",
-          "type": "dashboardCollection",
-          "dashboardCollection": {
-            "dashboards": [
-              {
-                "lookmlID": "event_analytics::revenue",
-                "name": "revenue",
-                "permalink": "revenue"
-              }
-            ],
-            "defaultDashboard": "revenue"
+            "defaultDashboard": "acquisition"
           },
           "filters": [
             {
@@ -425,6 +392,50 @@
               }
             ],
             "defaultDashboard": "conversions"
+          },
+          "filters": [
+            {
+              "defaultValue": "7 day",
+              "field": "ga_sessions.period",
+              "name": "Time Frame",
+              "type": "TimeFrame",
+              "dashboardAlias": "Period"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "trafficSource.campaign",
+              "dashboardAlias": "Campaign",
+              "name": "Campaign",
+              "type": "Select"
+            },
+            {
+              "autoSuggest": {
+              "model": "event_analytics",
+              "view": "ga_sessions"
+              },
+              "field": "ga_sessions.first_time_visitor",
+              "name": "First Time Visitor",
+              "type": "Select",
+              "dashboardAlias": "First Time Visitor"
+            }
+          ]
+        },
+        {
+          "name": "Revenue",
+          "permalink": "revenue",
+          "type": "dashboardCollection",
+          "dashboardCollection": {
+            "dashboards": [
+              {
+                "lookmlID": "event_analytics::revenue",
+                "name": "revenue",
+                "permalink": "revenue"
+              }
+            ],
+            "defaultDashboard": "revenue"
           },
           "filters": [
             {
