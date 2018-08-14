@@ -1,4 +1,5 @@
 - dashboard: conversions
+  extends: event_analytics_dash_base
   title: Conversions
   layout: newspaper
   embed_style:
