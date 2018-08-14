@@ -1,10 +1,9 @@
 include: "date_base.view"
 include: "period_base.view"
-include: "/app_event_analytics_config/ga360_config.view"
 
 
 view: cohort {
-  extends: [date_base, period_base, ga360_config]
+  extends: [date_base, period_base]
   derived_table: {
     explore_source: ga_sessions {
       column: _date { field: ga_sessions.visitStart_date }
@@ -101,7 +100,6 @@ view: cohort {
 
   parameter: measure_picker {
     type: string
-    allowed_value: { value: "Time On Site" }
     allowed_value: { value: "Sessions" }
     allowed_value: { value: "Bounces" }
     allowed_value: { value: "Page Views" }
@@ -113,8 +111,7 @@ view: cohort {
 
   measure: selected_measure {
     type: sum
-    sql: {% if measure_picker._parameter_value == "'Time On Site'" %}${timeonsite}
-      {% elsif measure_picker._parameter_value == "'Sessions'" %}${sessions}
+    sql: {% if measure_picker._parameter_value == "'Sessions'" %}${sessions}
       {% elsif measure_picker._parameter_value == "'Page Views'" %}${pageviews}
       {% elsif measure_picker._parameter_value == "'Bounces'" %}${bounces}
       {% elsif measure_picker._parameter_value == "'Hits'" %}${hits}
