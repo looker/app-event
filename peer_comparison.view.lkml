@@ -47,6 +47,10 @@ view: peer_comparison {
     suggest_explore: ga_sessions
   }
 
+  dimension: pagePath {
+    label: "Page Path"
+  }
+
 
   dimension: date_period_comparison_period {
 #     hidden: yes
