@@ -8,6 +8,78 @@
     tile_text_color: "#3a4245"
     text_tile_text_color: ''
   elements:
+  - title: Cohort / Retention Chart
+    name: Cohort / Retention Chart
+    model: event_analytics
+    explore: cohort
+    type: table
+    fields:
+    - cohort.first_start_week
+    - cohort.weeks_active
+    - cohort.selected_measure
+    pivots:
+    - cohort.weeks_active
+    fill_fields:
+    - cohort.first_start_week
+    filters:
+      cohort.measure_picker: Sessions
+      cohort.period: 91 day
+      cohort.date_period_latest: 'Yes'
+    sorts:
+    - cohort.first_start_week
+    - cohort.weeks_active 0
+    limit: 500
+    query_timezone: America/Los_Angeles
+    show_view_names: false
+    show_row_numbers: false
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: gray
+    limit_displayed_rows: false
+    enable_conditional_formatting: true
+    conditional_formatting:
+    - type: low to high
+      value:
+      background_color:
+      font_color:
+      palette:
+        name: Custom
+        colors:
+        - "#FFFFFF"
+        - "#5EC0C4"
+      bold: false
+      italic: false
+      strikethrough: false
+      fields:
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    listen: {}
+    row: 25
+    col: 0
+    width: 24
+    height: 9
+  - name: Where do I acquire users for engagement?
+    type: text
+    title_text: Where do I acquire users for engagement?
+    row: 11
+    col: 0
+    width: 24
+    height: 2
+  - name: How often are our users coming back?
+    type: text
+    title_text: How often are our users coming back?
+    row: 23
+    col: 0
+    width: 24
+    height: 2
+  - name: What content is driving the most engagement?
+    type: text
+    title_text: What content is driving the most engagement?
+    row: 42
+    col: 0
+    width: 24
+    height: 2
   - title: Sessions
     name: Sessions
     model: event_analytics
@@ -234,6 +306,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 0
     col: 0
     width: 5
@@ -457,6 +530,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 0
     col: 5
     width: 5
@@ -687,10 +761,139 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 0
     col: 19
     width: 5
     height: 3
+  - title: Time Series
+    name: Time Series
+    model: event_analytics
+    explore: ga_sessions
+    type: looker_line
+    fields:
+    - ga_sessions.visitStart_date
+    - ga_sessions.session_count
+    - totals.pageviews_total
+    - totals.timeonsite_total
+    - totals.bounce_rate
+    fill_fields:
+    - ga_sessions.visitStart_date
+    filters:
+      ga_sessions.date_period_comparison_period: 'Yes'
+    sorts:
+    - ga_sessions.visitStart_date desc
+    limit: 500
+    column_limit: 50
+    stacking: ''
+    colors:
+    - "#58A9F5"
+    - "#FF666C"
+    - "#B9E49A"
+    - "#FDCB6C"
+    - "#5EC0C4"
+    - "#BFBFBF"
+    - "#7DC06A"
+    - "#D0A997"
+    - "#8696B8"
+    - "#C5D4B2"
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    point_style: circle
+    series_colors:
+      ga_sessions.session_count: "#5EC0C4"
+      totals.pageviews_total: "#BFBFBF"
+    series_labels:
+      ga_sessions.unique_visitors: Users
+      totals.page_views_session: Pages / Session
+      ga_sessions.average_sessions_per_visitor: Sessions / User
+      totals.timeonsite_average_per_session: Session Duration
+    series_types: {}
+    limit_displayed_rows: false
+    hidden_series:
+    - totals.pageviews_total
+    - totals.timeonsite_total
+    y_axes:
+    - label:
+      orientation: left
+      series:
+      - id: totals.bounce_rate
+        name: Bounce Rate
+        axisId: totals.bounce_rate
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+    - label:
+      orientation: left
+      series:
+      - id: ga_sessions.session_count
+        name: Sessions
+        axisId: ga_sessions.session_count
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+    - label:
+      orientation: left
+      series:
+      - id: totals.pageviews_total
+        name: Page Views
+        axisId: totals.pageviews_total
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+    - label:
+      orientation: left
+      series:
+      - id: totals.timeonsite_total
+        name: Time On Site
+        axisId: totals.timeonsite_total
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    show_null_points: true
+    interpolation: monotone
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    listen:
+      Period: ga_sessions.period
+      Campaign: trafficSource.campaign
+      First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
+    row: 3
+    col: 0
+    width: 24
+    height: 8
   - title: Avg Time on Site
     name: Avg Time on Site
     model: event_analytics
@@ -909,31 +1112,11 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 0
     col: 14
     width: 5
     height: 3
-  - name: Where do I acquire users for engagement?
-    type: text
-    title_text: Where do I acquire users for engagement?
-    row: 11
-    col: 0
-    width: 24
-    height: 2
-  - name: How often are our users coming back?
-    type: text
-    title_text: How often are our users coming back?
-    row: 23
-    col: 0
-    width: 24
-    height: 2
-  - name: What content is driving the most engagement?
-    type: text
-    title_text: What content is driving the most engagement?
-    row: 42
-    col: 0
-    width: 24
-    height: 2
   - title: Avg PVs per User
     name: Avg PVs per User
     model: event_analytics
@@ -1163,6 +1346,8 @@
     - new_users
     - totals.pageviews_total
     - page_views
+    listen:
+      Host: hits_page.hostName
     row: 0
     col: 10
     width: 4
@@ -1285,6 +1470,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 13
     col: 0
     width: 6
@@ -1407,6 +1593,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 13
     col: 6
     width: 6
@@ -1538,6 +1725,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 13
     col: 18
     width: 6
@@ -1660,164 +1848,11 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 13
     col: 12
     width: 6
     height: 10
-  - title: Cohort / Retention Chart
-    name: Cohort / Retention Chart
-    model: event_analytics
-    explore: cohort
-    type: table
-    fields:
-    - cohort.first_start_week
-    - cohort.weeks_active
-    - cohort.selected_measure
-    pivots:
-    - cohort.weeks_active
-    fill_fields:
-    - cohort.first_start_week
-    filters:
-      cohort.measure_picker: Sessions
-      cohort.period: 91 day
-      cohort.date_period_latest: 'Yes'
-    sorts:
-    - cohort.first_start_week
-    - cohort.weeks_active 0
-    limit: 500
-    query_timezone: America/Los_Angeles
-    show_view_names: false
-    show_row_numbers: false
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: gray
-    limit_displayed_rows: false
-    enable_conditional_formatting: true
-    conditional_formatting:
-    - type: low to high
-      value:
-      background_color:
-      font_color:
-      palette:
-        name: Custom
-        colors:
-        - "#FFFFFF"
-        - "#5EC0C4"
-      bold: false
-      italic: false
-      strikethrough: false
-      fields:
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    listen: {}
-    row: 25
-    col: 0
-    width: 24
-    height: 9
-  - title: How many seconds are users on your site?
-    name: How many seconds are users on your site?
-    model: event_analytics
-    explore: ga_sessions
-    type: looker_column
-    fields:
-    - ga_sessions.session_count
-    - totals.timeonsite_tier
-    filters:
-      geoNetwork.country: ''
-      totals.timeonsite_tier: "-Undefined"
-      ga_sessions.date_period_comparison_period: 'Yes'
-    sorts:
-    - totals.timeonsite_tier
-    limit: 500
-    column_limit: 50
-    stacking: normal
-    colors:
-    - 'palette: Santa Cruz'
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    point_style: none
-    series_colors:
-      ga_sessions.session_count: "#5EC0C4"
-    series_labels:
-      ga_sessions.visitStart_hour_of_day: Hour of Day
-      ga_sessions.visitStart_day_of_week: Day of Week
-    series_types: {}
-    limit_displayed_rows: false
-    y_axes:
-    - label: Session Count
-      orientation: left
-      series:
-      - id: ga_sessions.session_count
-        name: Sessions
-        axisId: ga_sessions.session_count
-      showLabels: true
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    x_axis_label: Time on Site
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_row_numbers: true
-    truncate_column_names: false
-    hide_totals: false
-    hide_row_totals: false
-    table_theme: gray
-    enable_conditional_formatting: true
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_null_points: true
-    interpolation: linear
-    conditional_formatting:
-    - type: low to high
-      value:
-      background_color:
-      font_color:
-      palette:
-        name: Custom
-        colors:
-        - "#fff"
-        - "#58A9F5"
-        __FILE: app_event_analytics/behavior.dashboard.lookml
-        __LINE_NUM: 2347
-      bold: false
-      italic: false
-      strikethrough: false
-      fields:
-      - ga_sessions.session_count
-      __FILE: app_event_analytics/behavior.dashboard.lookml
-      __LINE_NUM: 2342
-    note_state: collapsed
-    note_display: above
-    listen:
-      Period: ga_sessions.period
-      Campaign: trafficSource.campaign
-      First TIme Visitor: ga_sessions.first_time_visitor
-    row: 34
-    col: 0
-    width: 12
-    height: 8
   - title: How often are your users coming back?
     name: How often are your users coming back?
     model: event_analytics
@@ -1900,6 +1935,7 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 34
     col: 12
     width: 12
@@ -2005,105 +2041,52 @@
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
+      Host: hits_page.hostName
     row: 44
     col: 0
     width: 24
     height: 8
-  - title: Time Series
-    name: Time Series
+  - title: How many seconds are users on your site?
+    name: How many seconds are users on your site?
     model: event_analytics
     explore: ga_sessions
-    type: looker_line
+    type: looker_column
     fields:
-    - ga_sessions.visitStart_date
     - ga_sessions.session_count
-    - totals.pageviews_total
-    - totals.timeonsite_total
-    - totals.bounce_rate
-    fill_fields:
-    - ga_sessions.visitStart_date
+    - totals.timeonsite_tier
     filters:
+      geoNetwork.country: ''
+      totals.timeonsite_tier: "-Undefined"
       ga_sessions.date_period_comparison_period: 'Yes'
     sorts:
-    - ga_sessions.visitStart_date desc
+    - totals.timeonsite_tier
     limit: 500
     column_limit: 50
-    stacking: ''
+    stacking: normal
     colors:
-    - "#58A9F5"
-    - "#FF666C"
-    - "#B9E49A"
-    - "#FDCB6C"
-    - "#5EC0C4"
-    - "#BFBFBF"
-    - "#7DC06A"
-    - "#D0A997"
-    - "#8696B8"
-    - "#C5D4B2"
+    - 'palette: Santa Cruz'
     show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
-    point_style: circle
+    point_style: none
     series_colors:
       ga_sessions.session_count: "#5EC0C4"
-      totals.pageviews_total: "#BFBFBF"
     series_labels:
-      ga_sessions.unique_visitors: Users
-      totals.page_views_session: Pages / Session
-      ga_sessions.average_sessions_per_visitor: Sessions / User
-      totals.timeonsite_average_per_session: Session Duration
+      ga_sessions.visitStart_hour_of_day: Hour of Day
+      ga_sessions.visitStart_day_of_week: Day of Week
     series_types: {}
     limit_displayed_rows: false
-    hidden_series:
-    - totals.pageviews_total
-    - totals.timeonsite_total
     y_axes:
-    - label:
-      orientation: left
-      series:
-      - id: totals.bounce_rate
-        name: Bounce Rate
-        axisId: totals.bounce_rate
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-    - label:
+    - label: Session Count
       orientation: left
       series:
       - id: ga_sessions.session_count
         name: Sessions
         axisId: ga_sessions.session_count
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-    - label:
-      orientation: left
-      series:
-      - id: totals.pageviews_total
-        name: Page Views
-        axisId: totals.pageviews_total
-      showLabels: false
-      showValues: false
-      unpinAxis: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-    - label:
-      orientation: left
-      series:
-      - id: totals.timeonsite_total
-        name: Time On Site
-        axisId: totals.timeonsite_total
-      showLabels: false
+      showLabels: true
       showValues: false
       unpinAxis: false
       tickDensity: default
@@ -2114,27 +2097,58 @@
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
-    show_x_axis_label: false
+    show_x_axis_label: true
+    x_axis_label: Time on Site
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
     x_axis_reversed: false
     y_axis_reversed: false
     plot_size_by_field: false
-    show_null_points: true
-    interpolation: monotone
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: gray
+    enable_conditional_formatting: true
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_null_points: true
+    interpolation: linear
+    conditional_formatting:
+    - type: low to high
+      value:
+      background_color:
+      font_color:
+      palette:
+        name: Custom
+        colors:
+        - "#fff"
+        - "#58A9F5"
+        __FILE: app_event_analytics/behavior.dashboard.lookml
+        __LINE_NUM: 2347
+      bold: false
+      italic: false
+      strikethrough: false
+      fields:
+      - ga_sessions.session_count
+      __FILE: app_event_analytics/behavior.dashboard.lookml
+      __LINE_NUM: 2342
+    note_state: collapsed
+    note_display: above
     listen:
       Period: ga_sessions.period
       Campaign: trafficSource.campaign
       First TIme Visitor: ga_sessions.first_time_visitor
-    row: 3
+      Host: hits_page.hostName
+    row: 34
     col: 0
-    width: 24
+    width: 12
     height: 8
   filters:
   - name: Period
@@ -2169,3 +2183,13 @@
     default_value: All Websites
     allow_multiple_values: true
     required: false
+  - name: Host
+    title: Host
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    model: event_analytics
+    explore: ga_sessions
+    listens_to_filters: []
+    field: hits_page.hostName
