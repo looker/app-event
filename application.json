@@ -314,6 +314,17 @@
               "dashboardAlias": "Period"
             },
             {
+             "autoSuggest": {
+              "model": "event_analytics",
+              "view": "ga_sessions"
+              },
+              "defaultValue": "",
+              "field": "hits_page.hostName",
+              "name": "Host Page",
+              "type": "Select",
+              "dashboardAlias": "Host"
+            },
+            {
               "autoSuggest": {
                 "model": "event_analytics",
                 "view": "ga_sessions"
@@ -358,6 +369,17 @@
               "dashboardAlias": "Period"
             },
             {
+             "autoSuggest": {
+              "model": "event_analytics",
+              "view": "ga_sessions"
+              },
+              "defaultValue": "",
+              "field": "hits_page.hostName",
+              "name": "Host Page",
+              "type": "Select",
+              "dashboardAlias": "Host"
+            },
+            {
               "autoSuggest": {
                 "model": "event_analytics",
                 "view": "ga_sessions"
@@ -400,6 +422,17 @@
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
+            },
+            {
+             "autoSuggest": {
+              "model": "event_analytics",
+              "view": "ga_sessions"
+              },
+              "defaultValue": "",
+              "field": "hits_page.hostName",
+              "name": "Host Page",
+              "type": "Select",
+              "dashboardAlias": "Host"
             },
             {
               "autoSuggest": {
