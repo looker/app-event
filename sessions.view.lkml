@@ -1,5 +1,3 @@
-include: "/aea_event_adapter/ga_sessions.view"
-
 include: "date_base.view"
 include: "period_base.view"
 include: "event_base.view"
