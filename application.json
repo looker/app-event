@@ -244,7 +244,7 @@
         "view": "ga_sessions"
         },
         "defaultValue": "",
-        "field": "hits_page.hostName",
+        "field": "ga_sessions.has_host",
         "name": "Host Page",
         "type": "Select",
         "dashboardAlias": "Host"
@@ -319,7 +319,7 @@
               "view": "ga_sessions"
               },
               "defaultValue": "",
-              "field": "hits_page.hostName",
+              "field": "ga_sessions.has_host",
               "name": "Host Page",
               "type": "Select",
               "dashboardAlias": "Host"
@@ -374,7 +374,7 @@
               "view": "ga_sessions"
               },
               "defaultValue": "",
-              "field": "hits_page.hostName",
+              "field": "ga_sessions.has_host",
               "name": "Host Page",
               "type": "Select",
               "dashboardAlias": "Host"
@@ -429,7 +429,7 @@
               "view": "ga_sessions"
               },
               "defaultValue": "",
-              "field": "hits_page.hostName",
+              "field": "ga_sessions.has_host",
               "name": "Host Page",
               "type": "Select",
               "dashboardAlias": "Host"
