@@ -22,7 +22,7 @@
       "model": "event_analytics",
       "view": "ga_sessions",
       "params": "f[ga_sessions.period]=month&f[ga_sessions.date_period_comparison_period]=Yes&sorts=ga_sessions.total_visitors+desc&limit=1000",
-      "keyColumn": "first_page.pageTitle",
+      "keyColumn": "hits_page.pageTitle",
       "columns": [
         {
           "name": "Page",
@@ -257,7 +257,7 @@
         "dashboardAlias": "First Time Visitor"
       },
       {
-        "field": "first_page.pageTitle",
+        "field": "ga_sessions.has_page",
         "dashboardAlias": "Page",
         "name": "Page",
         "type": "Table",
