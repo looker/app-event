@@ -1,11 +1,5 @@
 {
   "disableSetup": true,
-  "configProject": "app_event_analytics_config",
-  "projects": {
-    "aea_event_adapter": [
-      "ga360"
-    ]
-  },
   "vendors": [
     {
       "id": "ga360",
