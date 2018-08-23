@@ -8,9 +8,9 @@
   },
   "theme": {
     "colors": {
-      "accent": "#44586f",
-      "accentInteract": "#96a2af",
-      "accentTerminal": "#697a8c",
+      "primary": "#44586f",
+      "primaryDark": "#96a2af",
+      "primaryDarker": "#697a8c",
       "navLink": "#999"
     }
   },
