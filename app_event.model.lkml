@@ -9,3 +9,8 @@ named_value_format: decimal_large {
 named_value_format: decimal_short {
   value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0.0"
 }
+
+explore: app_event {
+  hidden: yes
+}
+view: app_event {}
