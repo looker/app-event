@@ -239,6 +239,17 @@
         "dashboardAlias": "Period"
       },
       {
+        "autoSuggest": {
+          "model": "event_analytics",
+          "view": "ga_sessions"
+        },
+        "defaultValue": "Demo",
+        "field": "ga_sessions.goal_selection",
+        "name": "Goal Selection",
+        "type": "Select",
+        "dashboardAlias": "Goal Selection"
+      },
+      {
        "autoSuggest": {
         "model": "event_analytics",
         "view": "ga_sessions"
@@ -312,6 +323,17 @@
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "defaultValue": "Demo",
+              "field": "ga_sessions.goal_selection",
+              "name": "Goal Selection",
+              "type": "Select",
+              "dashboardAlias": "Goal Selection"
             },
             {
              "autoSuggest": {
@@ -422,6 +444,17 @@
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "defaultValue": "Demo",
+              "field": "ga_sessions.goal_selection",
+              "name": "Goal Selection",
+              "type": "Select",
+              "dashboardAlias": "Goal Selection"
             },
             {
              "autoSuggest": {
