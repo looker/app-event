@@ -3,7 +3,7 @@ named_value_format: usd_large {
 }
 
 named_value_format: decimal_large {
-  value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.0,\"K\";0.0"
+  value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.0,\"K\";0.0"
 }
 
 named_value_format: decimal_short {
