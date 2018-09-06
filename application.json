@@ -254,7 +254,7 @@
           "model": "event_analytics",
           "view": "ga_sessions"
         },
-        "field": "ga_sessions.search_keyword",
+        "field": "trafficSource.keyword",
         "name": "Search Keyword",
         "type": "Select",
         "dashboardAlias": "Search Keyword"
@@ -350,7 +350,7 @@
                 "model": "event_analytics",
                 "view": "ga_sessions"
               },
-              "field": "ga_sessions.search_keyword",
+              "field": "trafficSource.keyword",
               "name": "Search Keyword",
               "type": "Select",
               "dashboardAlias": "Search Keyword"
@@ -447,7 +447,7 @@
                 "model": "event_analytics",
                 "view": "ga_sessions"
               },
-              "field": "ga_sessions.search_keyword",
+              "field": "trafficSource.keyword",
               "name": "Search Keyword",
               "type": "Select",
               "dashboardAlias": "Search Keyword"
@@ -502,7 +502,7 @@
                 "model": "event_analytics",
                 "view": "ga_sessions"
               },
-              "field": "ga_sessions.search_keyword",
+              "field": "trafficSource.keyword",
               "name": "Search Keyword",
               "type": "Select",
               "dashboardAlias": "Search Keyword"
