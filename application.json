@@ -250,6 +250,16 @@
         "dashboardAlias": "Goal Selection"
       },
       {
+        "autoSuggest": {
+          "model": "event_analytics",
+          "view": "ga_sessions"
+        },
+        "field": "ga_sessions.search_keyword",
+        "name": "Search Keyword",
+        "type": "Select",
+        "dashboardAlias": "Search Keyword"
+      },
+      {
        "autoSuggest": {
         "model": "event_analytics",
         "view": "ga_sessions"
@@ -336,6 +346,16 @@
               "dashboardAlias": "Goal Selection"
             },
             {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.search_keyword",
+              "name": "Search Keyword",
+              "type": "Select",
+              "dashboardAlias": "Search Keyword"
+            },
+            {
              "autoSuggest": {
               "model": "event_analytics",
               "view": "ga_sessions"
@@ -413,6 +433,27 @@
             },
             {
               "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "defaultValue": "Demo",
+              "field": "ga_sessions.goal_selection",
+              "name": "Goal Selection",
+              "type": "Select",
+              "dashboardAlias": "Goal Selection"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.search_keyword",
+              "name": "Search Keyword",
+              "type": "Select",
+              "dashboardAlias": "Search Keyword"
+            },
+            {
+              "autoSuggest": {
               "model": "event_analytics",
               "view": "ga_sessions"
               },
@@ -455,6 +496,16 @@
               "name": "Goal Selection",
               "type": "Select",
               "dashboardAlias": "Goal Selection"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.search_keyword",
+              "name": "Search Keyword",
+              "type": "Select",
+              "dashboardAlias": "Search Keyword"
             },
             {
              "autoSuggest": {
