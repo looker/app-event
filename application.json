@@ -239,15 +239,14 @@
         "dashboardAlias": "Period"
       },
       {
-        "autoSuggest": {
-          "model": "event_analytics",
-          "view": "ga_sessions"
-        },
-        "defaultValue": "Demo",
-        "field": "ga_sessions.goal_selection",
-        "name": "Goal Selection",
+       "autoSuggest": {
+       "model": "event_analytics",
+       "view": "ga_sessions"
+       },
+        "field": "geoNetwork.country",
+        "name": "Country",
         "type": "Select",
-        "dashboardAlias": "Goal Selection"
+        "dashboardAlias": "Country"
       },
       {
         "autoSuggest": {
@@ -258,6 +257,13 @@
         "name": "Search Keyword",
         "type": "Select",
         "dashboardAlias": "Search Keyword"
+      },
+      {
+        "field": "ga_sessions.has_page",
+        "dashboardAlias": "Page",
+        "name": "Page",
+        "type": "Table",
+        "tableID": "page"
       },
       {
        "autoSuggest": {
@@ -271,20 +277,6 @@
         "dashboardAlias": "Host"
       },
       {
-        "defaultValue": "",
-        "field": "ga_sessions.first_time_visitor",
-        "name": "First Time Visitor",
-        "type": "YesNo",
-        "dashboardAlias": "First Time Visitor"
-      },
-      {
-        "field": "ga_sessions.has_page",
-        "dashboardAlias": "Page",
-        "name": "Page",
-        "type": "Table",
-        "tableID": "page"
-      },
-      {
         "autoSuggest": {
           "model": "event_analytics",
           "view": "ga_sessions"
@@ -295,14 +287,22 @@
         "type": "Select"
       },
       {
-       "autoSuggest": {
-       "model": "event_analytics",
-       "view": "ga_sessions"
-       },
-        "field": "geoNetwork.country",
-        "name": "Country",
+        "defaultValue": "",
+        "field": "ga_sessions.first_time_visitor",
+        "name": "First Time Visitor",
+        "type": "YesNo",
+        "dashboardAlias": "First Time Visitor"
+      },
+      {
+        "autoSuggest": {
+          "model": "event_analytics",
+          "view": "ga_sessions"
+        },
+        "defaultValue": "Demo",
+        "field": "ga_sessions.goal_selection",
+        "name": "Goal Selection",
         "type": "Select",
-        "dashboardAlias": "Country"
+        "dashboardAlias": "Goal Selection"
       }
     ]
   },
@@ -335,15 +335,14 @@
               "dashboardAlias": "Period"
             },
             {
-              "autoSuggest": {
-                "model": "event_analytics",
-                "view": "ga_sessions"
-              },
-              "defaultValue": "Demo",
-              "field": "ga_sessions.goal_selection",
-              "name": "Goal Selection",
+             "autoSuggest": {
+             "model": "event_analytics",
+             "view": "ga_sessions"
+             },
+              "field": "geoNetwork.country",
+              "name": "Country",
               "type": "Select",
-              "dashboardAlias": "Goal Selection"
+              "dashboardAlias": "Country"
             },
             {
               "autoSuggest": {
@@ -385,6 +384,17 @@
               "name": "First Time Visitor",
               "type": "Select",
               "dashboardAlias": "First Time Visitor"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "defaultValue": "Demo",
+              "field": "ga_sessions.goal_selection",
+              "name": "Goal Selection",
+              "type": "Select",
+              "dashboardAlias": "Goal Selection"
             }
           ]
         },
@@ -412,90 +422,13 @@
             },
             {
              "autoSuggest": {
-              "model": "event_analytics",
-              "view": "ga_sessions"
-              },
-              "defaultValue": "",
-              "field": "ga_sessions.has_host",
-              "name": "Host Page",
+             "model": "event_analytics",
+             "view": "ga_sessions"
+             },
+              "field": "geoNetwork.country",
+              "name": "Country",
               "type": "Select",
-              "dashboardAlias": "Host"
-            },
-            {
-              "autoSuggest": {
-                "model": "event_analytics",
-                "view": "ga_sessions"
-              },
-              "field": "trafficSource.campaign",
-              "dashboardAlias": "Campaign",
-              "name": "Campaign",
-              "type": "Select"
-            },
-            {
-              "autoSuggest": {
-                "model": "event_analytics",
-                "view": "ga_sessions"
-              },
-              "defaultValue": "Demo",
-              "field": "ga_sessions.goal_selection",
-              "name": "Goal Selection",
-              "type": "Select",
-              "dashboardAlias": "Goal Selection"
-            },
-            {
-              "autoSuggest": {
-                "model": "event_analytics",
-                "view": "ga_sessions"
-              },
-              "field": "trafficSource.keyword",
-              "name": "Search Keyword",
-              "type": "Select",
-              "dashboardAlias": "Search Keyword"
-            },
-            {
-              "autoSuggest": {
-              "model": "event_analytics",
-              "view": "ga_sessions"
-              },
-              "field": "ga_sessions.first_time_visitor",
-              "name": "First Time Visitor",
-              "type": "Select",
-              "dashboardAlias": "First Time Visitor"
-            }
-          ]
-        },
-        {
-          "name": "Conversions",
-          "permalink": "conversions",
-          "type": "dashboardCollection",
-          "dashboardCollection": {
-            "dashboards": [
-              {
-                "lookmlID": "event_analytics::conversions",
-                "name": "conversions",
-                "permalink": "conversions"
-              }
-            ],
-            "defaultDashboard": "conversions"
-          },
-          "filters": [
-            {
-              "defaultValue": "7 day",
-              "field": "ga_sessions.period",
-              "name": "Time Frame",
-              "type": "TimeFrame",
-              "dashboardAlias": "Period"
-            },
-            {
-              "autoSuggest": {
-                "model": "event_analytics",
-                "view": "ga_sessions"
-              },
-              "defaultValue": "Demo",
-              "field": "ga_sessions.goal_selection",
-              "name": "Goal Selection",
-              "type": "Select",
-              "dashboardAlias": "Goal Selection"
+              "dashboardAlias": "Country"
             },
             {
               "autoSuggest": {
@@ -537,6 +470,103 @@
               "name": "First Time Visitor",
               "type": "Select",
               "dashboardAlias": "First Time Visitor"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "defaultValue": "Demo",
+              "field": "ga_sessions.goal_selection",
+              "name": "Goal Selection",
+              "type": "Select",
+              "dashboardAlias": "Goal Selection"
+            }
+          ]
+        },
+        {
+          "name": "Conversions",
+          "permalink": "conversions",
+          "type": "dashboardCollection",
+          "dashboardCollection": {
+            "dashboards": [
+              {
+                "lookmlID": "event_analytics::conversions",
+                "name": "conversions",
+                "permalink": "conversions"
+              }
+            ],
+            "defaultDashboard": "conversions"
+          },
+          "filters": [
+            {
+              "defaultValue": "7 day",
+              "field": "ga_sessions.period",
+              "name": "Time Frame",
+              "type": "TimeFrame",
+              "dashboardAlias": "Period"
+            },
+            {
+             "autoSuggest": {
+             "model": "event_analytics",
+             "view": "ga_sessions"
+             },
+              "field": "geoNetwork.country",
+              "name": "Country",
+              "type": "Select",
+              "dashboardAlias": "Country"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "trafficSource.keyword",
+              "name": "Search Keyword",
+              "type": "Select",
+              "dashboardAlias": "Search Keyword"
+            },
+            {
+             "autoSuggest": {
+              "model": "event_analytics",
+              "view": "ga_sessions"
+              },
+              "defaultValue": "",
+              "field": "ga_sessions.has_host",
+              "name": "Host Page",
+              "type": "Select",
+              "dashboardAlias": "Host"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "trafficSource.campaign",
+              "dashboardAlias": "Campaign",
+              "name": "Campaign",
+              "type": "Select"
+            },
+            {
+              "autoSuggest": {
+              "model": "event_analytics",
+              "view": "ga_sessions"
+              },
+              "field": "ga_sessions.first_time_visitor",
+              "name": "First Time Visitor",
+              "type": "Select",
+              "dashboardAlias": "First Time Visitor"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "defaultValue": "Demo",
+              "field": "ga_sessions.goal_selection",
+              "name": "Goal Selection",
+              "type": "Select",
+              "dashboardAlias": "Goal Selection"
             }
           ]
         },
@@ -561,6 +591,16 @@
               "name": "Time Frame",
               "type": "TimeFrame",
               "dashboardAlias": "Period"
+            },
+            {
+             "autoSuggest": {
+             "model": "event_analytics",
+             "view": "ga_sessions"
+             },
+              "field": "geoNetwork.country",
+              "name": "Country",
+              "type": "Select",
+              "dashboardAlias": "Country"
             },
             {
               "autoSuggest": {
