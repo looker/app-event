@@ -832,6 +832,13 @@
                         "name": " Category Select",
                         "type": "Table",
                         "tableID": "product_category"
+                      },
+                      {
+                        "field": "ga_sessions.page_select",
+                        "multiple": false,
+                        "name": " Page Select",
+                        "type": "Table",
+                        "tableID": "page"
                       }
                       ]
                     }
