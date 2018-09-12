@@ -303,6 +303,16 @@
         "name": "Goal Selection",
         "type": "Select",
         "dashboardAlias": "Goal Selection"
+      },
+      {
+        "autoSuggest": {
+          "model": "event_analytics",
+          "view": "ga_sessions"
+        },
+        "field": "ga_sessions.property",
+        "name": "Property",
+        "type": "Select",
+        "dashboardAlias": "Property"
       }
     ]
   },
@@ -395,6 +405,16 @@
               "name": "Goal Selection",
               "type": "Select",
               "dashboardAlias": "Goal Selection"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.property",
+              "name": "Property",
+              "type": "Select",
+              "dashboardAlias": "Property"
             }
           ]
         },
@@ -481,6 +501,16 @@
               "name": "Goal Selection",
               "type": "Select",
               "dashboardAlias": "Goal Selection"
+            },
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.property",
+              "name": "Property",
+              "type": "Select",
+              "dashboardAlias": "Property"
             }
           ]
         },
