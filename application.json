@@ -232,6 +232,16 @@
     },
     "filters": [
       {
+        "autoSuggest": {
+          "model": "event_analytics",
+          "view": "ga_sessions"
+        },
+        "field": "ga_sessions.property",
+        "name": "Property",
+        "type": "Select",
+        "dashboardAlias": "Property"
+      },
+      {
         "defaultValue": "7 day",
         "field": "ga_sessions.period",
         "name": "Time Frame",
@@ -328,6 +338,16 @@
           },
           "filters": [
             {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.property",
+              "name": "Property",
+              "type": "Select",
+              "dashboardAlias": "Property"
+            },
+            {
               "defaultValue": "7 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
@@ -404,6 +424,16 @@
           },
           "filters": [
             {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.property",
+              "name": "Property",
+              "type": "Select",
+              "dashboardAlias": "Property"
+            },
+            {
               "defaultValue": "7 day",
               "field": "ga_sessions.period",
               "name": "Time Frame",
@@ -479,6 +509,16 @@
             "defaultDashboard": "conversions"
           },
           "filters": [
+            {
+              "autoSuggest": {
+                "model": "event_analytics",
+                "view": "ga_sessions"
+              },
+              "field": "ga_sessions.property",
+              "name": "Property",
+              "type": "Select",
+              "dashboardAlias": "Property"
+            },
             {
               "defaultValue": "7 day",
               "field": "ga_sessions.period",
