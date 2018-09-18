@@ -270,7 +270,6 @@
         "model": "event_analytics",
         "view": "ga_sessions"
         },
-        "defaultValue": "",
         "field": "ga_sessions.has_host",
         "name": "Host Page",
         "type": "Select",
