@@ -8,10 +8,9 @@
   },
   "theme": {
     "colors": {
-      "primary": "#44586f",
-      "primaryDark": "#96a2af",
-      "primaryDarker": "#697a8c",
-      "navLink": "#999"
+      "primary": "#6AA9EF",
+      "primaryDark": "#6297D1",
+      "primaryDarker": "#4E7DB0"
     }
   },
   "name": "Web Analytics",
@@ -325,6 +324,7 @@
         {"name": "Acquisition",
           "permalink": "acquisition",
           "type": "dashboardCollection",
+          "icon": "web-analytics/acquisitions",
           "dashboardCollection": {
             "dashboards": [
               {
@@ -421,6 +421,7 @@
           "name": "Behavior",
           "permalink": "behavior",
           "type": "dashboardCollection",
+          "icon": "web-analytics/behavior",
           "dashboardCollection": {
             "dashboards": [
               {
@@ -516,6 +517,7 @@
         {
           "name": "Conversions",
           "permalink": "conversions",
+          "icon": "web-analytics/conversions",
           "type": "dashboardCollection",
           "dashboardCollection": {
             "dashboards": [
@@ -602,6 +604,7 @@
         {
           "name": "Revenue",
           "permalink": "revenue",
+          "icon": "web-analytics/revenue",
           "type": "dashboardCollection",
           "dashboardCollection": {
             "dashboards": [
@@ -658,6 +661,7 @@
           "description": "Take immediate action to optimize your web and product traffic, engagement, and conversion rates. These  reports show how your customers are behaving across your platforms.",
           "name": "Reports",
           "permalink": "reports",
+          "icon": "marketing-analytics/optimizations",
           "type": "reports",
           "filters": [
             {
