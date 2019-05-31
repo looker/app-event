@@ -13,4 +13,6 @@ named_value_format: decimal_short {
 explore: app_event {
   hidden: yes
 }
-view: app_event {}
+view: app_event {
+  view_label: "App Event"
+}
